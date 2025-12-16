@@ -1,11 +1,11 @@
-import { IUsuarioRepository } from "../../interfaces/IUsuarioRepository";
+import { IUsuarioRepository } from "../../domain/interfaces/IUsuarioRepository";
 import { CrearUsuarioDTO } from "../DTO/CrearUsuarioDTO";
-import { Usuario } from "../../entities/Usuario";
-import { Email } from "../../valueObjects/Email";
-import { Password } from "../../valueObjects/Password";
-import { Rol } from "../../valueObjects/Rol";
-import { Telefono } from "../../valueObjects/Telefono";
-import { Roles } from "../../valueObjects/Rol";
+import { Usuario } from "../../domain/entities/Usuario";
+import { Email } from "../../domain/valueObjects/Email";
+import { Password } from "../../domain/valueObjects/Password";
+import { Rol } from "../../domain/valueObjects/Rol";
+import { Telefono } from "../../domain/valueObjects/Telefono";
+import { Roles } from "../../domain/valueObjects/Rol";
 
 export class CUCrearUsuario {
 constructor(

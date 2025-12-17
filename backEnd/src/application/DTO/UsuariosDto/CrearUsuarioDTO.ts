@@ -3,6 +3,6 @@ export interface CrearUsuarioDTO {
     correo: string;
     contraseña: string;
     telefono: string;
-    direccion: string;
+    direccion?: string;
     rol: "Administrador" | "Cliente";
 }

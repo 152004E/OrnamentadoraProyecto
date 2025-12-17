@@ -70,18 +70,45 @@ npm start
 
 ------------------------------------------------------------------------
 
-## 📁 Estructura recomendada del proyecto
+## 📁 Estructura del proyecto (Clean Architecture)
 
-    backend/
+    backEnd/
      ├─ src/
-     │  ├─ controllers/
-     │  ├─ routes/
-     │  ├─ middleware/
-     │  ├─ models/
-     │  ├─ services/
-     │  ├─ config/
-     │  └─ server.ts
-     ├─ uploads/
+     │  ├─ domain/                          # Lógica de negocio pura
+     │  │  ├─ entities/
+     │  │  │  ├─ Usuario.ts
+     │  │  │  ├─ Proyecto.ts
+     │  │  │  ├─ Archivo_Proyecto.ts
+     │  │  │  ├─ Comentarios.ts
+     │  │  │  ├─ Likes.ts
+     │  │  │  ├─ Transacciones.ts
+     │  │  │  └─ Proveedores.ts
+     │  │  ├─ valueObjects/
+     │  │  │  ├─ Email.ts
+     │  │  │  ├─ Password.ts
+     │  │  │  ├─ Rol.ts
+     │  │  │  ├─ Telefono.ts
+     │  │  │  ├─ Monto.ts
+     │  │  │  └─ TipoTransaccion.ts
+     │  │  └─ interfaces/
+     │  │     ├─ IUsuarioRepository.ts
+     │  │     ├─ IProyectoRepository.ts
+     │  │     ├─ IArchivo_ProyectoRepository.ts
+     │  │     ├─ IComentariosRepository.ts
+     │  │     ├─ ILikesRepository.ts
+     │  │     ├─ ITransaccionesRepository.ts
+     │  │     └─ IProveedoresRepository.ts
+     │  ├─ application/                     # Casos de uso (Use Cases)
+     │  │  ├─ DTO/
+     │  │  │  └─ CrearUsuarioDTO.ts
+     │  │  └─ UseCases/
+     │  │     └─ CrearUsuario.ts
+     │  ├─ infrastructure/                  # Implementaciones técnicas
+     │  │  └─ (Repositorios, BD, servicios externos)
+     │  ├─ presentation/                    # Controladores y rutas
+     │  │  └─ (Controllers, Routes, Middleware)
+     │  └─ server.ts                        # Punto de entrada
+     ├─ uploads/                            # Almacenamiento de archivos
      ├─ package.json
      ├─ tsconfig.json
      └─ .env

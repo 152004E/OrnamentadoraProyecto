@@ -1,0 +1,1 @@
+// aqui van la regla para ver que datos de pueden ver cuando se accede con una ruta, son los header que se ven en el postman

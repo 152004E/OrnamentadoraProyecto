@@ -72,46 +72,70 @@ npm start
 
 ## 📁 Estructura del proyecto (Clean Architecture)
 
-    backEnd/
-     ├─ src/
-     │  ├─ domain/                          # Lógica de negocio pura
-     │  │  ├─ entities/
-     │  │  │  ├─ Usuario.ts
-     │  │  │  ├─ Proyecto.ts
-     │  │  │  ├─ Archivo_Proyecto.ts
-     │  │  │  ├─ Comentarios.ts
-     │  │  │  ├─ Likes.ts
-     │  │  │  ├─ Transacciones.ts
-     │  │  │  └─ Proveedores.ts
-     │  │  ├─ valueObjects/
-     │  │  │  ├─ Email.ts
-     │  │  │  ├─ Password.ts
-     │  │  │  ├─ Rol.ts
-     │  │  │  ├─ Telefono.ts
-     │  │  │  ├─ Monto.ts
-     │  │  │  └─ TipoTransaccion.ts
-     │  │  └─ interfaces/
-     │  │     ├─ IUsuarioRepository.ts
-     │  │     ├─ IProyectoRepository.ts
-     │  │     ├─ IArchivo_ProyectoRepository.ts
-     │  │     ├─ IComentariosRepository.ts
-     │  │     ├─ ILikesRepository.ts
-     │  │     ├─ ITransaccionesRepository.ts
-     │  │     └─ IProveedoresRepository.ts
-     │  ├─ application/                     # Casos de uso (Use Cases)
-     │  │  ├─ DTO/
-     │  │  │  └─ CrearUsuarioDTO.ts
-     │  │  └─ UseCases/
-     │  │     └─ CrearUsuario.ts
-     │  ├─ infrastructure/                  # Implementaciones técnicas
-     │  │  └─ (Repositorios, BD, servicios externos)
-     │  ├─ presentation/                    # Controladores y rutas
-     │  │  └─ (Controllers, Routes, Middleware)
-     │  └─ server.ts                        # Punto de entrada
-     ├─ uploads/                            # Almacenamiento de archivos
-     ├─ package.json
-     ├─ tsconfig.json
-     └─ .env
+```
+backEnd/
+ ├─ src/
+ │  ├─ domain/                              # 🏛️ Lógica de negocio pura
+ │  │  ├─ entities/
+ │  │  │  ├─ Usuario.ts
+ │  │  │  ├─ Proyecto.ts
+ │  │  │  ├─ Archivo_Proyecto.ts
+ │  │  │  ├─ Comentarios.ts
+ │  │  │  ├─ likes.ts
+ │  │  │  ├─ Transacciones.ts
+ │  │  │  └─ Proveedores.ts
+ │  │  ├─ valueObjects/
+ │  │  │  ├─ Email.ts
+ │  │  │  ├─ Password.ts
+ │  │  │  ├─ Rol.ts
+ │  │  │  ├─ Telefono.ts
+ │  │  │  ├─ Monto.ts
+ │  │  │  └─ TipoTransaccion.ts
+ │  │  └─ interfaces/
+ │  │     ├─ IUsuarioRepository.ts
+ │  │     ├─ IProyectoRepository.ts
+ │  │     ├─ IArchivo_ProyectoRepository.ts
+ │  │     ├─ IComentariosRepository.ts
+ │  │     ├─ ILikesRepository.ts
+ │  │     ├─ ITransaccionesRepository.ts
+ │  │     └─ IProveedoresRepository.ts
+ │  │
+ │  ├─ application/                        # 📋 Casos de uso (Use Cases)
+ │  │  └─ UseCases/
+ │  │     ├─ UsuarioUseCase/
+ │  │     │  ├─ CrearUsuario.ts
+ │  │     │  └─ ListarUsuarios.ts
+ │  │     └─ ProyectoUseCase/
+ │  │
+ │  ├─ infrastructure/                     # 🔧 Implementaciones técnicas
+ │  │  ├─ config/                          # Configuración
+ │  │  ├─ database/                        # Conexión a BD
+ │  │  ├─ orm/                             # ORM (Prisma, Sequelize, etc)
+ │  │  ├─ repositories/                    # Implementación de repositorios
+ │  │  │  └─ UsuarioRepository.ts
+ │  │  └─ services/                        # Servicios externos
+ │  │
+ │  ├─ presentation/                       # 🎯 Controladores, rutas, DTOs y Mappers
+ │  │  ├─ controllers/
+ │  │  │  └─ UsuarioController.ts
+ │  │  ├─ routes/
+ │  │  │  └─ usuario.routes.ts
+ │  │  ├─ DTO/
+ │  │  │  ├─ UsuariosDto/
+ │  │  │  │  └─ CrearUsuarioDTO.ts
+ │  │  │  └─ ProyectoDto/
+ │  │  │     └─ CrearProyectoDTO.ts
+ │  │  └─ Mappers/                         # Transformadores de datos
+ │  │     ├─ UsuarioMapper.ts
+ │  │     └─ ProyectoMapper.ts
+ │  │
+ │  └─ server.ts                           # 🚀 Punto de entrada
+ │
+ ├─ uploads/                               # 📁 Almacenamiento de archivos
+ ├─ package.json
+ ├─ tsconfig.json
+ └─ .env
+```
 
 ------------------------------------------------------------------------
 

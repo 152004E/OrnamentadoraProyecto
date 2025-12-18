@@ -1,14 +1,28 @@
 import { Request, Response } from "express";
-import { UsuarioRepository } from "../../infrastructure/repositories/UsuarioRepository";
 import { CUCrearUsuario } from "../../application/UseCases/UsuarioUseCase/CrearUsuario";
+import { CUListarUsuarios } from "../../application/UseCases/UsuarioUseCase/ListarUsuarios";
+import { usuarioRepository } from "../../infrastructure/repositories/UsuarioRepository";
 export class UsuarioController {
-  async crear( req: Request, res: Response) {
+  async crear(req: Request, res: Response) {
     try {
-      const usuarioRepository = new UsuarioRepository();
+      // la variable del crearUsuario es una constante para que se permita hacer la validadcion del 
       const crearUsuario = new CUCrearUsuario(usuarioRepository);
 
       const usuario = await crearUsuario.execute(req.body);
       return res.status(201).json(usuario);
+    } catch (error: any) {
+      // este any es solo para empezar para que se pueda ver el error, pero en produccion se debe cambiar
+      res.status(400).json({
+        message: error.message,
+      });
+    }
+  }
+  async listar(req: Request, res: Response) {
+    try {
+      const usecase = new CUListarUsuarios(usuarioRepository);
+
+      const usuarios = await usecase.execute();
+      return res.status(200).json(usuarios);
     } catch (error: any) {
       // este any es solo para empezar para que se pueda ver el error, pero en produccion se debe cambiar
       res.status(400).json({

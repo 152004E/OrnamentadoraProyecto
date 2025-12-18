@@ -1,5 +1,5 @@
 import { IUsuarioRepository } from "../../../domain/interfaces/IUsuarioRepository";
-import { CrearUsuarioDTO } from "../../DTO/UsuariosDto/CrearUsuarioDTO";
+import { CrearUsuarioDTO } from "../../../presentation/DTO/UsuariosDto/CrearUsuarioDTO";
 import { Usuario } from "../../../domain/entities/Usuario";
 import { Email } from "../../../domain/valueObjects/Email";
 import { Password } from "../../../domain/valueObjects/Password";

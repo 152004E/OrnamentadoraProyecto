@@ -3,21 +3,30 @@ import { IUsuarioRepository } from "../../domain/interfaces/IUsuarioRepository";
 
 export class UsuarioRepository implements IUsuarioRepository {
   // esto es una simulacion en memoria como si fuera una base de datos
-  private usuarios : Usuario[] = [];
+  private usuarios: Usuario[] = [];
+  private nextId = 1;
   async crear(usuario: Usuario): Promise<Usuario> {
     //Aqui luego se guarda en la base de datos
-
-    this.usuarios.push(usuario)
+    usuario.id_usuario = this.nextId;
+    this.nextId++;
+    this.usuarios.push(usuario);
     return usuario;
+  }
+  async listar(): Promise<Usuario[]> {
+    return this.usuarios;
+  }
+  async buscarPorId(id: number): Promise<Usuario | null> {
+    const usuario = this.usuarios.find(
+      (u) => u.id_usuario === id
+    );
+    return usuario ?? null;
   }
   async buscarPorEmail(correo: string): Promise<Usuario | null> {
     // Aqui luego lo llama de la base de datos
     console.log("Buscando correo electronico", correo);
     return null;
   }
-  async listar(): Promise<Usuario[]> {
-    return this.usuarios;
-  }
+
   async actualizar(id: number, data: Partial<Usuario>): Promise<Usuario> {
     //aun no se ha implementado el metodo en le useCase
     throw new Error("Method not implemented.");

@@ -1,8 +1,8 @@
 import { Usuario } from "../../../domain/entities/Usuario";
-import { UsuarioRepository } from "../../../infrastructure/repositories/UsuarioRepository";
+import { IUsuarioRepository } from "../../../domain/interfaces/IUsuarioRepository";
 
 export class CUListarUsuarios{
-    constructor(private usuarioRepository: UsuarioRepository){}
+    constructor(private usuarioRepository: IUsuarioRepository){}
 
     async execute(): Promise<Usuario[]>{
         return await this.usuarioRepository.listar();

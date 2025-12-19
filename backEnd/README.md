@@ -72,70 +72,240 @@ npm start
 
 ## 📁 Estructura del proyecto (Clean Architecture)
 
+### **Arquitectura por capas y sus dependencias**
+
+```
+
+### **Estructura de archivos completa**
+
 ```
 backEnd/
- ├─ src/
- │  ├─ domain/                              # 🏛️ Lógica de negocio pura
- │  │  ├─ entities/
- │  │  │  ├─ Usuario.ts
- │  │  │  ├─ Proyecto.ts
- │  │  │  ├─ Archivo_Proyecto.ts
- │  │  │  ├─ Comentarios.ts
- │  │  │  ├─ likes.ts
- │  │  │  ├─ Transacciones.ts
- │  │  │  └─ Proveedores.ts
- │  │  ├─ valueObjects/
- │  │  │  ├─ Email.ts
- │  │  │  ├─ Password.ts
- │  │  │  ├─ Rol.ts
- │  │  │  ├─ Telefono.ts
- │  │  │  ├─ Monto.ts
- │  │  │  └─ TipoTransaccion.ts
- │  │  └─ interfaces/
- │  │     ├─ IUsuarioRepository.ts
- │  │     ├─ IProyectoRepository.ts
- │  │     ├─ IArchivo_ProyectoRepository.ts
- │  │     ├─ IComentariosRepository.ts
- │  │     ├─ ILikesRepository.ts
- │  │     ├─ ITransaccionesRepository.ts
- │  │     └─ IProveedoresRepository.ts
- │  │
- │  ├─ application/                        # 📋 Casos de uso (Use Cases)
- │  │  └─ UseCases/
- │  │     ├─ UsuarioUseCase/
- │  │     │  ├─ CrearUsuario.ts
- │  │     │  └─ ListarUsuarios.ts
- │  │     └─ ProyectoUseCase/
- │  │
- │  ├─ infrastructure/                     # 🔧 Implementaciones técnicas
- │  │  ├─ config/                          # Configuración
- │  │  ├─ database/                        # Conexión a BD
- │  │  ├─ orm/                             # ORM (Prisma, Sequelize, etc)
- │  │  ├─ repositories/                    # Implementación de repositorios
- │  │  │  └─ UsuarioRepository.ts
- │  │  └─ services/                        # Servicios externos
- │  │
- │  ├─ presentation/                       # 🎯 Controladores, rutas, DTOs y Mappers
- │  │  ├─ controllers/
- │  │  │  └─ UsuarioController.ts
- │  │  ├─ routes/
- │  │  │  └─ usuario.routes.ts
- │  │  ├─ DTO/
- │  │  │  ├─ UsuariosDto/
- │  │  │  │  └─ CrearUsuarioDTO.ts
- │  │  │  └─ ProyectoDto/
- │  │  │     └─ CrearProyectoDTO.ts
- │  │  └─ Mappers/                         # Transformadores de datos
- │  │     ├─ UsuarioMapper.ts
- │  │     └─ ProyectoMapper.ts
- │  │
- │  └─ server.ts                           # 🚀 Punto de entrada
- │
- ├─ uploads/                               # 📁 Almacenamiento de archivos
- ├─ package.json
- ├─ tsconfig.json
- └─ .env
+├─ src/
+│  ├─ domain/                               ← 🏛️  NÚCLEO (no depende de nada)
+│  │  ├─ entities/
+│  │  │  ├─ Usuario.ts
+│  │  │  ├─ Proyecto.ts
+│  │  │  ├─ Archivo_Proyecto.ts
+│  │  │  ├─ Comentarios.ts
+│  │  │  ├─ likes.ts
+│  │  │  ├─ Transacciones.ts
+│  │  │  └─ Proveedores.ts
+│  │  │
+│  │  ├─ valueObjects/
+│  │  │  ├─ Email.ts                       ✓ Valida formato email
+│  │  │  ├─ Password.ts                    ✓ Validación de contraseña
+│  │  │  ├─ Rol.ts                         ✓ ADMIN | CLIENTE
+│  │  │  ├─ Telefono.ts                    ✓ Valida formato teléfono
+│  │  │  ├─ Monto.ts                       ✓ Validación de monto > 0
+│  │  │  └─ TipoTransaccion.ts             ✓ INGRESO | EGRESO
+│  │  │
+│  │  └─ interfaces/
+│  │     ├─ IUsuarioRepository.ts
+│  │     ├─ IProyectoRepository.ts
+│  │     ├─ IArchivo_ProyectoRepository.ts
+│  │     ├─ IComentariosRepository.ts
+│  │     ├─ ILikesRepository.ts
+│  │     ├─ ITransaccionesRepository.ts
+│  │     └─ IProveedoresRepository.ts
+│  │
+│  ├─ application/                         ← 📋 Depende de Domain
+│  │  └─ UseCases/
+│  │     ├─ UsuarioUseCase/
+│  │     │  ├─ CrearUsuario.ts             ✓ Orquesta la lógica de creación
+│  │     │  ├─ CrearUsuarioInput.ts        ✓ DTO de entrada
+│  │     │  └─ ListarUsuarios.ts           ✓ Obtiene todos los usuarios
+│  │     │
+│  │     └─ ProyectoUseCase/
+│  │        └─ (UseCases de Proyecto)
+│  │
+│  ├─ infrastructure/                      ← 🔧 Depende de Domain + App
+│  │  ├─ config/
+│  │  │  └─ (Archivos de configuración)
+│  │  │
+│  │  ├─ database/
+│  │  │  └─ (Conexión a PostgreSQL)
+│  │  │
+│  │  ├─ orm/
+│  │  │  └─ (Prisma o Sequelize)
+│  │  │
+│  │  ├─ repositories/
+│  │  │  ├─ UsuarioRepository.ts            ✓ Implementa IUsuarioRepository
+│  │  │  ├─ ProyectoRepository.ts           ✓ Implementa IProyectoRepository
+│  │  │  ├─ ArchivoProyectoRepository.ts    ✓ Implementa IArchivo_ProyectoRepository
+│  │  │  ├─ ComentariosRepository.ts        ✓ Implementa IComentariosRepository
+│  │  │  ├─ LikesRepository.ts              ✓ Implementa ILikesRepository
+│  │  │  ├─ TransaccionesRepository.ts      ✓ Implementa ITransaccionesRepository
+│  │  │  └─ ProveedoresRepository.ts        ✓ Implementa IProveedoresRepository
+│  │  │
+│  │  └─ services/
+│  │     ├─ (Servicios de autenticación)
+│  │     ├─ (Servicios de encriptación)
+│  │     └─ (Servicios externos)
+│  │
+│  ├─ presentation/                        ← 🎯 Depende de todas
+│  │  ├─ controllers/
+│  │  │  ├─ UsuarioController.ts           ✓ Maneja peticiones de usuarios
+│  │  │  └─ ProyectoController.ts          ✓ Maneja peticiones de proyectos
+│  │  │
+│  │  ├─ routes/
+│  │  │  ├─ usuario.routes.ts              ✓ POST/GET /api/usuarios
+│  │  │  └─ proyecto.routes.ts             ✓ Rutas de proyectos
+│  │  │
+│  │  ├─ DTO/
+│  │  │  ├─ UsuariosDto/
+│  │  │  │  ├─ CrearUsuarioDTO.ts          ✓ Entrada del cliente
+│  │  │  │  └─ UsuarioResponseDTO.ts       ✓ Salida al cliente (sin contraseña)
+│  │  │  │
+│  │  │  └─ ProyectoDto/
+│  │  │     ├─ CrearProyectoDTO.ts         ✓ Entrada del cliente
+│  │  │     └─ ProyectoResponseDTO.ts      ✓ Salida al cliente
+│  │  │
+│  │  └─ Mappers/
+│  │     ├─ UsuarioMapper.ts               ✓ Transforma Usuario → DTO
+│  │     └─ ProyectoMapper.ts              ✓ Transforma Proyecto → DTO
+│  │
+│  └─ server.ts                            ← 🚀 Punto de entrada (Express app)
+│
+├─ uploads/                                 📁 Almacenamiento de archivos
+├─ package.json
+├─ tsconfig.json
+├─ .env
+└─ README.md
 ```
+```
+
+------------------------------------------------------------------------
+
+## 🔗 Relaciones entre capas (Flujo de datos)
+
+### **📊 Diagrama de flujo de una solicitud (Ej: Crear Usuario)**
+
+```
+CLIENT REQUEST (POST /api/usuarios)
+    ↓
+[PRESENTATION LAYER]
+    ├─ server.ts → Importa rutas
+    ├─ usuario.routes.ts → Define ruta POST
+    └─ UsuarioController → Importa UseCases y UsuarioMapper
+    ↓
+[APPLICATION LAYER]
+    └─ CUCrearUsuario → Importa:
+        ├─ IUsuarioRepository (interface del domain)
+        ├─ Usuario (entity del domain)
+        ├─ Email, Password, Rol, Telefono (valueObjects)
+        └─ CrearUsuarioInput (DTO)
+    ↓
+[INFRASTRUCTURE LAYER]
+    └─ UsuarioRepository → Implementa IUsuarioRepository
+        ├─ Importa Usuario (entity)
+        └─ Guarda en "base de datos" (simulada o real)
+    ↓
+[DOMAIN LAYER]
+    ├─ Usuario.ts → Define estructura de la entidad
+    ├─ IUsuarioRepository.ts → Define contrato para repositorio
+    └─ ValueObjects (Email, Password, Rol, Telefono) → Lógica de validación
+    ↓
+RESPONSE (UsuarioMapper transforma Usuario a JSON)
+    └─ UsuarioMapper.toResponse() → Formatea datos para el cliente
+```
+
+### **📍 Detalle de importaciones por módulo**
+
+#### **1️⃣ server.ts (Punto de entrada)**
+```typescript
+import express from "express";
+import cors from "cors";
+import usuarioRoutes from "./presentation/routes/usuario.routes";
+// ↓ Solo importa las rutas de presentation
+```
+
+#### **2️⃣ usuario.routes.ts (Definición de rutas)**
+```typescript
+import { Router } from "express";
+import { UsuarioController } from "../controllers/UsuarioController";
+// ↓ Importa Controller de presentation
+```
+
+#### **3️⃣ UsuarioController.ts (Controlador HTTP)**
+```typescript
+import { CUCrearUsuario } from "../../application/UseCases/UsuarioUseCase/CrearUsuario";
+import { CUListarUsuarios } from "../../application/UseCases/UsuarioUseCase/ListarUsuarios";
+import { usuarioRepository } from "../../infrastructure/repositories/UsuarioRepository";
+import { UsuarioMapper } from "../Mappers/UsuarioMapper";
+// ↓ Orquesta UseCases, repositorio e instancia del mapper
+```
+
+#### **4️⃣ CUCrearUsuario.ts (Caso de uso - Create)**
+```typescript
+import { IUsuarioRepository } from "../../../domain/interfaces/IUsuarioRepository";
+import { Usuario } from "../../../domain/entities/Usuario";
+import { Email } from "../../../domain/valueObjects/Email";
+import { Password } from "../../../domain/valueObjects/Password";
+import { Rol, Roles } from "../../../domain/valueObjects/Rol";
+import { Telefono } from "../../../domain/valueObjects/Telefono";
+import { CrearUsuarioInput } from "./CrearUsuarioInput";
+// ↓ Depende de domain (interface, entities, valueObjects)
+// ↓ Inyección de dependencias: recibe IUsuarioRepository en constructor
+```
+
+#### **5️⃣ CUListarUsuarios.ts (Caso de uso - List)**
+```typescript
+import { Usuario } from "../../../domain/entities/Usuario";
+import { UsuarioRepository } from "../../../infrastructure/repositories/UsuarioRepository";
+// ↓ Importa la implementación concreta del repositorio (debería ser interface)
+```
+
+#### **6️⃣ UsuarioRepository.ts (Implementación del repositorio)**
+```typescript
+import { Usuario } from "../../domain/entities/Usuario";
+import { IUsuarioRepository } from "../../domain/interfaces/IUsuarioRepository";
+
+export class UsuarioRepository implements IUsuarioRepository {
+  // ↓ Implementa la interfaz del domain
+  // ↓ Usa las entidades del domain
+  // ↓ Conexión a BD (PostgreSQL/ORM va aquí)
+}
+```
+
+#### **7️⃣ Usuario.ts (Entidad del dominio)**
+```typescript
+import { Email } from "../valueObjects/Email";
+import { Password } from "../valueObjects/Password";
+import { Rol } from "../valueObjects/Rol";
+import { Telefono } from "../valueObjects/Telefono";
+// ↓ Usa ValueObjects para sus atributos
+// ↓ No importa nada de otras capas
+```
+
+#### **8️⃣ UsuarioMapper.ts (Transformador de datos)**
+```typescript
+import { Usuario } from "../../domain/entities/Usuario";
+// ↓ Transforma Entity del domain a DTO para respuesta HTTP
+static toResponse(usuario: Usuario) {
+  return {
+    id_usuario: usuario.id_usuario,
+    correo: usuario.correo.getValue(),
+    // ... otros campos transformados
+  };
+}
+```
+
+### **🎯 Reglas de dependencia (Importaciones permitidas)**
+
+| Capa | Puede importar de | NO puede importar de |
+|------|------------------|----------------------|
+| **Domain** | (Nada - es independiente) | Application, Infrastructure, Presentation |
+| **Application** | Domain | Infrastructure (excepto interfaces), Presentation |
+| **Infrastructure** | Domain, Application | Presentation |
+| **Presentation** | Application, Domain, Infrastructure | (Nada más) |
+
+### **✅ Patrones aplicados**
+
+1. **Inyección de Dependencias**: CUCrearUsuario recibe `IUsuarioRepository` en constructor
+2. **Interfaces**: Los UseCase dependen de `IUsuarioRepository`, no de la implementación
+3. **Mappers**: Transforman entidades del domain en DTOs para respuestas HTTP
+4. **ValueObjects**: Email, Password, Rol, Telefono encapsulan lógica de validación
+5. **Separación de responsabilidades**: Cada capa tiene un propósito único y bien definido
 
 ------------------------------------------------------------------------
 

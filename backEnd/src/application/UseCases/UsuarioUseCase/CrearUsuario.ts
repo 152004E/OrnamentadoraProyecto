@@ -1,16 +1,16 @@
 import { IUsuarioRepository } from "../../../domain/interfaces/IUsuarioRepository";
-import { CrearUsuarioDTO } from "../../../presentation/DTO/UsuariosDto/CrearUsuarioDTO";
 import { Usuario } from "../../../domain/entities/Usuario";
 import { Email } from "../../../domain/valueObjects/Email";
 import { Password } from "../../../domain/valueObjects/Password";
 import { Rol , Roles  } from "../../../domain/valueObjects/Rol";
 import { Telefono } from "../../../domain/valueObjects/Telefono";
+import { CrearUsuarioInput } from "./CrearUsuarioInput";
 
 export class CUCrearUsuario {
 constructor(
     private readonly usuarioRepository: IUsuarioRepository){}
 
-    async execute(data: CrearUsuarioDTO): Promise<Usuario>{
+    async execute(data: CrearUsuarioInput): Promise<Usuario>{
         
         const existe = await this.usuarioRepository.buscarPorEmail(data.correo);
         if(existe){

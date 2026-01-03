@@ -1,9 +1,10 @@
 import { Request, Response } from "express";
 import { CUCrearUsuario } from "../../application/UseCases/UsuarioUseCase/CrearUsuario";
 import { CUListarUsuarios } from "../../application/UseCases/UsuarioUseCase/ListarUsuarios";
-import { usuarioRepository } from "../../infrastructure/repositories/UsuarioRepository";
+import { UsuarioRepository, usuarioRepository } from "../../infrastructure/repositories/UsuarioRepository";
 import { UsuarioMapper } from "../Mappers/UsuarioMapper";
 import { CUBuscarPorId } from "../../application/UseCases/UsuarioUseCase/BuscarUsuarioPorId";
+import { CUActualizarUsuario } from "../../application/UseCases/UsuarioUseCase/ActualizarUsuario";
 export class UsuarioController {
   async crear(req: Request, res: Response) {
     try {
@@ -44,6 +45,23 @@ export class UsuarioController {
       res.status(400).json({
         message: error.message,
       });
+    }
+  }
+  async actualizar(req: Request , res : Response){
+    try {
+      const {id} = req.params
+      const data = req.body
+
+      const usecase = new CUActualizarUsuario(usuarioRepository)
+      const usuario = await usecase.execute(Number(id), data)
+      return res.status(200).json(
+        UsuarioMapper.toResponse(usuario)
+      )
+      
+    } catch (error : any) {
+      res.status(400).json({
+        message: error.message
+    })
     }
   }
 }

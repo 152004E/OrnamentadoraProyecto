@@ -16,9 +16,7 @@ export class UsuarioRepository implements IUsuarioRepository {
     return this.usuarios;
   }
   async buscarPorId(id: number): Promise<Usuario | null> {
-    const usuario = this.usuarios.find(
-      (u) => u.id_usuario === id
-    );
+    const usuario = this.usuarios.find((u) => u.id_usuario === id);
     return usuario ?? null;
   }
   async buscarPorEmail(correo: string): Promise<Usuario | null> {
@@ -27,9 +25,13 @@ export class UsuarioRepository implements IUsuarioRepository {
     return null;
   }
 
-  async actualizar(id: number, data: Partial<Usuario>): Promise<Usuario> {
-    //aun no se ha implementado el metodo en le useCase
-    throw new Error("Method not implemented.");
+  async actualizar(id: number, data: Usuario): Promise<Usuario> {
+    const index = this.usuarios.findIndex((u) => u.id_usuario === id);
+    if (index === -1) {
+      throw new Error("Usuario no encontrado");
+    }
+    this.usuarios[index] = data;
+    return this.usuarios[index];
   }
   async eliminar(id: number): Promise<void> {
     // aun no se ha implementado el metodo en el usecase

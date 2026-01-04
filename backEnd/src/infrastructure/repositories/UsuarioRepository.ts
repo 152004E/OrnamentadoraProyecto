@@ -21,8 +21,8 @@ export class UsuarioRepository implements IUsuarioRepository {
   }
   async buscarPorEmail(correo: string): Promise<Usuario | null> {
     // Aqui luego lo llama de la base de datos
-    console.log("Buscando correo electronico", correo);
-    return null;
+    const usuario = this.usuarios.find((u)=> u.correo.getValue() === correo)
+    return usuario ?? null;
   }
 
   async actualizar(id: number, data: Usuario): Promise<Usuario> {
@@ -34,8 +34,11 @@ export class UsuarioRepository implements IUsuarioRepository {
     return this.usuarios[index];
   }
   async eliminar(id: number): Promise<void> {
-    // aun no se ha implementado el metodo en el usecase
-    throw new Error("Method not implemented.");
+    const index = this.usuarios.findIndex((u) => u.id_usuario === id)
+    if(index === -1){
+      throw new Error("Usuario no encontrado")
+    }
+    this.usuarios.splice(index, 1)
   }
 }
 

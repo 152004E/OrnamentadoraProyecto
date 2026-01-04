@@ -356,6 +356,10 @@ npm init -y
 npm install express cors dotenv bcrypt jsonwebtoken pg pg-hstore multer
 npm install -D typescript ts-node-dev @types/node @types/express @types/cors @types/bcrypt @types/jsonwebtoken @types/multer
 npx tsc --init
+
+-- dependecias para el JWT
+npm install jsonwebtoken
+npm install -D @types/jsonwebtoken
 ```
 
 ------------------------------------------------------------------------

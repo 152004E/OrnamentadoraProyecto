@@ -14,8 +14,8 @@ app.use(express.json());
 
 //rutas
 
-app.use("/api", usuarioRoutes);
-app.use("/api", authRoutes )
+app.use("/api/auth", authRoutes);      // login
+app.use("/api/usuarios", usuarioRoutes); // usuarios 
 
 const PORT = 3000;
 

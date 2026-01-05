@@ -75,6 +75,14 @@ npm start
 ### **Arquitectura por capas y sus dependencias**
 
 ```
+                    PRESENTATION
+                         ↓
+                    APPLICATION
+                         ↓
+    ┌───────────────────┬───────────────────┐
+    ↓                   ↓                   ↓
+INFRASTRUCTURE      DOMAIN              EXTERNAL
+```
 
 ### **Estructura de archivos completa**
 
@@ -83,13 +91,13 @@ backEnd/
 ├─ src/
 │  ├─ domain/                               ← 🏛️  NÚCLEO (no depende de nada)
 │  │  ├─ entities/
-│  │  │  ├─ Usuario.ts
-│  │  │  ├─ Proyecto.ts
-│  │  │  ├─ Archivo_Proyecto.ts
-│  │  │  ├─ Comentarios.ts
-│  │  │  ├─ likes.ts
-│  │  │  ├─ Transacciones.ts
-│  │  │  └─ Proveedores.ts
+│  │  │  ├─ Usuario.ts                     ✓ Entidad principal de usuario
+│  │  │  ├─ Proyecto.ts                    ✓ Entidad de proyecto
+│  │  │  ├─ Archivo_Proyecto.ts            ✓ Entidad de archivos de proyecto
+│  │  │  ├─ Comentarios.ts                 ✓ Entidad de comentarios
+│  │  │  ├─ likes.ts                       ✓ Entidad de likes
+│  │  │  ├─ Transacciones.ts               ✓ Entidad de transacciones
+│  │  │  └─ Proveedores.ts                 ✓ Entidad de proveedores
 │  │  │
 │  │  ├─ valueObjects/
 │  │  │  ├─ Email.ts                       ✓ Valida formato email
@@ -100,23 +108,27 @@ backEnd/
 │  │  │  └─ TipoTransaccion.ts             ✓ INGRESO | EGRESO
 │  │  │
 │  │  └─ interfaces/
-│  │     ├─ IUsuarioRepository.ts
-│  │     ├─ IProyectoRepository.ts
-│  │     ├─ IArchivo_ProyectoRepository.ts
-│  │     ├─ IComentariosRepository.ts
-│  │     ├─ ILikesRepository.ts
-│  │     ├─ ITransaccionesRepository.ts
-│  │     └─ IProveedoresRepository.ts
+│  │     ├─ IUsuarioRepository.ts          ✓ Contrato para UsuarioRepository
+│  │     ├─ IProyectoRepository.ts         ✓ Contrato para ProyectoRepository
+│  │     ├─ IArchivo_ProyectoRepository.ts ✓ Contrato para ArchivoProyectoRepository
+│  │     ├─ IComentariosRepository.ts      ✓ Contrato para ComentariosRepository
+│  │     ├─ ILikesRepository.ts            ✓ Contrato para LikesRepository
+│  │     ├─ ITransaccionesRepository.ts    ✓ Contrato para TransaccionesRepository
+│  │     └─ IProveedoresRepository.ts      ✓ Contrato para ProveedoresRepository
 │  │
 │  ├─ application/                         ← 📋 Depende de Domain
 │  │  └─ UseCases/
 │  │     ├─ UsuarioUseCase/
-│  │     │  ├─ CrearUsuario.ts             ✓ Orquesta la lógica de creación
-│  │     │  ├─ CrearUsuarioInput.ts        ✓ DTO de entrada
+│  │     │  ├─ CrearUsuario.ts             ✓ Crea nuevo usuario
+│  │     │  ├─ CrearUsuarioInput.ts        ✓ DTO de entrada para crear usuario
+│  │     │  ├─ ActualizarUsuario.ts        ✓ Actualiza datos de usuario
+│  │     │  ├─ AutenticarUsuario.ts        ✓ Autentica usuario con JWT
+│  │     │  ├─ BuscarUsuarioPorId.ts       ✓ Busca usuario por ID
+│  │     │  ├─ EliminarUsuario.ts          ✓ Elimina usuario
 │  │     │  └─ ListarUsuarios.ts           ✓ Obtiene todos los usuarios
 │  │     │
 │  │     └─ ProyectoUseCase/
-│  │        └─ (UseCases de Proyecto)
+│  │        └─ (UseCases de Proyecto - en desarrollo)
 │  │
 │  ├─ infrastructure/                      ← 🔧 Depende de Domain + App
 │  │  ├─ config/
@@ -130,12 +142,12 @@ backEnd/
 │  │  │
 │  │  ├─ repositories/
 │  │  │  ├─ UsuarioRepository.ts            ✓ Implementa IUsuarioRepository
-│  │  │  ├─ ProyectoRepository.ts           ✓ Implementa IProyectoRepository
-│  │  │  ├─ ArchivoProyectoRepository.ts    ✓ Implementa IArchivo_ProyectoRepository
-│  │  │  ├─ ComentariosRepository.ts        ✓ Implementa IComentariosRepository
-│  │  │  ├─ LikesRepository.ts              ✓ Implementa ILikesRepository
-│  │  │  ├─ TransaccionesRepository.ts      ✓ Implementa ITransaccionesRepository
-│  │  │  └─ ProveedoresRepository.ts        ✓ Implementa IProveedoresRepository
+│  │  │  ├─ ProyectoRepository.ts           ⏳ Por implementar
+│  │  │  ├─ ArchivoProyectoRepository.ts    ⏳ Por implementar
+│  │  │  ├─ ComentariosRepository.ts        ⏳ Por implementar
+│  │  │  ├─ LikesRepository.ts              ⏳ Por implementar
+│  │  │  ├─ TransaccionesRepository.ts      ⏳ Por implementar
+│  │  │  └─ ProveedoresRepository.ts        ⏳ Por implementar
 │  │  │
 │  │  └─ services/
 │  │     ├─ (Servicios de autenticación)
@@ -144,12 +156,12 @@ backEnd/
 │  │
 │  ├─ presentation/                        ← 🎯 Depende de todas
 │  │  ├─ controllers/
-│  │  │  ├─ UsuarioController.ts           ✓ Maneja peticiones de usuarios
-│  │  │  └─ ProyectoController.ts          ✓ Maneja peticiones de proyectos
+│  │  │  ├─ AuthController.ts              ✓ Maneja autenticación
+│  │  │  └─ UsuarioController.ts           ✓ Maneja peticiones de usuarios
 │  │  │
 │  │  ├─ routes/
-│  │  │  ├─ usuario.routes.ts              ✓ POST/GET /api/usuarios
-│  │  │  └─ proyecto.routes.ts             ✓ Rutas de proyectos
+│  │  │  ├─ auth.routes.ts                 ✓ Rutas de autenticación
+│  │  │  └─ usuario.routes.ts              ✓ Rutas de usuarios
 │  │  │
 │  │  ├─ DTO/
 │  │  │  ├─ UsuariosDto/
@@ -157,12 +169,18 @@ backEnd/
 │  │  │  │  └─ UsuarioResponseDTO.ts       ✓ Salida al cliente (sin contraseña)
 │  │  │  │
 │  │  │  └─ ProyectoDto/
-│  │  │     ├─ CrearProyectoDTO.ts         ✓ Entrada del cliente
-│  │  │     └─ ProyectoResponseDTO.ts      ✓ Salida al cliente
+│  │  │     └─ CrearProyectoDTO.ts         ✓ Entrada para crear proyecto
 │  │  │
-│  │  └─ Mappers/
-│  │     ├─ UsuarioMapper.ts               ✓ Transforma Usuario → DTO
-│  │     └─ ProyectoMapper.ts              ✓ Transforma Proyecto → DTO
+│  │  ├─ Mappers/
+│  │  │  ├─ UsuarioMapper.ts               ✓ Transforma Usuario → DTO
+│  │  │  └─ ProyectoMapper.ts              ✓ Transforma Proyecto → DTO
+│  │  │
+│  │  └─ middlewares/
+│  │     └─ auth.middleware.ts             ✓ Middleware de autenticación JWT
+│  │
+│  ├─ types/
+│  │  └─ express/
+│  │     └─ index.d.ts                     ✓ Declaraciones de tipos para Express
 │  │
 │  └─ server.ts                            ← 🚀 Punto de entrada (Express app)
 │
@@ -172,6 +190,14 @@ backEnd/
 ├─ .env
 └─ README.md
 ```
+
+**Leyenda:**
+- ✓ = Implementado
+- ⏳ = En desarrollo
+- 🏛️ = Capa de Dominio (Core)
+- 📋 = Capa de Aplicación
+- 🔧 = Capa de Infraestructura
+- 🎯 = Capa de Presentación
 ```
 
 ------------------------------------------------------------------------

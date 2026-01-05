@@ -20,13 +20,14 @@ export class CUCrearUsuario {
 
     const telefono = new Telefono(data.telefono);
 
-    const passwordVo = new Password(data.contraseña);
+    //  validar contraseña en claro
+    const plainPassword = Password.fromPlain(data.contraseña);
 
-    const hashedPassword = await PasswordHasher.hash(
-      passwordVo.getValue()
-    )
+    //  hashear
+    const hashed = await PasswordHasher.hash(plainPassword.getValue());
 
-    const password = new Password(hashedPassword)
+    //  crear VO desde hash
+    const password = Password.fromHash(hashed);
 
 
     const rol =

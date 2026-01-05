@@ -1,45 +1,109 @@
 import { Usuario } from "../../domain/entities/Usuario";
 import { IUsuarioRepository } from "../../domain/interfaces/IUsuarioRepository";
+import { Email } from "../../domain/valueObjects/Email";
+import { Password } from "../../domain/valueObjects/Password";
+import { Rol } from "../../domain/valueObjects/Rol";
+import { Telefono } from "../../domain/valueObjects/Telefono";
+import { pool } from "../database/postgres";
 
 export class UsuarioRepository implements IUsuarioRepository {
-  // esto es una simulacion en memoria como si fuera una base de datos
-  private usuarios: Usuario[] = [];
-  private nextId = 1;
   async crear(usuario: Usuario): Promise<Usuario> {
-    //Aqui luego se guarda en la base de datos
-    usuario.id_usuario = this.nextId;
-    this.nextId++;
-    this.usuarios.push(usuario);
-    return usuario;
+    const query = `
+      INSERT INTO usuarios 
+      (nombre, correo, contraseña, telefono, direccion, rol, estado)
+      VALUES ($1, $2, $3, $4, $5, $6, $7)
+      RETURNING *;
+    `;
+
+    const values = [
+      usuario.nombre,
+      usuario.correo.getValue(),
+      usuario.contraseña.getValue(),
+      usuario.telefono.getValue(),
+      usuario.direccion,
+      usuario.rol.getValue(),
+      usuario.estado,
+    ];
+    const { rows } = await pool.query(query, values);
+
+    return this.mapToEntity(rows[0]);
   }
   async listar(): Promise<Usuario[]> {
-    return this.usuarios;
-  }
-  async buscarPorId(id: number): Promise<Usuario | null> {
-    const usuario = this.usuarios.find((u) => u.id_usuario === id);
-    return usuario ?? null;
-  }
-  async buscarPorEmail(correo: string): Promise<Usuario | null> {
-    // Aqui luego lo llama de la base de datos
-    const usuario = this.usuarios.find((u)=> u.correo.getValue() === correo)
-    return usuario ?? null;
+    const { rows } = await pool.query(`SELECT * FROM usuarios`);
+    return rows.map(this.mapToEntity);
   }
 
-  async actualizar(id: number, data: Usuario): Promise<Usuario> {
-    const index = this.usuarios.findIndex((u) => u.id_usuario === id);
-    if (index === -1) {
+  async buscarPorId(id: number): Promise<Usuario | null> {
+    const { rows } = await pool.query(
+      `SELECT * FROM usuarios WHERE id_usuario = $1`,
+      [id]
+    );
+
+    if (rows.length === 0) return null;
+    return this.mapToEntity(rows[0]);
+  }
+
+  async buscarPorEmail(correo: string): Promise<Usuario | null> {
+    const { rows } = await pool.query(
+      `SELECT * FROM usuarios WHERE correo = $1`,
+      [correo]
+    );
+
+    if (rows.length === 0) return null;
+    return this.mapToEntity(rows[0]);
+  }
+
+  async actualizar(id: number, usuario: Usuario): Promise<Usuario> {
+    const query = `
+      UPDATE usuarios SET
+        nombre = $1,
+        telefono = $2,
+        direccion = $3,
+        rol = $4,
+        estado = $5
+      WHERE id_usuario = $6
+      RETURNING *;
+    `;
+
+    const values = [
+      usuario.nombre,
+      usuario.telefono.getValue(),
+      usuario.direccion,
+      usuario.rol.getValue(),
+      usuario.estado,
+      id,
+    ];
+    const { rows } = await pool.query(query, values);
+    if (rows.length === 0) {
       throw new Error("Usuario no encontrado");
     }
-    this.usuarios[index] = data;
-    return this.usuarios[index];
+
+    return this.mapToEntity(rows[0]);
   }
   async eliminar(id: number): Promise<void> {
-    const index = this.usuarios.findIndex((u) => u.id_usuario === id)
-    if(index === -1){
-      throw new Error("Usuario no encontrado")
+    const resultado = await pool.query(
+      `DELETE FROM usuarios WHERE id_usuario = $1`,
+      [id]
+    );
+    if (resultado.rowCount === 0) {
+      throw new Error("Usuario no encontrado");
     }
-    this.usuarios.splice(index, 1)
   }
+  // esto es una simulacion en memoria como si fuera una base de datos
+
+  private mapToEntity = (row: any): Usuario => {
+    return new Usuario(
+      row.id_usuario,
+      row.nombre,
+      new Email(row.correo),
+      Password.fromHash(row.contraseña),
+      new Telefono(row.telefono),
+      row.direccion,
+      row.fecha_creacion_cuenta,
+      new Rol(row.rol),
+      row.estado
+    );
+  };
 }
 
 export const usuarioRepository = new UsuarioRepository();

@@ -135,7 +135,7 @@ backEnd/
 │  │  │  └─ (Archivos de configuración)
 │  │  │
 │  │  ├─ database/
-│  │  │  └─ (Conexión a PostgreSQL)
+│  │  │  └─ postgres.ts                    ✓ Conexión a PostgreSQL
 │  │  │
 │  │  ├─ orm/
 │  │  │  └─ (Prisma o Sequelize)
@@ -150,8 +150,8 @@ backEnd/
 │  │  │  └─ ProveedoresRepository.ts        ⏳ Por implementar
 │  │  │
 │  │  └─ services/
+│  │     ├─ PasswordHasher.ts               ✓ Encriptación de contraseñas
 │  │     ├─ (Servicios de autenticación)
-│  │     ├─ (Servicios de encriptación)
 │  │     └─ (Servicios externos)
 │  │
 │  ├─ presentation/                        ← 🎯 Depende de todas
@@ -390,4 +390,47 @@ npm install -D @types/jsonwebtoken
 
 ------------------------------------------------------------------------
 
+## 📋 Roadmap - Pendientes por implementar
 
+### **Fase 1: Seguridad y Autenticación** 🔐
+
+| Tarea | Descripción | Prioridad | Estado |
+|-------|-------------|-----------|--------|
+| **1️⃣ Usar req.user en controladores** | Implementar lectura de `req.user.id` y `req.user.rol` en peticiones autenticadas | 🔴 Alta | ⏳ |
+| **2️⃣ Middleware de ROLES** | Crear `roleMiddleware` para restringir rutas por rol (ADMIN/CLIENTE) | 🔴 Alta | ⏳ |
+| **3️⃣ Control de acceso** | Un CLIENTE solo ve sus datos, ADMIN ve todos | 🔴 Alta | ⏳ |
+| **4️⃣ Refresh Token** | Implementar accessToken (15m) y refreshToken (7d) | 🟡 Media | ⏳ |
+| **5️⃣ Logout / Token Blacklist** | Invalidar JWT al logout o implementar blacklist | 🟡 Media | ⏳ |
+
+### **Fase 2: Manejo de errores** ⚠️
+
+| Tarea | Descripción | Prioridad | Estado |
+|-------|-------------|-----------|--------|
+| **6️⃣ Middleware global de errores** | Centralizar manejo de excepciones | 🔴 Alta | ⏳ |
+| **7️⃣ Respuestas consistentes** | Estandarizar formato de respuestas HTTP | 🔴 Alta | ⏳ |
+| **8️⃣ Validación de entrada** | Validar DTOs con librerías como `class-validator` | 🟡 Media | ⏳ |
+
+### **Fase 3: Proyectos y Características** 📦
+
+| Tarea | Descripción | Prioridad | Estado |
+|-------|-------------|-----------|--------|
+| **9️⃣ UseCases de Proyecto** | Implementar CRUD completo de proyectos | 🟡 Media | ⏳ |
+| **🔟 Repositorios pendientes** | Implementar todos los repositories restantes | 🟡 Media | ⏳ |
+| **1️⃣1️⃣ Carga de archivos** | Integrar Multer y guardar en `/uploads` | 🟡 Media | ⏳ |
+| **1️⃣2️⃣ Transacciones** | Implementar sistema de transacciones | 🟢 Baja | ⏳ |
+
+### **Fase 4: Testing y Deployment** 🚀
+
+| Tarea | Descripción | Prioridad | Estado |
+|-------|-------------|-----------|--------|
+| **1️⃣3️⃣ Tests unitarios** | Tests para UseCases y ValueObjects | 🟡 Media | ⏳ |
+| **1️⃣4️⃣ Tests de integración** | Tests para repositorios y controladores | 🟡 Media | ⏳ |
+| **1️⃣5️⃣ Variables de entorno** | Configurar `.env` para desarrollo y producción | 🔴 Alta | ⏳ |
+| **1️⃣6️⃣ Docker** | Crear Dockerfile y docker-compose | 🟢 Baja | ⏳ |
+
+**Leyenda:**
+- 🔴 = Prioridad Alta (blockeador)
+- 🟡 = Prioridad Media
+- 🟢 = Prioridad Baja (nice-to-have)
+- ✓ = Completado
+- ⏳ = En progreso

@@ -6,12 +6,7 @@ export class Password {
     }
     this.value = password;
   }
-  // falta hacer el hash
   getValue(): string {
     return this.value;
-  }
-
-  equals(other: Password): boolean {
-    return this.value === other.getValue();
   }
 }

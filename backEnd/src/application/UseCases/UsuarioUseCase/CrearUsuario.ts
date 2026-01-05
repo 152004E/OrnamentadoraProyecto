@@ -5,6 +5,7 @@ import { Password } from "../../../domain/valueObjects/Password";
 import { Rol, Roles } from "../../../domain/valueObjects/Rol";
 import { Telefono } from "../../../domain/valueObjects/Telefono";
 import { CrearUsuarioInput } from "./CrearUsuarioInput";
+import { PasswordHasher } from "../../../infrastructure/services/PasswordHasher";
 
 export class CUCrearUsuario {
   constructor(private readonly usuarioRepository: IUsuarioRepository) {}
@@ -16,8 +17,18 @@ export class CUCrearUsuario {
     }
 
     const email = new Email(data.correo);
-    const password = new Password(data.contraseña);
+
     const telefono = new Telefono(data.telefono);
+
+    const passwordVo = new Password(data.contraseña);
+
+    const hashedPassword = await PasswordHasher.hash(
+      passwordVo.getValue()
+    )
+
+    const password = new Password(hashedPassword)
+
+
     const rol =
       data.rol === "Administrador"
         ? new Rol(Roles.ADMIN)

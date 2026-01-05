@@ -3,6 +3,7 @@
 import { IUsuarioRepository } from "../../../domain/interfaces/IUsuarioRepository";
 import { Email } from "../../../domain/valueObjects/Email";
 import { Password } from "../../../domain/valueObjects/Password";
+import { PasswordHasher } from "../../../infrastructure/services/PasswordHasher";
 
 export class CUAutenticarUsuario {
   constructor(private usuarioRepository: IUsuarioRepository) {}
@@ -21,8 +22,11 @@ export class CUAutenticarUsuario {
       throw new Error("Credenciales invalidas");
     }
 
+    const passwordValida = await PasswordHasher.compare(
+      contraseña, usuario.contraseña.getValue()
+    )
     // validar contraseña
-    if(!usuario.contraseña.equals(password)){
+    if(!passwordValida){
         throw new Error("Credenciales invalidas")
     }
 

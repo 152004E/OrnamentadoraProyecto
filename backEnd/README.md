@@ -122,13 +122,20 @@ backEnd/
 │  │     │  ├─ CrearUsuario.ts             ✓ Crea nuevo usuario
 │  │     │  ├─ CrearUsuarioInput.ts        ✓ DTO de entrada para crear usuario
 │  │     │  ├─ ActualizarUsuario.ts        ✓ Actualiza datos de usuario
+│  │     │  ├─ ActualizarUsuarioInput.ts   ✓ DTO para actualizar usuario
 │  │     │  ├─ AutenticarUsuario.ts        ✓ Autentica usuario con JWT
 │  │     │  ├─ BuscarUsuarioPorId.ts       ✓ Busca usuario por ID
 │  │     │  ├─ EliminarUsuario.ts          ✓ Elimina usuario
 │  │     │  └─ ListarUsuarios.ts           ✓ Obtiene todos los usuarios
 │  │     │
 │  │     └─ ProyectoUseCase/
-│  │        └─ (UseCases de Proyecto - en desarrollo)
+│  │        ├─ CrearProyecto.ts            ✓ Crea nuevo proyecto
+│  │        ├─ CrearProyectoInput.ts       ✓ DTO de entrada para crear proyecto
+│  │        ├─ ActualizarProyecto.ts       ✓ Actualiza datos de proyecto
+│  │        ├─ ActualizarProyectoInput.ts  ✓ DTO para actualizar proyecto
+│  │        ├─ BuscarProyectoPorId.ts      ✓ Busca proyecto por ID
+│  │        ├─ EliminarProyecto.ts         ✓ Elimina proyecto
+│  │        └─ ListarProyectos.ts          ✓ Obtiene todos los proyectos
 │  │
 │  ├─ infrastructure/                      ← 🔧 Depende de Domain + App
 │  │  ├─ config/
@@ -169,7 +176,8 @@ backEnd/
 │  │  │  │  └─ UsuarioResponseDTO.ts       ✓ Salida al cliente (sin contraseña)
 │  │  │  │
 │  │  │  └─ ProyectoDto/
-│  │  │     └─ CrearProyectoDTO.ts         ✓ Entrada para crear proyecto
+│  │  │     ├─ CrearProyectoDTO.ts         ✓ Entrada para crear proyecto
+│  │  │     └─ ProyectoResponseDTO.ts      ✓ Salida al cliente (respuesta de proyecto)
 │  │  │
 │  │  ├─ Mappers/
 │  │  │  ├─ UsuarioMapper.ts               ✓ Transforma Usuario → DTO
@@ -414,7 +422,7 @@ npm install -D @types/jsonwebtoken
 
 | Tarea | Descripción | Prioridad | Estado |
 |-------|-------------|-----------|--------|
-| **9️⃣ UseCases de Proyecto** | Implementar CRUD completo de proyectos | 🟡 Media | ⏳ |
+| **9️⃣ UseCases de Proyecto** | Implementar CRUD completo de proyectos | 🟡 Media | ✓ |
 | **🔟 Repositorios pendientes** | Implementar todos los repositories restantes | 🟡 Media | ⏳ |
 | **1️⃣1️⃣ Carga de archivos** | Integrar Multer y guardar en `/uploads` | 🟡 Media | ⏳ |
 | **1️⃣2️⃣ Transacciones** | Implementar sistema de transacciones | 🟢 Baja | ⏳ |

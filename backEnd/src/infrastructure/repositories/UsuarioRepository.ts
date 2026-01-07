@@ -53,35 +53,34 @@ export class UsuarioRepository implements IUsuarioRepository {
     if (rows.length === 0) return null;
     return this.mapToEntity(rows[0]);
   }
-
-async actualizar(id: number, data: ActualizarUsuarioInput): Promise<Usuario> {
-  const query = `
+  async actualizar(id: number, usuario: Usuario): Promise<Usuario> {
+    const query = `
     UPDATE usuarios SET
-      nombre = COALESCE($1, nombre),
-      correo = COALESCE($2, correo),
-      contraseña = COALESCE($3, contraseña),
-      telefono = COALESCE($4, telefono),
-      direccion = COALESCE($5, direccion),
-      rol = COALESCE($6, rol),
-      estado = COALESCE($7, estado)
+      nombre = $1,
+      correo = $2,
+      contraseña = $3,
+      telefono = $4,
+      direccion = $5,
+      rol = $6,
+      estado = $7
     WHERE id_usuario = $8
     RETURNING *;
   `;
 
-  const values = [
-    data.nombre,
-    data.correo,
-    data.contraseña,
-    data.telefono,
-    data.direccion,
-    data.rol,
-    data.estado,
-    id,
-  ];
+    const values = [
+      usuario.nombre,
+      usuario.correo.getValue(),
+      usuario.contraseña.getValue(), // 🔥 hash correcto
+      usuario.telefono.getValue(),
+      usuario.direccion,
+      usuario.rol.getValue(),
+      usuario.estado,
+      id,
+    ];
 
-  const { rows } = await pool.query(query, values);
-  return this.mapToEntity(rows[0]);
-}
+    const { rows } = await pool.query(query, values);
+    return this.mapToEntity(rows[0]);
+  }
 
   async eliminar(id: number): Promise<void> {
     const resultado = await pool.query(

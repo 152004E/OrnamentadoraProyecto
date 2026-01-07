@@ -4,6 +4,7 @@ import { proyectoRepository } from "../../infrastructure/repositories/ProyectoRe
 import { CUListarProyectos } from "../../application/UseCases/ProyectoUseCase/ListarProyectos";
 import { CUBuscarProyectoPorId } from "../../application/UseCases/ProyectoUseCase/BuscarProyectoPorId";
 import { CUActualizarProyecto } from "../../application/UseCases/ProyectoUseCase/ActualizarProyecto";
+import { CUEliminarProyecto } from "../../application/UseCases/ProyectoUseCase/EliminarProyecto";
 
 export class ProyectoController {
   async crear(req: Request, res: Response) {
@@ -66,9 +67,8 @@ export class ProyectoController {
         throw new Error("Proyecto no encontrado");
       }
 
-      if(proyecto.id_usuario !== req.user.id){
-                throw new Error("No puedes modificar este proyecto");
-
+      if (proyecto.id_usuario !== req.user.id) {
+        throw new Error("No puedes modificar este proyecto");
       }
       const usecase = new CUActualizarProyecto(proyectoRepository);
 
@@ -83,6 +83,24 @@ export class ProyectoController {
   }
   async eliminar(req: Request, res: Response) {
     try {
+      if (!req.user) {
+        return res.status(401).json({ message: "No autorizado" });
+      }
+
+      const id = Number(req.params.id);
+      const proyecto = await proyectoRepository.buscarPorId(id);
+
+      if (!proyecto) {
+        throw new Error("Proyecto no encontrado");
+      }
+
+      if (proyecto.id_usuario !== req.user.id) {
+        throw new Error("No puedes Eliminar este Proyecto");
+      }
+      const usecase = new CUEliminarProyecto(proyectoRepository);
+      await usecase.execute(id);
+
+      res.status(200).send();
     } catch (error: any) {
       res.status(400).json({
         message: error.message,

@@ -33,14 +33,14 @@ export class ProyectoRepository implements IProyectoRepository {
 
   async actualizar(id: number, data: Partial<Proyecto>): Promise<Proyecto> {
     const query = `
-      UPDATE proyectos SET
-        nombre_proyecto = $1,
-        descripcion = $2,
-        fecha_entrega = $3,
-        estado = $4
-      WHERE id_proyecto = $5
-      RETURNING *;
-    `;
+    UPDATE proyectos SET
+      nombre_proyecto = COALESCE($1, nombre_proyecto),
+      descripcion     = COALESCE($2, descripcion),
+      fecha_entrega   = COALESCE($3, fecha_entrega),
+      estado          = COALESCE($4, estado)
+    WHERE id_proyecto = $5
+    RETURNING *;
+  `;
 
     const values = [
       data.nombre_proyecto,
@@ -51,9 +51,11 @@ export class ProyectoRepository implements IProyectoRepository {
     ];
 
     const { rows } = await pool.query(query, values);
+
     if (rows.length === 0) {
       throw new Error("Proyecto no encontrado");
     }
+
     return this.mapToEntity(rows[0]);
   }
 

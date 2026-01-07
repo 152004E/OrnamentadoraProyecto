@@ -1,19 +1,18 @@
 import { Proyecto } from "../../../domain/entities/Proyecto";
 import { IProyectoRepository } from "../../../domain/interfaces/IProyectoRepository";
+import { ActualizarProyectoInput } from "./ActualizarProyectoInput"
 
-export class CUActualizarProyecto{
-    constructor (private proyectoRepository : IProyectoRepository){}
+export class CUActualizarProyecto {
+  constructor(private proyectoRepository: IProyectoRepository) {}
 
-    async execute(id: number, data : any): Promise<Proyecto>{
-        const proyectoExiste = await this.proyectoRepository.buscarPorId(id)
-        if(!proyectoExiste){
-            throw new Error("Proyecto no encontrado")
-        }
-        if(data.nombre_proyecto) proyectoExiste.nombre_proyecto = data.nombre_proyecto
-        if(data.descripcion) proyectoExiste.descripcion = data.descripcion
-        if(data.estado) proyectoExiste.estado = data.estado
+  async execute(id: number, data: ActualizarProyectoInput): Promise<Proyecto> {
+    const proyectoExiste = await this.proyectoRepository.buscarPorId(id);
 
-        
-        return this.proyectoRepository.actualizar(id,proyectoExiste)
+
+    if (!proyectoExiste) {
+      throw new Error("Proyecto no encontrado");
     }
+
+    return this.proyectoRepository.actualizar(id, data);
+  }
 }

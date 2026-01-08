@@ -1,17 +1,22 @@
 import { Router } from "express";
 import { authMiddleware } from "../middlewares/auth.middleware";
 import { ProyectoController } from "../controllers/ProyectoController";
+import { ComentarioController } from "../controllers/ComentarioController";
 
 const router = Router();
 
-const controller = new ProyectoController();
+const controllerProyecto = new ProyectoController();
+const controllerComentarios = new ComentarioController();
 
 router.use(authMiddleware); //todo lo de abajo protegido
 
-router.post("/", controller.crear);
-router.get("/", controller.listar);
-router.get("/:id", controller.buscarPorid);
-router.put("/:id", controller.actualizar);
-router.delete("/:id", controller.eliminar);
+router.post("/", controllerProyecto.crear);
+router.get("/", controllerProyecto.listar);
+router.get("/:id", controllerProyecto.buscarPorid);
+router.put("/:id", controllerProyecto.actualizar);
+router.delete("/:id", controllerProyecto.eliminar);
+
+router.post("/:id/comentarios", controllerComentarios.crear);
+router.get("/:id/comentarios", controllerComentarios.ListarPorProyecto);
 
 export default router;

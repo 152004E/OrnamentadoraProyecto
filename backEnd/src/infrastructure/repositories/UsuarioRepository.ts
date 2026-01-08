@@ -91,7 +91,6 @@ export class UsuarioRepository implements IUsuarioRepository {
       throw new Error("Usuario no encontrado");
     }
   }
-  // esto es una simulacion en memoria como si fuera una base de datos
 
   private mapToEntity = (row: any): Usuario => {
     return new Usuario(

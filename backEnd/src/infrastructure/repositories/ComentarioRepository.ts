@@ -18,7 +18,15 @@ export class ComentarioRepository implements IComentariosRepository {
     return this.mapToEntity(rows[0]);
   }
   async findById(id_comentario: number): Promise<Comentarios | null> {
-    throw new Error("Method not implemented.");
+    const query = `SELECT * FROM comentarios WHERE id_comentario = $1 `;
+
+    const { rows } = await pool.query(query, [id_comentario]);
+
+    if (rows.length === 0) {
+      return null;
+    }
+
+    return this.mapToEntity(rows[0]);
   }
   async findByProyecto(id_proyecto: number): Promise<Comentarios[]> {
     const query = `  SELECT * 
@@ -38,10 +46,29 @@ export class ComentarioRepository implements IComentariosRepository {
     id_comentario: number,
     contenido: string
   ): Promise<Comentarios> {
-    throw new Error("Method not implemented.");
+    const query = `
+    UPDATE comentarios
+    SET contenido = $1
+    WHERE id_comentario = $2
+    RETURNING *;
+  `;
+
+    const { rows } = await pool.query(query, [contenido, id_comentario]);
+
+    if (rows.length === 0) {
+      throw new Error("Comentario no encontrado");
+    }
+    return this.mapToEntity(rows[0]);
   }
   async delete(id_comentario: number): Promise<void> {
-    throw new Error("Method not implemented.");
+    const result = await pool.query(
+      `UPDATE comentarios SET estado = false WHERE id_comentario = $1`,
+      [id_comentario]
+    );
+
+    if (result.rowCount === 0) {
+      throw new Error("Comentario no encontrado");
+    }
   }
 
   private mapToEntity = (row: any): Comentarios => {

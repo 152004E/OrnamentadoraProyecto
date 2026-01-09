@@ -18,5 +18,7 @@ router.delete("/:id", controllerProyecto.eliminar);
 
 router.post("/:id/comentarios", controllerComentarios.crear);
 router.get("/:id/comentarios", controllerComentarios.ListarPorProyecto);
+router.delete("/:id/comentarios/:id_comentario", controllerComentarios.eliminar);
+router.put("/:id/comentarios/:id_comentario", controllerComentarios.actualizar);
 
 export default router;

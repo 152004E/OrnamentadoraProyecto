@@ -1,9 +1,12 @@
 import { Likes } from "../entities/likes";
+import { LikeTarget } from "../valueObjects/LikeTarget";
 
 export interface ILikesRepository {
-    create(like: Likes): Promise<Likes>;
-    findById(id_like: number): Promise<Likes | null>;
-    findByProyecto(id_proyecto: number): Promise<Likes[]>;
-    findByUsuario(id_usuario: number): Promise<Likes[]>;
-    delete(id_like: number): Promise<void>;
+  existeLike(id_usuario: number, target: LikeTarget): Promise<boolean>;
+
+  crearLike(likes: Likes): Promise<Likes>;
+
+  deleteLike (id_usuario : number , target: LikeTarget): Promise<void>;
+
+  contarLikes (target : LikeTarget): Promise<number>;
 }

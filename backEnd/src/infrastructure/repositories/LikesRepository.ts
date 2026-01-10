@@ -19,7 +19,7 @@ export class LikesRepository implements ILikesRepository {
     const query = `
       INSERT INTO likes (id_usuario, target_type, target_id, fecha_like)
       VALUES ($1, $2, $3, $4)
-      RETURNING *
+      RETURNING *  
     `;
 
     const { rows } = await pool.query(query, [

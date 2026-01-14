@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 import usuarioRoutes from "./presentation/routes/usuario.routes";
 import authRoutes from "./presentation/routes/auth.routes";
 import proyectoRoutes from "./presentation/routes/proyecto.routes"
-import comentarioRoutes from "./presentation/routes/comentario.routes"
 import { pool } from "../src/infrastructure/database/postgres";
 
 // configuracion para el JWT

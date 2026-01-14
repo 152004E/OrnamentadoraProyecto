@@ -4,7 +4,6 @@ import { comentarioRepository } from "../../infrastructure/repositories/Comentar
 import { CUListarComentarioPorProyecto } from "../../application/UseCases/ComentarioUseCase/ListarComentarioPorProyecto";
 import { CUEliminarComentario } from "../../application/UseCases/ComentarioUseCase/EliminarComentario";
 import { CUActualizarComentario } from "../../application/UseCases/ComentarioUseCase/ActualizarComentario";
-import { Result } from "pg";
 
 export class ComentarioController {
   async crear(req: Request, res: Response) {

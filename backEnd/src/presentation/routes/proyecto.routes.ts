@@ -3,6 +3,7 @@ import { authMiddleware } from "../middlewares/auth.middleware";
 import { ProyectoController } from "../controllers/ProyectoController";
 import { ComentarioController } from "../controllers/ComentarioController";
 import { LikesController } from "../controllers/LikesController";
+import { ProyectoRepository } from "../../infrastructure/repositories/ProyectoRepository";
 
 const router = Router();
 
@@ -36,6 +37,15 @@ router.post(
   "/:id/comentarios/:id_comentario/likes",
   controllerLikes.toggleLikeComentario
 );
+
+// likes con el contardor
+
+// contar likes de proyecto
+router.get("/:id/likes/count", controllerLikes.contarLikesProyecto)
+
+// contar likes de comentario 
+
+router.get("/:id/comentarios/:id_comentario/likes/count", controllerLikes.contarLikesComentarios)
 
 
 export default router;

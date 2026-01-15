@@ -24,7 +24,10 @@ router.delete("/:id", controllerProyecto.eliminar);
 
 router.post("/:id/comentarios", controllerComentarios.crear);
 router.get("/:id/comentarios", controllerComentarios.ListarPorProyecto);
-router.delete("/:id/comentarios/:id_comentario", controllerComentarios.eliminar);
+router.delete(
+  "/:id/comentarios/:id_comentario",
+  controllerComentarios.eliminar
+);
 router.put("/:id/comentarios/:id_comentario", controllerComentarios.actualizar);
 
 // likes
@@ -41,11 +44,26 @@ router.post(
 // likes con el contardor
 
 // contar likes de proyecto
-router.get("/:id/likes/count", controllerLikes.contarLikesProyecto)
+router.get("/:id/likes/count", controllerLikes.contarLikesProyecto);
 
-// contar likes de comentario 
+// contar likes de comentario
 
-router.get("/:id/comentarios/:id_comentario/likes/count", controllerLikes.contarLikesComentarios)
+router.get(
+  "/:id/comentarios/:id_comentario/likes/count",
+  controllerLikes.contarLikesComentarios
+);
+
+// likes por usuario
+
+// Saber si el usuario dio like al proyecto
+router.get("/:id/likes/has-liked", controllerLikes.hasLikedProyecto);
+
+// Saber si el usuario dio like al comentario
+router.get(
+  "/:id/comentarios/:id_comentario/likes/has-liked",
+  controllerLikes.hasLikedComentario
+);
+
 
 
 export default router;

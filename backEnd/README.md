@@ -105,6 +105,7 @@ backEnd/
 │  │  │  ├─ Rol.ts                         ✓ ADMIN | CLIENTE
 │  │  │  ├─ Telefono.ts                    ✓ Valida formato teléfono
 │  │  │  ├─ Monto.ts                       ✓ Validación de monto > 0
+│  │  │  ├─ LikeTarget.ts                  ✓ Tipo de objetivo para likes
 │  │  │  └─ TipoTransaccion.ts             ✓ INGRESO | EGRESO
 │  │  │
 │  │  └─ interfaces/
@@ -128,14 +129,29 @@ backEnd/
 │  │     │  ├─ EliminarUsuario.ts          ✓ Elimina usuario
 │  │     │  └─ ListarUsuarios.ts           ✓ Obtiene todos los usuarios
 │  │     │
-│  │     └─ ProyectoUseCase/
-│  │        ├─ CrearProyecto.ts            ✓ Crea nuevo proyecto
-│  │        ├─ CrearProyectoInput.ts       ✓ DTO de entrada para crear proyecto
-│  │        ├─ ActualizarProyecto.ts       ✓ Actualiza datos de proyecto
-│  │        ├─ ActualizarProyectoInput.ts  ✓ DTO para actualizar proyecto
-│  │        ├─ BuscarProyectoPorId.ts      ✓ Busca proyecto por ID
-│  │        ├─ EliminarProyecto.ts         ✓ Elimina proyecto
-│  │        └─ ListarProyectos.ts          ✓ Obtiene todos los proyectos
+│  │     ├─ ProyectoUseCase/
+│  │     │  ├─ CrearProyecto.ts            ✓ Crea nuevo proyecto
+│  │     │  ├─ CrearProyectoInput.ts       ✓ DTO de entrada para crear proyecto
+│  │     │  ├─ ActualizarProyecto.ts       ✓ Actualiza datos de proyecto
+│  │     │  ├─ ActualizarProyectoInput.ts  ✓ DTO para actualizar proyecto
+│  │     │  ├─ BuscarProyectoPorId.ts      ✓ Busca proyecto por ID
+│  │     │  ├─ EliminarProyecto.ts         ✓ Elimina proyecto
+│  │     │  └─ ListarProyectos.ts          ✓ Obtiene todos los proyectos
+│  │     │
+│  │     ├─ ComentarioUseCase/
+│  │     │  ├─ CrearComentario.ts          ✓ Crea nuevo comentario
+│  │     │  ├─ CrearComentarioInput.ts     ✓ DTO de entrada para crear comentario
+│  │     │  ├─ ActualizarComentario.ts     ✓ Actualiza comentario
+│  │     │  ├─ ActualizarComentarioInput.ts ✓ DTO para actualizar comentario
+│  │     │  ├─ BuscarComentarioPorId.ts    ✓ Busca comentario por ID
+│  │     │  ├─ EliminarComentario.ts       ✓ Elimina comentario
+│  │     │  └─ ListarComentarioPorProyecto.ts ✓ Lista comentarios de un proyecto
+│  │     │
+│  │     └─ LikeUseCase/
+│  │        ├─ ToggleLike.ts               ✓ Activa/desactiva un like
+│  │        ├─ ToggleLikeInput.ts          ✓ DTO para toggle de like
+│  │        ├─ ContarLikes.ts              ✓ Cuenta likes de un objetivo
+│  │        └─ HasLiked.ts                 ✓ Verifica si usuario ha dado like
 │  │
 │  ├─ infrastructure/                      ← 🔧 Depende de Domain + App
 │  │  ├─ config/
@@ -148,27 +164,29 @@ backEnd/
 │  │  │  └─ (Prisma o Sequelize)
 │  │  │
 │  │  ├─ repositories/
-│  │  │  ├─ UsuarioRepository.ts            ✓ Implementa IUsuarioRepository
-│  │  │  ├─ ProyectoRepository.ts           ⏳ Por implementar
-│  │  │  ├─ ArchivoProyectoRepository.ts    ⏳ Por implementar
-│  │  │  ├─ ComentariosRepository.ts        ⏳ Por implementar
-│  │  │  ├─ LikesRepository.ts              ⏳ Por implementar
-│  │  │  ├─ TransaccionesRepository.ts      ⏳ Por implementar
-│  │  │  └─ ProveedoresRepository.ts        ⏳ Por implementar
+│  │  │  ├─ UsuarioRepository.ts           ✓ Implementa IUsuarioRepository
+│  │  │  ├─ ProyectoRepository.ts          ✓ Implementa IProyectoRepository
+│  │  │  ├─ ComentarioRepository.ts        ✓ Implementa IComentariosRepository
+│  │  │  └─ LikesRepository.ts             ✓ Implementa ILikesRepository
 │  │  │
 │  │  └─ services/
-│  │     ├─ PasswordHasher.ts               ✓ Encriptación de contraseñas
+│  │     ├─ PasswordHasher.ts              ✓ Encriptación de contraseñas
 │  │     ├─ (Servicios de autenticación)
 │  │     └─ (Servicios externos)
 │  │
 │  ├─ presentation/                        ← 🎯 Depende de todas
 │  │  ├─ controllers/
 │  │  │  ├─ AuthController.ts              ✓ Maneja autenticación
-│  │  │  └─ UsuarioController.ts           ✓ Maneja peticiones de usuarios
+│  │  │  ├─ UsuarioController.ts           ✓ Maneja peticiones de usuarios
+│  │  │  ├─ ProyectoController.ts          ✓ Maneja peticiones de proyectos
+│  │  │  ├─ ComentarioController.ts        ✓ Maneja peticiones de comentarios
+│  │  │  └─ LikesController.ts             ✓ Maneja peticiones de likes
 │  │  │
 │  │  ├─ routes/
 │  │  │  ├─ auth.routes.ts                 ✓ Rutas de autenticación
-│  │  │  └─ usuario.routes.ts              ✓ Rutas de usuarios
+│  │  │  ├─ usuario.routes.ts              ✓ Rutas de usuarios
+│  │  │  ├─ proyecto.routes.ts             ✓ Rutas de proyectos
+│  │  │  └─ comentario.routes.ts           ✓ Rutas de comentarios
 │  │  │
 │  │  ├─ DTO/
 │  │  │  ├─ UsuariosDto/
@@ -423,18 +441,23 @@ npm install -D @types/jsonwebtoken
 | Tarea | Descripción | Prioridad | Estado |
 |-------|-------------|-----------|--------|
 | **9️⃣ UseCases de Proyecto** | Implementar CRUD completo de proyectos | 🟡 Media | ✓ |
-| **🔟 Repositorios pendientes** | Implementar todos los repositories restantes | 🟡 Media | ⏳ |
-| **1️⃣1️⃣ Carga de archivos** | Integrar Multer y guardar en `/uploads` | 🟡 Media | ⏳ |
-| **1️⃣2️⃣ Transacciones** | Implementar sistema de transacciones | 🟢 Baja | ⏳ |
+| **🔟 UseCases de Comentarios** | Implementar CRUD completo de comentarios | 🟡 Media | ✓ |
+| **1️⃣0️⃣ UseCases de Likes** | Implementar toggle, conteo y verificación de likes | 🟡 Media | ✓ |
+| **1️⃣1️⃣ Repositorios principales** | ProyectoRepository, ComentarioRepository, LikesRepository | 🟡 Media | ✓ |
+| **1️⃣2️⃣ Controladores** | ProyectoController, ComentarioController, LikesController | 🟡 Media | ✓ |
+| **1️⃣3️⃣ Rutas** | proyecto.routes, comentario.routes | 🟡 Media | ✓ |
+| **1️⃣4️⃣ Carga de archivos** | Integrar Multer y guardar en `/uploads` | 🟡 Media | ⏳ |
+| **1️⃣5️⃣ Transacciones** | Implementar sistema de transacciones | 🟢 Baja | ⏳ |
+| **1️⃣6️⃣ Proveedores** | Implementar CRUD para proveedores | 🟢 Baja | ⏳ |
 
 ### **Fase 4: Testing y Deployment** 🚀
 
 | Tarea | Descripción | Prioridad | Estado |
 |-------|-------------|-----------|--------|
-| **1️⃣3️⃣ Tests unitarios** | Tests para UseCases y ValueObjects | 🟡 Media | ⏳ |
-| **1️⃣4️⃣ Tests de integración** | Tests para repositorios y controladores | 🟡 Media | ⏳ |
-| **1️⃣5️⃣ Variables de entorno** | Configurar `.env` para desarrollo y producción | 🔴 Alta | ⏳ |
-| **1️⃣6️⃣ Docker** | Crear Dockerfile y docker-compose | 🟢 Baja | ⏳ |
+| **1️⃣7️⃣ Tests unitarios** | Tests para UseCases y ValueObjects | 🟡 Media | ⏳ |
+| **1️⃣8️⃣ Tests de integración** | Tests para repositorios y controladores | 🟡 Media | ⏳ |
+| **1️⃣9️⃣ Variables de entorno** | Configurar `.env` para desarrollo y producción | 🔴 Alta | ⏳ |
+| **2️⃣0️⃣ Docker** | Crear Dockerfile y docker-compose | 🟢 Baja | ⏳ |
 
 **Leyenda:**
 - 🔴 = Prioridad Alta (blockeador)

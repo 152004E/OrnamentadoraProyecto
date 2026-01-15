@@ -11,6 +11,8 @@ export class CUCrearProyecto {
   ): Promise<Proyecto> {
     //crear una entidad con los datos
 
+
+
     const proyecto = new Proyecto(
       null, // este campo lo pone el sistema
       id_usuario,
@@ -20,6 +22,8 @@ export class CUCrearProyecto {
       data.fecha_entrega,
       true
     );
+
+    
     return await this.proyectoRepository.crear(proyecto);
   }
 }

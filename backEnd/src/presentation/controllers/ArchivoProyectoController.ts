@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { CUCrearArchivoProyecto } from "../../application/UseCases/ArchivoProyectoUseCase/CrearArchivoProyecto";
 import { archivo_ProyectoRepository } from "../../infrastructure/repositories/Archivo_ProyectoRepository";
 import { proyectoRepository } from "../../infrastructure/repositories/ProyectoRepository";
-
+import { CUBuscarArchivoProyectoPorId } from "../../application/UseCases/ArchivoProyectoUseCase/BuscarArchivoProyectoPorId";
 export class ArchivoProyectoController {
   async crear(req: Request, res: Response) {
     try {
@@ -17,7 +17,7 @@ export class ArchivoProyectoController {
           message: "ID de proyecto invalido",
         });
       }
-         const id_usuario = Number(req.user.id);
+      const id_usuario = Number(req.user.id);
       if (isNaN(id_usuario)) {
         return res.status(400).json({ message: "ID de usuario inválido" });
       }
@@ -41,6 +41,27 @@ export class ArchivoProyectoController {
         tipo_archivo,
       });
       return res.status(200).json(archivo);
+    } catch (error: any) {
+      res.status(400).json({
+        message: error.message,
+      });
+    }
+  }
+  async buscarPorId(req: Request, res: Response) {
+    try {
+      const id_archivo = Number(req.params.id_archivo);
+      if (isNaN(id_archivo)) {
+        return res.status(401).json({
+          message: "ID de archivo invalido",
+        });
+      }
+      const usecase = new CUBuscarArchivoProyectoPorId(
+        archivo_ProyectoRepository
+      );
+
+      const archivo = await usecase.execute(id_archivo);
+
+      return res.status(200).json(archivo)
     } catch (error: any) {
       res.status(400).json({
         message: error.message,

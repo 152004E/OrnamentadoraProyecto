@@ -3,7 +3,7 @@ import { authMiddleware } from "../middlewares/auth.middleware";
 import { ArchivoProyectoController } from "../controllers/ArchivoProyectoController";
 
 const router = Router();
-const controller = new ArchivoProyectoController();
+const controllerArchivos = new ArchivoProyectoController();
 
 // Todo protegido
 router.use(authMiddleware);
@@ -11,7 +11,11 @@ router.use(authMiddleware);
 // Subir archivo a un proyecto
 router.post(
   "/proyectos/:id/archivos",
-  controller.crear
+  controllerArchivos.crear
+);
+router.get(
+  "/archivos/:id_archivo",
+  controllerArchivos.buscarPorId
 );
 
 

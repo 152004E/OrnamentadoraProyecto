@@ -1,0 +1,34 @@
+import { Router } from "express";
+import { authMiddleware } from "../middlewares/auth.middleware";
+import { ArchivoProyectoController } from "../controllers/ArchivoProyectoController";
+
+const router = Router();
+const controllerArchivos = new ArchivoProyectoController();
+
+// Todo protegido
+router.use(authMiddleware);
+
+// Subir archivo a un proyecto
+router.post(
+  "/proyectos/:id/archivos",
+  controllerArchivos.crear
+);
+router.get(
+  "/archivos/:id_archivo",
+  controllerArchivos.buscarPorId
+);
+
+
+// // Listar archivos de un proyecto (cuando lo hagas)
+// router.get(
+//   "/proyectos/:id/archivos",
+//   controller.listarPorProyecto
+// );
+
+// // Eliminar archivo (cuando lo hagas)
+// router.delete(
+//   "/archivos/:id_archivo",
+//   controller.eliminar
+// );
+
+export default router;

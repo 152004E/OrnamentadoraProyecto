@@ -1,9 +1,9 @@
 import { Router } from "express";
 import { authMiddleware } from "../middlewares/auth.middleware";
+import { adminMiddleware } from "../middlewares/admin.middleware";
 import { ProyectoController } from "../controllers/ProyectoController";
 import { ComentarioController } from "../controllers/ComentarioController";
 import { LikesController } from "../controllers/LikesController";
-import { ProyectoRepository } from "../../infrastructure/repositories/ProyectoRepository";
 
 const router = Router();
 
@@ -14,11 +14,11 @@ const controllerLikes = new LikesController();
 router.use(authMiddleware); //todo lo de abajo protegido
 // proyecto
 
-router.post("/", controllerProyecto.crear);
+router.post("/",adminMiddleware , controllerProyecto.crear);
 router.get("/", controllerProyecto.listar);
 router.get("/:id", controllerProyecto.buscarPorid);
-router.put("/:id", controllerProyecto.actualizar);
-router.delete("/:id", controllerProyecto.eliminar);
+router.put("/:id", adminMiddleware, controllerProyecto.actualizar);
+router.delete("/:id",adminMiddleware, controllerProyecto.eliminar);
 
 // comentarios
 

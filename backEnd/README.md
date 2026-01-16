@@ -13,6 +13,30 @@ Menor acoplamiento entre módulos
 
 El sistema gestiona toda la lógica de negocio, autenticación, operaciones CRUD, proyectos, transacciones, proveedores, comentarios y carga de archivos, manteniendo una arquitectura robusta y profesional.
 
+
+🎯 Decisión de negocio (MUY BIEN DEFINIDA)
+
+Solo el ADMIN puede:
+
+Crear proyectos
+
+Subir archivos (imágenes / videos)
+
+Eliminar archivos
+
+Usuarios normales pueden:
+
+Ver proyectos
+
+Ver archivos
+
+Dar likes
+
+Comentar
+
+💡 Esto es control de acceso por rol, no por dueño del recurso.
+Perfecto para un portafolio profesional.
+
 ------------------------------------------------------------------------
 
 ## 🚀 Tecnologías utilizadas

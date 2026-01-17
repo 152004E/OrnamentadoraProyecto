@@ -1,12 +1,11 @@
 //Código del middleware JWT
-
 import { Request, Response, NextFunction } from "express";
-
 import jwt from "jsonwebtoken";
+import { Roles } from "../../domain/valueObjects/Rol";
 
 interface JwtPayLoad {
   id: number;
-  rol: string;
+  rol: Roles;
 }
 export const authMiddleware = (
   req: Request,
@@ -28,7 +27,10 @@ export const authMiddleware = (
       process.env.JWT_SECRET as string
     ) as JwtPayLoad;
 
-    req.user = decoded
+    req.user = {
+      id: decoded.id,
+      rol : decoded.rol as Roles
+    }
     next()
   } catch (error) {
     return res.status(401).json({

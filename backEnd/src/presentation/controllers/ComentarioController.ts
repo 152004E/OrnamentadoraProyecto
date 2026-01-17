@@ -4,6 +4,7 @@ import { comentarioRepository } from "../../infrastructure/repositories/Comentar
 import { CUListarComentarioPorProyecto } from "../../application/UseCases/ComentarioUseCase/ListarComentarioPorProyecto";
 import { CUEliminarComentario } from "../../application/UseCases/ComentarioUseCase/EliminarComentario";
 import { CUActualizarComentario } from "../../application/UseCases/ComentarioUseCase/ActualizarComentario";
+import { Roles } from "../../domain/valueObjects/Rol";
 
 export class ComentarioController {
   async crear(req: Request, res: Response) {
@@ -81,9 +82,9 @@ export class ComentarioController {
       const idComentario = Number(req.params.id_comentario);
 
       const usecase = new CUEliminarComentario(comentarioRepository);
-
-      await usecase.execute(idComentario, req.user.id);
-      return res.status(204).send();
+      const rol = req.user.rol as Roles;
+      await usecase.execute(idComentario, req.user.id, rol);
+      return res.status(204).json({message : "Comentario eliminado"});
     } catch (error: any) {
       res.status(400).json({
         message: error.message,

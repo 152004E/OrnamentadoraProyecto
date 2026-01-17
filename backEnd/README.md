@@ -11,7 +11,31 @@ Facilidad para agregar nuevas funcionalidades
 
 Menor acoplamiento entre módulos
 
-El sistema gestiona toda la lógica de negocio, autenticación, operaciones CRUD, proyectos, transacciones, proveedores, comentarios y carga de archivos, manteniendo una arquitectura robusta y profesional.
+El sistema gestiona toda la lógica de negocio, autenticación, operaciones CRUD con el soft delete, proyectos, transacciones, proveedores, comentarios y carga de archivos, manteniendo una arquitectura robusta y profesional.
+
+
+🎯 Decisión de negocio (MUY BIEN DEFINIDA)
+
+Solo el ADMIN puede:
+
+Crear proyectos
+
+Subir archivos (imágenes / videos)
+
+Eliminar archivos
+
+Usuarios normales pueden:
+
+Ver proyectos
+
+Ver archivos
+
+Dar likes
+
+Comentar
+
+💡 Esto es control de acceso por rol, no por dueño del recurso.
+Perfecto para un portafolio profesional.
 
 ------------------------------------------------------------------------
 
@@ -465,3 +489,10 @@ npm install -D @types/jsonwebtoken
 - 🟢 = Prioridad Baja (nice-to-have)
 - ✓ = Completado
 - ⏳ = En progreso
+
+
+
+tareas pendientes 
+
+hacer que todos los delete sean soft delete
+

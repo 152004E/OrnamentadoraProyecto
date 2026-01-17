@@ -54,7 +54,7 @@ export class ArchivoProyectoController {
     try {
       const id_archivo = Number(req.params.id_archivo);
       if (isNaN(id_archivo)) {
-        return res.status(401).json({
+        return res.status(400).json({
           message: "ID de archivo invalido",
         });
       }
@@ -94,27 +94,16 @@ export class ArchivoProyectoController {
   }
   async eliminarArchivo(req: Request, res: Response) {
     try {
-      if (!req.user) {
-        return res.status(401).json({
-          message: " No autorizado",
-        });
-      }
       const id_archivo = Number(req.params.id_archivo);
       if (isNaN(id_archivo)) {
         return res.status(400).json({
           message: "ID de archivo inválidos",
         });
       }
-      const id_usuario = Number(req.user.id);
-      if (isNaN(id_usuario)) {
-        return res.status(400).json({
-          message: "ID de usuario inválidos",
-        });
-      }
 
       const usecase = new CUEliminarArchivoProyecto(archivo_ProyectoRepository);
-       await usecase.execute(id_archivo, id_usuario);
-      return res.status(200).json({message : "Archivo eliminado con exito"});
+      await usecase.execute(id_archivo);
+      return res.status(200).json({ message: "Archivo eliminado con exito" });
     } catch (error: any) {
       res.status(400).json({
         message: error.message,

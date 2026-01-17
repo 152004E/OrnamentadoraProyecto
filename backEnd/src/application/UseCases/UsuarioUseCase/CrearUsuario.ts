@@ -30,10 +30,7 @@ export class CUCrearUsuario {
     const password = Password.fromHash(hashed);
 
 
-    const rol =
-      data.rol === "Administrador"
-        ? new Rol(Roles.ADMIN)
-        : new Rol(Roles.CLIENTE);
+  const rol = new Rol(Roles.CLIENTE)
 
     const nuevoUsuario = new Usuario(
       null, // ID será generado por la base de datos

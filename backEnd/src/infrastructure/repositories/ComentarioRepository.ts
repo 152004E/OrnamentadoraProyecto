@@ -18,7 +18,7 @@ export class ComentarioRepository implements IComentariosRepository {
     return this.mapToEntity(rows[0]);
   }
   async findById(id_comentario: number): Promise<Comentarios | null> {
-    const query = `SELECT * FROM comentarios WHERE id_comentario = $1 `;
+    const query = `SELECT * FROM comentarios WHERE id_comentario = $1  AND estado = true`;
 
     const { rows } = await pool.query(query, [id_comentario]);
 

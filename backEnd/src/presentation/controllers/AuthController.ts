@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { CUAutenticarUsuario } from "../../application/UseCases/UsuarioUseCase/AutenticarUsuario";
 import { usuarioRepository } from "../../infrastructure/repositories/UsuarioRepository";
-import { UsuarioMapper } from "../Mappers/UsuarioMapper";
 import jwt, { SignOptions } from "jsonwebtoken";
+import { AuthMapper } from "../Mappers/AuthMapper";
 
 export class AuthController {
   async login(req: Request, res: Response) {
@@ -26,12 +26,8 @@ export class AuthController {
         },
         JWT_SECRET, options
       );
-
-      return res.status(200).json({
-        message: "login exitoso",
-        token,
-        usuario: UsuarioMapper.toResponse(usuario),
-      });
+      
+      return res.status(200).json(AuthMapper.toResponse(usuario,token));
     } catch (error: any) {
       return res.status(401).json({
         message: error.message,

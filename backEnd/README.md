@@ -162,6 +162,13 @@ backEnd/
 │  │     │  ├─ EliminarProyecto.ts         ✓ Elimina proyecto
 │  │     │  └─ ListarProyectos.ts          ✓ Obtiene todos los proyectos
 │  │     │
+│  │     ├─ ArchivoProyectoUseCase/
+│  │     │  ├─ CrearArchivoProyecto.ts     ✓ Crea nuevo archivo de proyecto
+│  │     │  ├─ CrearArchivoProyectoInput.ts ✓ DTO de entrada para crear archivo
+│  │     │  ├─ BuscarArchivoProyectoPorId.ts ✓ Busca archivo por ID
+│  │     │  ├─ EliminarArchivoProyecto.ts  ✓ Elimina archivo
+│  │     │  └─ ListarArchivosPorProyecto.ts ✓ Lista archivos de un proyecto
+│  │     │
 │  │     ├─ ComentarioUseCase/
 │  │     │  ├─ CrearComentario.ts          ✓ Crea nuevo comentario
 │  │     │  ├─ CrearComentarioInput.ts     ✓ DTO de entrada para crear comentario
@@ -190,6 +197,7 @@ backEnd/
 │  │  ├─ repositories/
 │  │  │  ├─ UsuarioRepository.ts           ✓ Implementa IUsuarioRepository
 │  │  │  ├─ ProyectoRepository.ts          ✓ Implementa IProyectoRepository
+│  │  │  ├─ Archivo_ProyectoRepository.ts  ✓ Implementa IArchivo_ProyectoRepository
 │  │  │  ├─ ComentarioRepository.ts        ✓ Implementa IComentariosRepository
 │  │  │  └─ LikesRepository.ts             ✓ Implementa ILikesRepository
 │  │  │
@@ -210,20 +218,38 @@ backEnd/
 │  │  │  ├─ auth.routes.ts                 ✓ Rutas de autenticación
 │  │  │  ├─ usuario.routes.ts              ✓ Rutas de usuarios
 │  │  │  ├─ proyecto.routes.ts             ✓ Rutas de proyectos
-│  │  │  └─ comentario.routes.ts           ✓ Rutas de comentarios
+│  │  │  ├─ comentario.routes.ts           ✓ Rutas de comentarios
+│  │  │  ├─ likes.routes.ts                ✓ Rutas de likes
+│  │  │  └─ archivoProyecto.routes.ts      ✓ Rutas de archivos de proyecto
 │  │  │
 │  │  ├─ DTO/
 │  │  │  ├─ UsuariosDto/
 │  │  │  │  ├─ CrearUsuarioDTO.ts          ✓ Entrada del cliente
 │  │  │  │  └─ UsuarioResponseDTO.ts       ✓ Salida al cliente (sin contraseña)
 │  │  │  │
-│  │  │  └─ ProyectoDto/
-│  │  │     ├─ CrearProyectoDTO.ts         ✓ Entrada para crear proyecto
-│  │  │     └─ ProyectoResponseDTO.ts      ✓ Salida al cliente (respuesta de proyecto)
+│  │  │  ├─ ProyectoDto/
+│  │  │  │  ├─ CrearProyectoDTO.ts         ✓ Entrada para crear proyecto
+│  │  │  │  └─ ProyectoResponseDTO.ts      ✓ Salida al cliente (respuesta de proyecto)
+│  │  │  │
+│  │  │  ├─ ComentarioDto/
+│  │  │  │  ├─ CrearComentarioDTO.ts       ✓ Entrada para crear comentario
+│  │  │  │  └─ ComentarioResponseDTO.ts    ✓ Salida al cliente (respuesta de comentario)
+│  │  │  │
+│  │  │  ├─ LikeDto/
+│  │  │  │  ├─ CrearLikeDTO.ts             ✓ Entrada para crear like
+│  │  │  │  └─ LikeResponseDTO.ts          ✓ Salida al cliente (respuesta de like)
+│  │  │  │
+│  │  │  └─ ArchivoProyectoDto/
+│  │  │     ├─ CrearArchivoProyectoDTO.ts  ✓ Entrada para crear archivo
+│  │  │     └─ ArchivoProyectoResponseDTO.ts ✓ Salida al cliente (respuesta de archivo)
 │  │  │
 │  │  ├─ Mappers/
 │  │  │  ├─ UsuarioMapper.ts               ✓ Transforma Usuario → DTO
-│  │  │  └─ ProyectoMapper.ts              ✓ Transforma Proyecto → DTO
+│  │  │  ├─ ProyectoMapper.ts              ✓ Transforma Proyecto → DTO
+│  │  │  ├─ ComentarioMapper.ts            ✓ Transforma Comentarios → DTO
+│  │  │  ├─ LikeMapper.ts                  ✓ Transforma Likes → DTO
+│  │  │  └─ ArchivoProyectoMapper.ts       ✓ Transforma Archivo_Proyecto → DTO
+│  │  │  └─ ArchivoProyectoMapper.ts       ✓ Transforma Archivo_Proyecto → DTO
 │  │  │
 │  │  └─ middlewares/
 │  │     └─ auth.middleware.ts             ✓ Middleware de autenticación JWT
@@ -494,5 +520,5 @@ npm install -D @types/jsonwebtoken
 
 tareas pendientes 
 
-hacer que todos los delete sean soft delete
+
 

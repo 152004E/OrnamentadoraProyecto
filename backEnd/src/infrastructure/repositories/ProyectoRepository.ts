@@ -19,12 +19,14 @@ export class ProyectoRepository implements IProyectoRepository {
     return this.mapToEntity(rows[0]);
   }
   async listar(): Promise<Proyecto[]> {
-    const { rows } = await pool.query(`  SELECT * FROM   proyectos`);
+    const { rows } = await pool.query(
+      `SELECT * FROM proyectos WHERE estado = true`
+    );
     return rows.map(this.mapToEntity);
   }
   async buscarPorId(id: number): Promise<Proyecto | null> {
     const { rows } = await pool.query(
-      `SELECT * FROM proyectos WHERE id_proyecto = $1 `,
+      `SELECT * FROM proyectos WHERE id_proyecto = $1 AND estado = true`,
       [id]
     );
     if (rows.length === 0) return null;
@@ -38,7 +40,7 @@ export class ProyectoRepository implements IProyectoRepository {
       descripcion     = COALESCE($2, descripcion),
       fecha_entrega   = COALESCE($3, fecha_entrega),
       estado          = COALESCE($4, estado)
-    WHERE id_proyecto = $5
+    WHERE id_proyecto = $5 AND estado = true
     RETURNING *;
   `;
 
@@ -58,15 +60,19 @@ export class ProyectoRepository implements IProyectoRepository {
 
     return this.mapToEntity(rows[0]);
   }
-
   async eliminar(id: number): Promise<void> {
-    const resultado = await pool.query(
-      `DELETE FROM proyectos WHERE id_proyecto = $1`,
+    const result = await pool.query(
+      `
+    UPDATE proyectos
+    SET estado = false
+    WHERE id_proyecto = $1
+    AND estado = true
+    `,
       [id]
     );
 
-    if (resultado.rowCount === 0) {
-      throw new Error("Proyecto no encontrado");
+    if (result.rowCount === 0) {
+      throw new Error("Proyecto no encontrado o ya eliminado");
     }
   }
 

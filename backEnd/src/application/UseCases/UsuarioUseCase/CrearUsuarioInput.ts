@@ -4,5 +4,4 @@ export interface CrearUsuarioInput {
   contraseña: string;
   telefono: string;
   direccion?: string;
-  rol: "Administrador" | "Cliente";
 }

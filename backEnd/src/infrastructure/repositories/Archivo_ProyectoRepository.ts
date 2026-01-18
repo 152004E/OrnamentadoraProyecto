@@ -44,7 +44,7 @@ export class Archivo_ProyectoRepository implements IArchivo_ProyectoRepository {
     const { rows } = await pool.query(
       `
     SELECT * FROM archivos_proyecto
-    WHERE id_archivo = $1
+    WHERE id_archivo = $1 AND estado = true
     `,
       [id_archivo]
     );
@@ -65,7 +65,7 @@ export class Archivo_ProyectoRepository implements IArchivo_ProyectoRepository {
     const { rows } = await pool.query(
       `
     SELECT * FROM archivos_proyecto
-    WHERE id_proyecto = $1
+    WHERE id_proyecto = $1 AND estado = true
     ORDER BY fecha_subida DESC
     `,
       [id_proyecto]
@@ -83,15 +83,20 @@ export class Archivo_ProyectoRepository implements IArchivo_ProyectoRepository {
         )
     );
   }
-  async delete(id_archivo: number): Promise<void> {
-    await pool.query(
-      `
-    DELETE FROM archivos_proyecto
-    WHERE id_archivo = $1
+async delete(id_archivo: number): Promise<void> {
+  const result = await pool.query(
+    `
+    UPDATE archivos_proyecto
+    SET estado = false
+    WHERE id_archivo = $1 AND estado = true
     `,
-      [id_archivo]
-    );
+    [id_archivo]
+  );
+
+  if (result.rowCount === 0) {
+    throw new Error("Archivo no encontrado o ya eliminado");
   }
+}
 }
 
 export const archivo_ProyectoRepository = new Archivo_ProyectoRepository();

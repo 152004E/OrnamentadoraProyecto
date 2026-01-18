@@ -1,4 +1,3 @@
-import { ActualizarUsuarioInput } from "../../application/UseCases/UsuarioUseCase/ActualizarUsuarioInput";
 import { Usuario } from "../../domain/entities/Usuario";
 import { IUsuarioRepository } from "../../domain/interfaces/IUsuarioRepository";
 import { Email } from "../../domain/valueObjects/Email";
@@ -30,13 +29,15 @@ export class UsuarioRepository implements IUsuarioRepository {
     return this.mapToEntity(rows[0]);
   }
   async listar(): Promise<Usuario[]> {
-    const { rows } = await pool.query(`SELECT * FROM usuarios`);
+    const { rows } = await pool.query(
+      `SELECT * FROM usuarios WHERE estado = true`
+    );
     return rows.map(this.mapToEntity);
   }
 
   async buscarPorId(id: number): Promise<Usuario | null> {
     const { rows } = await pool.query(
-      `SELECT * FROM usuarios WHERE id_usuario = $1`,
+      `SELECT * FROM usuarios WHERE id_usuario = $1 AND estado = true`,
       [id]
     );
 
@@ -46,7 +47,7 @@ export class UsuarioRepository implements IUsuarioRepository {
 
   async buscarPorEmail(correo: string): Promise<Usuario | null> {
     const { rows } = await pool.query(
-      `SELECT * FROM usuarios WHERE correo = $1`,
+      `SELECT * FROM usuarios WHERE correo = $1 AND estado = true`,
       [correo]
     );
 
@@ -83,12 +84,18 @@ export class UsuarioRepository implements IUsuarioRepository {
   }
 
   async eliminar(id: number): Promise<void> {
-    const resultado = await pool.query(
-      `DELETE FROM usuarios WHERE id_usuario = $1`,
+    const result = await pool.query(
+      `
+    UPDATE usuarios
+    SET estado = false
+    WHERE id_usuario = $1
+    AND estado = true
+    `,
       [id]
     );
-    if (resultado.rowCount === 0) {
-      throw new Error("Usuario no encontrado");
+
+    if (result.rowCount === 0) {
+      throw new Error("Usuario no encontrado o ya eliminado");
     }
   }
 

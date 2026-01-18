@@ -249,6 +249,7 @@ backEnd/
 │  │  │  ├─ ComentarioMapper.ts            ✓ Transforma Comentarios → DTO
 │  │  │  ├─ LikeMapper.ts                  ✓ Transforma Likes → DTO
 │  │  │  └─ ArchivoProyectoMapper.ts       ✓ Transforma Archivo_Proyecto → DTO
+│  │  │  └─ ArchivoProyectoMapper.ts       ✓ Transforma Archivo_Proyecto → DTO
 │  │  │
 │  │  └─ middlewares/
 │  │     └─ auth.middleware.ts             ✓ Middleware de autenticación JWT

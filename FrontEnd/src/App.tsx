@@ -1,8 +1,26 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import MainLayout from "./layouts/MainLayout";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+
+import AuthLayout from "./layouts/AuthLayout";
+
 function App() {
   return (
-    <main className="bg-gray-400 h-screen">
-      <h1>hola para todos</h1>
-    </main>
+    <BrowserRouter>
+      <Routes>
+        {/* Rutas con Navbar */}
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Home />} />
+        </Route>
+        {/* Rutas sin Navbar */}
+
+        <Route  element={<AuthLayout/>}>
+      <Route path="/login" element={<Login/>}/>
+          </Route>
+        
+      </Routes>
+    </BrowserRouter>
   );
 }
 

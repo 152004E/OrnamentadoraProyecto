@@ -22,7 +22,7 @@ export const AuthButton = ({
       onClick={onClick}
       disabled={disabled}
       className={`bg-blue-600 w-full rounded-lg text-white flex gap-2 
-        justify-center items-center py-3 mb-5 transition-all duration-300
+        justify-center items-center py-3 my-5 transition-all duration-300
         hover:bg-blue-700 active:scale-95
         ${disabled ? "opacity-60 cursor-not-allowed" : ""}`}
     >

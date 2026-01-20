@@ -34,12 +34,12 @@ export const AuthInput = ({
 
       <FontAwesomeIcon
         icon={iconInput}
-        className="text-gray-400 absolute bottom-7 left-2 text-[16px]"
+        className="text-gray-400 absolute bottom-6 left-2 text-[16px]"
       />
 
       <input
         type={type}
-        className="border py-2 rounded-lg mb-4 text-black pl-10 text-[15px] bg-gray-300/20 duration-500 transition-all focus:outline-none focus:ring-2 focus:ring-blue-600"
+        className="border py-2 rounded-lg mb-3 text-black pl-10 text-[15px] bg-gray-300/20 duration-500 transition-all focus:outline-none focus:ring-2 focus:ring-blue-600"
         placeholder={placeholder}
         name={name}
         value={value}
@@ -51,7 +51,7 @@ export const AuthInput = ({
         <FontAwesomeIcon
           onClick={onRightIconClick}
           icon={rightIcon}
-          className="text-gray-400 absolute bottom-7 right-3 text-[16px] cursor-pointer"
+          className="text-gray-400 absolute bottom-6 right-3 text-[16px] cursor-pointer"
         />
       )}
     </div>

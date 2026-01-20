@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 
 import AuthLayout from "./layouts/AuthLayout";
+import { Register } from "./pages/Register";
 
 function App() {
   return (
@@ -15,10 +16,10 @@ function App() {
         </Route>
         {/* Rutas sin Navbar */}
 
-        <Route  element={<AuthLayout/>}>
-      <Route path="/login" element={<Login/>}/>
-          </Route>
-        
+        <Route element={<AuthLayout />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

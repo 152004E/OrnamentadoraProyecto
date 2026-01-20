@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 export const Navbar = () => {
      const isAuthenticated = false;
   return (
- <header className="w-full border-b bg-white">
-      <nav className="flex items-center justify-between px-4 py-3">
+ <header className="w-full border-b bg-white rounded-xl">
+      <nav className="flex items-center justify-between rounded-2xl px-4 py-3">
         {/* Logo */}
         <Link to="/" className="text-xl font-bold text-blue-700">
           OrnArias

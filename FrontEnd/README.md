@@ -110,53 +110,71 @@ npm run build
     │
     ├─ src/
     │  ├─ assets/                        ← Imágenes, logos, íconos
+    │  │  └─ react.svg
     │  │
     │  ├─ components/                    ← Componentes reutilizables UI
     │  │  ├─ Navbar.tsx                  ✓ Barra de navegación
     │  │  ├─ Footer.tsx                  ✓ Pie de página
     │  │  ├─ ProjectCard.tsx             ✓ Card de proyecto
     │  │  ├─ Button.tsx                  ✓ Botón reutilizable
-    │  │  └─ Loader.tsx                  ✓ Loader global
+    │  │  ├─ Loader.tsx                  ✓ Loader global
+    │  │  └─ auth/                       ← Componentes de autenticación
+    │  │     ├─ AuthBackground.tsx       ✓ Fondo para formularios
+    │  │     ├─ AuthButton.tsx           ✓ Botón personalizado para auth
+    │  │     ├─ AuthCheckbox.tsx         ✓ Checkbox personalizado
+    │  │     ├─ AuthFooterLink.tsx       ✓ Link del pie de auth
+    │  │     ├─ AuthHeader.tsx           ✓ Encabezado de auth
+    │  │     └─ AuthInput.tsx            ✓ Input personalizado
+    │  │
+    │  ├─ layouts/                       ← Layouts (estructura base)
+    │  │  ├─ AuthLayout.tsx              ✓ Layout de autenticación
+    │  │  └─ MainLayout.tsx              ✓ Layout principal
     │  │
     │  ├─ pages/                         ← Vistas (rutas)
     │  │  ├─ Home.tsx                    ✓ Landing page
     │  │  ├─ Projects.tsx                ✓ Listado de proyectos
     │  │  ├─ ProjectDetail.tsx           ✓ Detalle de proyecto
-    │  │  ├─ Login.tsx                   ✓ Login
-    │  │  ├─ Profile.tsx                 ✓ Perfil de usuario
-    │  │  └─ AdminDashboard.tsx          ✓ Panel ADMIN
+    │  │  ├─ AdminDashboard.tsx          ✓ Panel ADMIN
+    │  │  └─ auth/                       ← Páginas de autenticación
+    │  │     ├─ Login.tsx                ✓ Página de login
+    │  │     ├─ Register.tsx             ✓ Página de registro
+    │  │     └─ ForgotPassword.tsx       ✓ Página de recuperación
     │  │
     │  ├─ services/                      ← Comunicación con backend
-    │  │  ├─ api.ts                      ✓ Axios instance
-    │  │  ├─ auth.service.ts             ✓ Login / logout
-    │  │  ├─ project.service.ts          ✓ Proyectos API
-    │  │  ├─ comment.service.ts          ✓ Comentarios API
-    │  │  └─ like.service.ts             ✓ Likes API
+    │  │  ├─ api.ts                      ⏳ Axios instance
+    │  │  ├─ auth.service.ts             ⏳ Login / logout
+    │  │  ├─ project.service.ts          ⏳ Proyectos API
+    │  │  ├─ comment.service.ts          ⏳ Comentarios API
+    │  │  └─ like.service.ts             ⏳ Likes API
     │  │
     │  ├─ hooks/                         ← Custom hooks
-    │  │  ├─ useAuth.ts                  ✓ Hook de autenticación
-    │  │  └─ useProjects.ts              ✓ Hook de proyectos
+    │  │  ├─ useAuth.ts                  ⏳ Hook de autenticación
+    │  │  └─ useProjects.ts              ⏳ Hook de proyectos
     │  │
     │  ├─ context/                       ← Context API
-    │  │  └─ AuthContext.tsx             ✓ Estado global auth
+    │  │  └─ AuthContext.tsx             ⏳ Estado global auth
     │  │
     │  ├─ types/                         ← Tipos y DTOs
-    │  │  ├─ Usuario.ts
-    │  │  ├─ Proyecto.ts
-    │  │  ├─ Comentario.ts
-    │  │  └─ Like.ts
+    │  │  ├─ Usuario.ts                  ⏳ Tipo usuario
+    │  │  ├─ Proyecto.ts                 ⏳ Tipo proyecto
+    │  │  ├─ Comentario.ts               ⏳ Tipo comentario
+    │  │  └─ Like.ts                     ⏳ Tipo like
     │  │
-    │  ├─ App.tsx                        ← Rutas principales
-    │  ├─ main.tsx                       ← Entry point
-    │  └─ index.css                      ← Tailwind base
+    │  ├─ App.tsx                        ✓ Rutas principales
+    │  ├─ main.tsx                       ✓ Entry point
+    │  └─ index.css                      ✓ Tailwind base
     │
-    ├─ index.html
+    ├─ index.html                        ✓ HTML principal
     ├─ package.json
     ├─ tsconfig.json
+    ├─ tsconfig.app.json
+    ├─ tsconfig.node.json
     ├─ vite.config.ts
+    ├─ eslint.config.js
     └─ README.md
 
-**Leyenda:** - ✓ = Implementado\
+**Leyenda:** 
+- ✓ = Implementado
 - ⏳ = En desarrollo
 
 ------------------------------------------------------------------------

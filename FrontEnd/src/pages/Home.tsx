@@ -1,5 +1,13 @@
-const Home = () => {
-  return <div>este es el home</div>;
-};
+import { HeroSection } from "../components/home/HeroSection";
+import { HomeProjects } from "../components/home/HomeProjects";
+import { StatsSection } from "../components/home/StatsSection";
 
-export default Home;
+export const Home = () => {
+  return (
+    <div className="flex flex-col">
+      <HeroSection />
+      <StatsSection />
+      <HomeProjects/>
+    </div>
+  );
+};

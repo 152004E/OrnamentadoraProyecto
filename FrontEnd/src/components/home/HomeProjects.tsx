@@ -20,7 +20,7 @@ export const HomeProjects = () => {
         href="/proyectos"
         className="mt-9 text-blue-600 text-xl font-semibold uppercase"
       >
-        Ver proyecto <FontAwesomeIcon icon={faArrowRight} />
+        Ver proyectos <FontAwesomeIcon icon={faArrowRight} />
       </a>
     </main>
   );

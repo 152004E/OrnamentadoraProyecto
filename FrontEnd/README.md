@@ -110,44 +110,91 @@ npm run build
     │
     ├─ src/
     │  ├─ assets/                        ← Imágenes, logos, íconos
-    │  │  └─ react.svg
     │  │
     │  ├─ components/                    ← Componentes reutilizables UI
     │  │  ├─ Navbar.tsx                  ✓ Barra de navegación
     │  │  ├─ Footer.tsx                  ✓ Pie de página
+    │  │  ├─ FooterLInks.tsx             ✓ Links personalizados footer
     │  │  ├─ ProjectCard.tsx             ✓ Card de proyecto
     │  │  ├─ Button.tsx                  ✓ Botón reutilizable
     │  │  ├─ Loader.tsx                  ✓ Loader global
-    │  │  └─ auth/                       ← Componentes de autenticación
-    │  │     ├─ AuthBackground.tsx       ✓ Fondo para formularios
-    │  │     ├─ AuthButton.tsx           ✓ Botón personalizado para auth
-    │  │     ├─ AuthCheckbox.tsx         ✓ Checkbox personalizado
-    │  │     ├─ AuthFooterLink.tsx       ✓ Link del pie de auth
-    │  │     ├─ AuthHeader.tsx           ✓ Encabezado de auth
-    │  │     └─ AuthInput.tsx            ✓ Input personalizado
+    │  │  ├─ SearchBar.tsx               ✓ Barra de búsqueda
+    │  │  │
+    │  │  ├─ auth/                       ← Componentes de autenticación
+    │  │  │  ├─ AuthBackground.tsx       ✓ Fondo para formularios
+    │  │  │  ├─ AuthButton.tsx           ✓ Botón personalizado para auth
+    │  │  │  ├─ AuthCheckbox.tsx         ✓ Checkbox personalizado
+    │  │  │  ├─ AuthFooterLink.tsx       ✓ Link del pie de auth
+    │  │  │  ├─ AuthHeader.tsx           ✓ Encabezado de auth
+    │  │  │  └─ AuthInput.tsx            ✓ Input personalizado
+    │  │  │
+    │  │  ├─ home/                       ← Componentes de homepage
+    │  │  │  ├─ HeroSection.tsx          ✓ Sección hero
+    │  │  │  ├─ HomeComunication.tsx     ✓ Sección de comunicación
+    │  │  │  ├─ HomeProjects.tsx         ✓ Sección de proyectos
+    │  │  │  └─ StatsSection.tsx         ✓ Sección de estadísticas
+    │  │  │
+    │  │  ├─ proyectosComponents/        ← Componentes de proyectos
+    │  │  │  └─ (Componentes específicos de proyectos)
+    │  │  │
+    │  │  └─ ...
     │  │
     │  ├─ layouts/                       ← Layouts (estructura base)
     │  │  ├─ AuthLayout.tsx              ✓ Layout de autenticación
-    │  │  └─ MainLayout.tsx              ✓ Layout principal
+    │  │  └─ MainLayout.tsx              ✓ Layout principal (Navbar + Outlet + Footer)
     │  │
     │  ├─ pages/                         ← Vistas (rutas)
     │  │  ├─ Home.tsx                    ✓ Landing page
     │  │  ├─ Projects.tsx                ✓ Listado de proyectos
     │  │  ├─ ProjectDetail.tsx           ✓ Detalle de proyecto
     │  │  ├─ AdminDashboard.tsx          ✓ Panel ADMIN
-    │  │  └─ auth/                       ← Páginas de autenticación
-    │  │     ├─ Login.tsx                ✓ Página de login
-    │  │     ├─ Register.tsx             ✓ Página de registro
-    │  │     └─ ForgotPassword.tsx       ✓ Página de recuperación
+    │  │  │
+    │  │  ├─ auth/                       ← Páginas de autenticación
+    │  │  │  ├─ Login.tsx                ✓ Página de login
+    │  │  │  ├─ Register.tsx             ✓ Página de registro
+    │  │  │  └─ ForgotPassword.tsx       ✓ Página de recuperación
+    │  │  │
+    │  │  ├─ proyectos/                  ← Páginas de proyectos
+    │  │  │  └─ (Páginas específicas de proyectos)
+    │  │  │
+    │  │  └─ ...
     │  │
     │  ├─ services/                      ← Comunicación con backend
-    │  │  ├─ api.ts                      ⏳ Axios instance
-    │  │  ├─ auth.service.ts             ⏳ Login / logout
-    │  │  ├─ project.service.ts          ⏳ Proyectos API
-    │  │  ├─ comment.service.ts          ⏳ Comentarios API
-    │  │  └─ like.service.ts             ⏳ Likes API
+    │  │  ├─ api.ts                      ⏳ Axios instance / configuración
+    │  │  ├─ auth.service.ts             ⏳ Login / logout / registro
+    │  │  ├─ project.service.ts          ⏳ CRUD proyectos
+    │  │  ├─ comment.service.ts          ⏳ CRUD comentarios
+    │  │  └─ like.service.ts             ⏳ Toggle likes
     │  │
     │  ├─ hooks/                         ← Custom hooks
+    │  │  ├─ useAuth.ts                  ⏳ Hook de autenticación
+    │  │  └─ useProjects.ts              ⏳ Hook de proyectos
+    │  │
+    │  ├─ context/                       ← Context API (Estado global)
+    │  │  └─ AuthContext.tsx             ⏳ Estado global de autenticación
+    │  │
+    │  ├─ types/                         ← Tipos TypeScript y DTOs
+    │  │  ├─ Usuario.ts                  ⏳ Interfaz Usuario
+    │  │  ├─ Proyecto.ts                 ⏳ Interfaz Proyecto
+    │  │  ├─ Comentario.ts               ⏳ Interfaz Comentario
+    │  │  └─ Like.ts                     ⏳ Interfaz Like
+    │  │
+    │  ├─ App.tsx                        ✓ Rutas principales y router
+    │  ├─ main.tsx                       ✓ Entry point
+    │  └─ index.css                      ✓ Tailwind base y estilos globales
+    │
+    ├─ index.html                        ✓ HTML principal
+    ├─ package.json
+    ├─ tsconfig.json
+    ├─ tsconfig.app.json
+    ├─ tsconfig.node.json
+    ├─ vite.config.ts
+    ├─ eslint.config.js
+    └─ README.md
+
+**Leyenda:** 
+- ✓ = Implementado
+- ⏳ = En desarrollo
     │  │  ├─ useAuth.ts                  ⏳ Hook de autenticación
     │  │  └─ useProjects.ts              ⏳ Hook de proyectos
     │  │

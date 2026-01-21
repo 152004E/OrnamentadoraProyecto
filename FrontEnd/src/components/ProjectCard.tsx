@@ -1,5 +1,6 @@
 import { faFolderOpen } from "@fortawesome/free-solid-svg-icons";
-import rejaProyecto from "../../public/rejaProyecto.jpg";
+import rejaProyecto from "../assets/rejaProyecto.jpg";
+
 import { Button } from "./Button";
 export const ProjectCard = () => {
   return (
@@ -18,7 +19,6 @@ export const ProjectCard = () => {
           estética moderna.
         </p>
         <Button text="Ver Proyecto" icon={faFolderOpen} type="submit" />
-       
       </div>
     </article>
   );

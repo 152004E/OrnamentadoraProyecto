@@ -1,4 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import rejaProyecto from "../../assets/fondo.png";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { faPhoneFlip } from "@fortawesome/free-solid-svg-icons";
 
 export const HomeComunication = () => {
   return (
@@ -18,11 +21,13 @@ export const HomeComunication = () => {
           únicos y duraderos.
         </p>
         <div className="flex flex-col w-full justify-center items-center gap-3">
-          <button className="border bg-white uppercase tracking-wider font-bold w-full text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition">
-           Solicitar cotización
+          <button className="flex justify-center items-center gap-1 border bg-white uppercase tracking-wider font-bold w-full text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition">
+            Solicitar cotización
+            <FontAwesomeIcon icon={faWhatsapp} className="text-xl " />
           </button>
-          <button className="border border-white w-full text-white uppercase tracking-wider font-bold px-6 py-3 rounded-lg hover:bg-blue-50 transition">
+          <button className="flex justify-center items-center gap-2 border border-white w-full text-white uppercase tracking-wider font-bold px-6 py-3 rounded-lg hover:bg-blue-50 transition">
             Hablar con un asesor
+            <FontAwesomeIcon icon={faPhoneFlip} className="text-sm" />
           </button>
         </div>
       </div>

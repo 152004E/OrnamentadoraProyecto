@@ -4,7 +4,7 @@ import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
   faInstagram,
-  faTwitter,
+  faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 
 export const Footer = () => {
@@ -64,7 +64,7 @@ export const Footer = () => {
             rel="noreferrer"
             className="w-9 h-9 flex items-center justify-center rounded-full bg-white text-blue-600 hover:bg-blue-600 hover:text-white transition"
           >
-            <FontAwesomeIcon icon={faTwitter} />
+           <FontAwesomeIcon icon={faWhatsapp} />
           </a>
         </div>
       </div>

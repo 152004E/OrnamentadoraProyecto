@@ -3,7 +3,7 @@ import { Button } from "../Button";
 
 export const HeroSection = () => {
   return (
-    <section className="w-full px-6 py-16 flex flex-col items-center text-center bg-white ">
+    <section id="home" className="w-full px-6 py-16 flex flex-col items-center text-center bg-white ">
       <h1 className="text-4xl font-bold text-blue-500/90 mb-4">
         Diseñamos y fabricamos ornamentos a tu medida
       </h1>

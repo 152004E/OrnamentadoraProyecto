@@ -10,7 +10,7 @@ export const AuthFooterLink = ({
   text,
   linkText,
   to,
-}: AuthFooterLinkProps) => {
+}: AuthFooterLinkProps) => { 
   return (
     <p className="flex w-full gap-2  text-[14px] justify-center items-center mt-4">
       {text}{" "}

@@ -6,7 +6,7 @@ export const Navbar = () => {
       <nav className="flex items-center justify-between rounded-2xl px-4 py-3">
         {/* Logo */}
         <Link to="/" className="text-xl font-bold text-blue-700">
-          OrnArias
+          Orn-Arias
         </Link>
 
         {/* Acciones */}

@@ -1,4 +1,11 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FooterLInks } from "./FooterLInks";
+import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFacebookF,
+  faInstagram,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
 export const Footer = () => {
   return (
@@ -16,15 +23,52 @@ export const Footer = () => {
         </div>
 
         {/* Links */}
-        <div className="flex gap-6 text-sm font-medium text-gray-600">
-          <FooterLInks to="/#home" linkText="inicio" />
+        <div className="flex justify-around items-center gap-3 flex-wrap text-sm font-medium text-gray-600 mb-3">
           <FooterLInks to="/ForgotPassword" linkText="Proyectos" />
-          <FooterLInks to="/login" linkText="Iniciar Sesion" />
+          <FooterLInks to="/#home" linkText="inicio" />
           <FooterLInks to="/register" linkText="Registrarse" />
-   
+          <FooterLInks to="/login" linkText="Iniciar Sesion" />
+        </div>
+        <div className="w-70 flex flex-col justify-around items-center p-6 bg-blue-50 gap-2 flex-wrap text-sm rounded-2xl font-medium text-gray-600">
+          <p className="flex justify-center items-center gap-2">
+            <FontAwesomeIcon icon={faPhone} />
+            322-456-8123
+          </p>
+          <p className="flex justify-center items-center gap-2">
+            <FontAwesomeIcon icon={faEnvelope} />
+            ContactoOrnArias@gmail.com
+          </p>
+        </div>
+        <div className="flex gap-4 mt-6">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noreferrer"
+            className="w-9 h-9 flex items-center justify-center rounded-full bg-white text-blue-600 hover:bg-blue-600 hover:text-white transition"
+          >
+            <FontAwesomeIcon icon={faFacebookF} />
+          </a>
+
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noreferrer"
+            className="w-9 h-9 flex items-center justify-center rounded-full bg-white text-blue-600 hover:bg-blue-600 hover:text-white transition"
+          >
+            <FontAwesomeIcon icon={faInstagram} />
+          </a>
+
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noreferrer"
+            className="w-9 h-9 flex items-center justify-center rounded-full bg-white text-blue-600 hover:bg-blue-600 hover:text-white transition"
+          >
+            <FontAwesomeIcon icon={faTwitter} />
+          </a>
         </div>
       </div>
-      <div className="bg-blue-800">
+      <div className="bg-blue-800 w-full h-full p-6 flex justify-center items-center">
         {/* Copyright */}
         <div className="text-sm text-gray-400">
           © {new Date().getFullYear()} OrnArias. Todos los derechos reservados.

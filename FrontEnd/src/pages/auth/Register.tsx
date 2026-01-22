@@ -15,7 +15,7 @@ import { AuthCheckbox } from "../../components/auth/AuthCheckbox";
 
 export const Register = () => {
   return (
-    <div className=" w-[320px] h-175 rounded-2xl shadow-2x overflow-hidden">
+    <div className="relative w-[320px] h-175 rounded-2xl shadow-2x">
       {/* Bolas difuminadas de fondo */}
       <AuthBackground />
 

@@ -1,4 +1,6 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ProjectCard } from "../ProjectCard";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export const HomeProjects = () => {
   return (
@@ -13,7 +15,13 @@ export const HomeProjects = () => {
           un enfoque orientado a resultados.
         </p>
       </div>
-      <ProjectCard/>
+      <ProjectCard />
+      <a
+        href="/proyectos"
+        className="mt-9 text-blue-600 text-xl font-semibold uppercase"
+      >
+        Ver proyectos <FontAwesomeIcon icon={faArrowRight} />
+      </a>
     </main>
   );
 };

@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import rejaProyecto from "../../assets/fondo.png";
+import Logo from "../../assets/LogoRecord.png";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faPhoneFlip } from "@fortawesome/free-solid-svg-icons";
 
@@ -7,7 +7,7 @@ export const HomeComunication = () => {
   return (
     <section
       className="relative w-full px-6 py-16 rounded-xl bg-cover bg-center"
-      style={{ backgroundImage: `url(${rejaProyecto})` }}
+      style={{ backgroundImage: `url(${Logo})` }}
     >
       <div className="absolute inset-0 bg-blue-700/90 rounded-2xl"></div>
 

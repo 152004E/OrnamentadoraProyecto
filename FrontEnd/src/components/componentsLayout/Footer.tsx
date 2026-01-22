@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FooterLInks } from "./FooterLInks";
+import { FooterLInks } from "../componentsLayout/FooterLInks";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
@@ -14,7 +14,7 @@ export const Footer = () => {
         {/* Branding */}
         <div className="flex flex-col justify-between items-center">
           <h3 className="text-[22px]  font-bold text-blue-700 mb-1">
-            Orn-Arias
+            WL ORNAMENTACIÓN <br /> &  ALUMINIO S . A
           </h3>
           <p className="text-[15px] text-center text-gray-500 p-3">
             Soluciones en infraestructura y proyectos modernos. Transformamos
@@ -71,7 +71,7 @@ export const Footer = () => {
       <div className="bg-blue-800 w-full h-full p-6 flex justify-center items-center">
         {/* Copyright */}
         <div className="text-sm text-gray-400">
-          © {new Date().getFullYear()} OrnArias. Todos los derechos reservados.
+          © {new Date().getFullYear()} WL ORNAMENTACIÓN  &  ALUMINIO S . A. Todos los derechos reservados.
         </div>
       </div>
     </footer>

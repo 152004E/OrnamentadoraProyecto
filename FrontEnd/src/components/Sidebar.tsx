@@ -1,0 +1,97 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faFolderOpen,
+  faUsers,
+  faFileInvoice,
+  faUser,
+  faCog,
+} from "@fortawesome/free-solid-svg-icons";
+import { Button } from "./Button";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons/faRightFromBracket";
+
+interface SidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
+  return (
+    <>
+      {/*fondo oscuro */}
+      {isOpen && (
+        <div onClick={onClose} className="fixed inset-0 bg-black/30 z-40" />
+      )}
+
+      {/* Panel */}
+      <aside
+        className={`fixed top-0 right-0 h-screen w-72 bg-white z-50
+        transform transition-transform duration-300
+        ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+      >
+        <div className="p-3.75  bg-blue-600 rounded-br-2xl">
+          <button onClick={onClose} className="text-xl text-white font-bold ">
+            ✕
+          </button>
+        </div>
+        <header className="p-4">
+          <img src="" alt="" className="p-6 bg-blue-600/30 rounded-full" />
+          <p className="mt-1 font-semibold">Hola, Usuario</p>
+          <p className=" font-semibold text-gray-400 text-sm">
+            Bienvenido a WL ORNAMENTACIÓN  &  ALUMINIO S . A
+          </p>
+        </header>
+        <main>
+          {" "}
+          <a
+            href="/"
+            className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+          >
+            <FontAwesomeIcon icon={faHome} className="text-blue-600" />
+            <span>Inicio</span>
+          </a>
+          <a
+            href="/proyectos"
+            className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+          >
+            <FontAwesomeIcon icon={faFolderOpen} className="text-blue-600" />
+            <span>Proyectos Realizados</span>
+          </a>
+          <a
+            href="/nosotros"
+            className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+          >
+            <FontAwesomeIcon icon={faUsers} className="text-blue-600" />
+            <span>Nosotros</span>
+          </a>
+          <a
+            href="/cotizar"
+            className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+          >
+            <FontAwesomeIcon icon={faFileInvoice} className="text-blue-600" />
+            <span>Cotizar Proyecto</span>
+          </a>
+          <a
+            href="/perfil"
+            className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+          >
+            <FontAwesomeIcon icon={faUser} className="text-blue-600" />
+            <span>Mi Perfil</span>
+          </a>
+          <a
+            href="/configuracion"
+            className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+          >
+            <FontAwesomeIcon icon={faCog} className="text-blue-600" />
+            <span>Configuración</span>
+          </a>
+        </main>
+
+        <footer className="w-full flex flex-col justify-center items-center ">
+          <Button text="Cerrar Sesión" icon={faRightFromBracket} />
+          <a href="">ayuda y soporte</a>
+        </footer>
+      </aside>
+    </>
+  );
+};

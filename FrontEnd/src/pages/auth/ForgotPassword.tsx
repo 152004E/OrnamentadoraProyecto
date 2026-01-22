@@ -7,7 +7,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons/faArrowRight";
 import { AuthFooterLink } from "../../components/auth/AuthFooterLink";
 export const ForgotPassword = () => {
   return (
-    <div className=" w-[320px] h-175 rounded-2xl shadow-2x overflow-hidden">
+    <div className="relative w-[320px] h-175 rounded-2xl shadow-2x">
       {/* Bolas difuminadas de fondo */}
       <AuthBackground />
 

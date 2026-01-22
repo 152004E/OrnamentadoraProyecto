@@ -709,3 +709,59 @@ ISC License - Ver archivo LICENSE para más detalles
 **Última actualización:** Enero 2026  
 **Versión:** 1.0.0 (En desarrollo activo)  
 **Mantener:** [152004E](https://github.com/152004E)
+**Última actualización:** Diciembre 2025  
+**Versión:** 1.0.0 (En desarrollo)
+
+---
+
+## 📄 Versionamiento y Manejo de Ramas (Git/GitHub)
+
+### Configuración Inicial de Ramas
+
+#### 1️⃣ Traer las ramas remotas
+```bash
+git fetch origin
+```
+
+#### 2️⃣ Ver ramas remotas disponibles
+```bash
+git branch -r
+```
+
+**Esperado:**
+```
+origin/main
+origin/develop
+```
+
+#### 3️⃣ Crear y conectar la rama local develop
+```bash
+git switch -c develop origin/develop
+```
+
+💡 **Esto hace:**
+- Crea la rama local `develop`
+- La conecta automáticamente con `origin/develop`
+- Te cambia a esa rama
+
+#### 4️⃣ Verificar ramas locales
+```bash
+git branch
+```
+
+**Esperado:**
+```
+* develop
+  main
+```
+
+---
+
+### 🔄 Flujo de Trabajo Recomendado
+
+- **`main`**: Código en producción (estable)
+- **`develop`**: Rama de desarrollo (integración)
+- **Feature branches**: Ramas para nuevas funcionalidades (`feature/nombre`)
+
+---
+

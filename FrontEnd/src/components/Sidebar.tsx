@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "./Button";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons/faRightFromBracket";
+import WlSinFondo from "../assets/wlSinFondo.png";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -26,22 +27,30 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
       {/* Panel */}
       <aside
         className={`fixed top-0 right-0 h-screen w-72 bg-white z-50
+        flex flex-col
         transform transition-transform duration-300
         ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
-        <div className="p-3.75  bg-blue-600 rounded-br-2xl">
-          <button onClick={onClose} className="text-xl text-white font-bold ">
-            ✕
-          </button>
+        <div>
+          <div className="p-3.75 bg-blue-600 rounded-br-2xl">
+            <button onClick={onClose} className="text-xl text-white font-bold">
+              ✕
+            </button>
+          </div>
+
+          <header className="p-4">
+            <img
+              src={WlSinFondo}
+              alt="Logo WL"
+              className="w-15 h-15 object-contain bg-blue-600/30 rounded-full "
+            />
+            <p className="mt-1 font-semibold">Hola, Usuario</p>
+            <p className="font-semibold text-gray-400 text-sm">
+              Bienvenido a WL ORNAMENTACIÓN & ALUMINIO S.A
+            </p>
+          </header>
         </div>
-        <header className="p-4">
-          <img src="" alt="" className="p-6 bg-blue-600/30 rounded-full" />
-          <p className="mt-1 font-semibold">Hola, Usuario</p>
-          <p className=" font-semibold text-gray-400 text-sm">
-            Bienvenido a WL ORNAMENTACIÓN  &  ALUMINIO S . A
-          </p>
-        </header>
-        <main>
+        <main className="flex-1 overflow-y-auto">
           {" "}
           <a
             href="/"
@@ -87,9 +96,11 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
           </a>
         </main>
 
-        <footer className="w-full flex flex-col justify-center items-center ">
+        <footer className="border-gray-200 border-t p-4  flex flex-col gap-3">
           <Button text="Cerrar Sesión" icon={faRightFromBracket} />
-          <a href="">ayuda y soporte</a>
+          <div className="flex  m-auto items-center">
+            <a href="">ayuda y soporte</a>
+          </div>
         </footer>
       </aside>
     </>

@@ -24,7 +24,7 @@ export const Footer = () => {
 
         {/* Links */}
         <div className="flex justify-around items-center gap-3 flex-wrap text-sm font-medium text-gray-600 mb-3">
-          <FooterLInks to="/ForgotPassword" linkText="Proyectos" />
+          <FooterLInks to="/proyectos" linkText="Proyectos" />
           <FooterLInks to="/#home" linkText="inicio" />
           <FooterLInks to="/register" linkText="Registrarse" />
           <FooterLInks to="/login" linkText="Iniciar Sesion" />

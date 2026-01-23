@@ -7,6 +7,8 @@ import { Login } from "./pages/auth/Login";
 import { ForgotPassword } from "./pages/auth/ForgotPassword";
 import { Home } from "./pages/Home";
 import { ProyectosRealizados } from "./pages/proyectos/ProyectosRealizados";
+import { DetallesProyecto } from "./pages/proyectos/DetallesProyecto";
+import { Nosotros } from "./pages/Nosotros";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/proyectos" element={<ProyectosRealizados />} />
+          <Route path="/detalleProyectos" element={<DetallesProyecto />} />
+          <Route path="/nosotros" element={<Nosotros />} />
         </Route>
         {/* Rutas sin Navbar */}
 

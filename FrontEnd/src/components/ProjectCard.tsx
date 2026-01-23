@@ -18,7 +18,7 @@ export const ProjectCard = () => {
           residenciales y comerciales, enfocado en seguridad, durabilidad y
           estética moderna.
         </p>
-        <Button text="Ver Proyecto" icon={faFolderOpen} type="submit" />
+        <Button to="/detalleProyectos" text="Ver Proyecto" icon={faFolderOpen} type="submit" />
       </div>
     </article>
   );

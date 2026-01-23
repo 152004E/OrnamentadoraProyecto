@@ -1,5 +1,5 @@
 import {
-  faBlind,
+  faBuildingShield,
   faCircleCheck,
   faClock,
   faEye,
@@ -39,7 +39,7 @@ export const AboutUsSection = () => {
         </article>
 
         <article className="flex flex-col justify-center items-center  bg-white w-23 py-4 rounded-xl shadow-blue-400/50 shadow-sm">
-          <FontAwesomeIcon icon={faBlind} className="text-blue-600" />
+          <FontAwesomeIcon icon={faBuildingShield} className="text-blue-600" />
           <p className="text-[17px] font-semibold ">100+</p>
           <p className="text-[12px] font-semibold text-gray-400">PROYECTOS</p>
         </article>

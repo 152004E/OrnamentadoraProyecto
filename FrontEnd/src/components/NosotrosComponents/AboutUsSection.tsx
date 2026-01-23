@@ -1,11 +1,6 @@
-import {
-  faBuildingShield,
-  faCircleCheck,
-  faClock,
-  faEye,
-  faFlag,
-} from "@fortawesome/free-solid-svg-icons";
+import { faEye, faFlag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { StatsSection } from "../componentsLayout/StatsSection";
 
 export const AboutUsSection = () => {
   return (
@@ -31,25 +26,7 @@ export const AboutUsSection = () => {
           reconocidos por nuestra innovación técnica y diseño sustentable.
         </p>
       </div>
-      <div className="flex justify-around items-center">
-        <article className="flex flex-col justify-center items-center  bg-white w-23 py-4 rounded-xl shadow-blue-400/50 shadow-sm">
-          <FontAwesomeIcon icon={faClock} className="text-blue-600" />
-          <p className="text-[17px] font-semibold ">8+</p>
-          <p className="text-[12px] font-semibold text-gray-400">AÑOS</p>
-        </article>
-
-        <article className="flex flex-col justify-center items-center  bg-white w-23 py-4 rounded-xl shadow-blue-400/50 shadow-sm">
-          <FontAwesomeIcon icon={faBuildingShield} className="text-blue-600" />
-          <p className="text-[17px] font-semibold ">100+</p>
-          <p className="text-[12px] font-semibold text-gray-400">PROYECTOS</p>
-        </article>
-
-        <article className="flex flex-col justify-center items-center bg-white w-23 py-4 rounded-xl shadow-blue-400/50 shadow-sm">
-          <FontAwesomeIcon icon={faCircleCheck} className="text-blue-600" />
-          <p className="text-[17px] font-semibold ">100%</p>
-          <p className="text-[12px] font-semibold text-gray-400">CALIDAD</p>
-        </article>
-      </div>
+      <StatsSection />
     </section>
   );
 };

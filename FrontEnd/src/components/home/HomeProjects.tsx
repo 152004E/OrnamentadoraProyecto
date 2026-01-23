@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ProjectCard } from "../ProjectCard";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { ProjectCard } from "../proyectosComponents/ProjectCard";
 
 export const HomeProjects = () => {
   return (

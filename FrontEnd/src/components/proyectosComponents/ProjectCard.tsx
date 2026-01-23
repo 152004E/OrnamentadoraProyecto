@@ -1,7 +1,8 @@
 import { faFolderOpen } from "@fortawesome/free-solid-svg-icons";
-import rejaProyecto from "../assets/rejaProyecto.jpg";
+import rejaProyecto from "../../assets/rejaProyecto.jpg";
+import { Button } from "../Button";
 
-import { Button } from "./Button";
+
 export const ProjectCard = () => {
   return (
     <article className="w-full bg-blue-200/60 p-6 rounded-2xl">

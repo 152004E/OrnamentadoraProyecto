@@ -23,6 +23,7 @@ export const ValoresNosotros = () => {
           Diseño y funcionalidad
         </p>
       </article>
+      
     </section>
   );
 };

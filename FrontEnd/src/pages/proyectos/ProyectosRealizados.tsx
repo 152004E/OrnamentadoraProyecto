@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ProjectCard } from "../../components/ProjectCard";
 import { HeroProyectos } from "../../components/proyectosComponents/HeroProyectos";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { ProjectCard } from "../../components/proyectosComponents/ProjectCard";
 
 export const ProyectosRealizados = () => {
   return (

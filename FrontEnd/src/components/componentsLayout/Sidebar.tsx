@@ -7,9 +7,9 @@ import {
   faUser,
   faCog,
 } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "./Button";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons/faRightFromBracket";
-import WlSinFondo from "../assets/wlSinFondo.png";
+import WlSinFondo from "../../assets/wlSinFondo.png";
+import { Button } from "../Button";
 
 interface SidebarProps {
   isOpen: boolean;

@@ -6,7 +6,7 @@ import {
   faPaperPlane,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button } from "../Button";
+import { Button } from "../componentsLayout/Button";
 import { StatCard } from "../componentsLayout/StatCard";
 
 export const DetalleSection = () => {

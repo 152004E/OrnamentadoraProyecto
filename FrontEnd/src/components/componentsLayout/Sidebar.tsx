@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons/faRightFromBracket";
 import WlSinFondo from "../../assets/wlSinFondo.png";
-import { Button } from "../Button";
+import { Button } from "./Button";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -38,16 +38,21 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
             </button>
           </div>
 
-          <header className="p-4">
-            <img
-              src={WlSinFondo}
-              alt="Logo WL"
-              className="w-15 h-15 object-contain bg-blue-600/30 rounded-full "
-            />
-            <p className="mt-1 font-semibold">Hola, Usuario</p>
-            <p className="font-semibold text-gray-400 text-sm">
-              Bienvenido a WL ORNAMENTACIÓN & ALUMINIO S.A
-            </p>
+          <header className="p-4 text-center border-b border-gray-200">
+            <figure className="flex flex-col items-center gap-2">
+              <img
+                src={WlSinFondo}
+                alt="Logo WL Ornamentación y Aluminio"
+                className="w-15 h-15 object-contain bg-blue-600/30 rounded-full"
+              />
+
+              <figcaption className="flex flex-col items-center">
+                <p className="font-semibold">Hola, Usuario</p>
+                <p className="text-sm font-semibold text-gray-400">
+                  Bienvenido a <br /> <span className="tracking-wide text-gray-500">WL ORNAMENTACIÓN & ALUMINIO S.A</span>
+                </p>
+              </figcaption>
+            </figure>
           </header>
         </div>
         <main className="flex-1 overflow-y-auto">

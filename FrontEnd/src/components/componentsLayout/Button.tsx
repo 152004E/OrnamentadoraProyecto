@@ -9,6 +9,7 @@ interface ButtonProps {
   type?: "button" | "submit";
   onClick?: () => void;
   disabled?: boolean;
+  className?: string;
 }
 
 export const Button = ({
@@ -18,6 +19,7 @@ export const Button = ({
   icon,
   onClick,
   disabled,
+  className,
 }: ButtonProps) => {
   {
     /*🔹 Como botón
@@ -36,9 +38,10 @@ export const Button = ({
   }
   const baseClasses =
     "flex justify-center items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition";
+  const finalClasses = `${baseClasses} ${className ?? ""}`;
   if (to) {
     return (
-      <Link to={to} className={baseClasses}>
+      <Link to={to} className={finalClasses}>
         <span>{text}</span>
         {icon && <FontAwesomeIcon icon={icon} />}
       </Link>
@@ -49,7 +52,7 @@ export const Button = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={baseClasses}
+      className={finalClasses}
     >
       <span>{text}</span>
 

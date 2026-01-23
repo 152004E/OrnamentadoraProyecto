@@ -1,6 +1,6 @@
 import { faFolderOpen } from "@fortawesome/free-solid-svg-icons";
 import rejaProyecto from "../../assets/rejaProyecto.jpg";
-import { Button } from "../Button";
+import { Button } from "../componentsLayout/Button";
 
 
 export const ProjectCard = () => {

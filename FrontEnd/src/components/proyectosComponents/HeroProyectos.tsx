@@ -1,6 +1,6 @@
 import { faListCheck } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "../Button";
-import { SearchBar } from "../SearchBar";
+import { Button } from "../componentsLayout/Button";
+import { SearchBar } from "../componentsLayout/SearchBar";
 
 export const HeroProyectos = () => {
   return (

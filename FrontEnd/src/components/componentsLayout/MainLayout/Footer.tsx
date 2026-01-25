@@ -1,11 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FooterLInks } from "../componentsLayout/FooterLInks";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebookF,
   faInstagram,
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
+import { FooterLInks } from "./FooterLInks";
 
 export const Footer = () => {
   return (

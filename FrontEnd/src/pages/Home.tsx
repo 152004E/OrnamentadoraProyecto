@@ -1,13 +1,13 @@
-import { StatsSection } from "../components/componentsLayout/StatsSection";
+import { SectionComunication } from "../components/componentsLayout/MainLayout/SectionComunication";
+import { StatsSection } from "../components/componentsLayout/MainLayout/StatsSection";
 import { HeroSection } from "../components/home/HeroSection";
-import { HomeComunication } from "../components/home/HomeComunication";
 import { HomeProjects } from "../components/home/HomeProjects";
 
 export const Home = () => {
   return (
     <div className="flex flex-col">
       <HeroSection />
-      <HomeComunication />
+      <SectionComunication/>
       <HomeProjects />
       <StatsSection />
     </div>

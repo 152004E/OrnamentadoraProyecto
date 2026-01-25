@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import logoRecord from "../../assets/wlSinFondo.png"
-import { Sidebar } from "./Sidebar";
+import logoRecord from "../../../assets/wlSinFondo.png"
+import { Sidebar } from "../Sidebar";
 export const Navbar = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);

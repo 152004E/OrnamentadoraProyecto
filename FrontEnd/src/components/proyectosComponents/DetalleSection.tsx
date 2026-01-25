@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "../componentsLayout/Button";
-import { StatCard } from "../componentsLayout/StatCard";
+import { StatCard } from "../componentsLayout/MainLayout/StatCard";
 
 export const DetalleSection = () => {
   return (
@@ -57,7 +57,7 @@ export const DetalleSection = () => {
         </article>
       </div>
       <div className="flex w-full justify-center items-center">
-        <Button text="Solicitar Contizacion Similar" icon={faPaperPlane} />
+        <Button to="/contacto" text="Solicitar Contizacion Similar" icon={faPaperPlane} />
       </div>
     </section>
   );

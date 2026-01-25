@@ -1,6 +1,6 @@
 import { faEye, faFlag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { StatsSection } from "../componentsLayout/StatsSection";
+import { StatsSection } from "../componentsLayout/MainLayout/StatsSection";
 
 export const AboutUsSection = () => {
   return (

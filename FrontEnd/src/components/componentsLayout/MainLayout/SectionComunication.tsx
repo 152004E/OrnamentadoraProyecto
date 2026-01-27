@@ -31,7 +31,7 @@ export const SectionComunication = () => {
             text="Hablar con un asesor"
             icon={faPhoneFlip}
             to="tel:+573001234567"
-            className="bg-transparent text-whiteborder border-white uppercase tracking-wider font-bold w-full hover:bg-blue-50"
+            className="bg-transparent text-white border border-white! uppercase tracking-wider font-bold w-full hover:bg-blue-50"
           />
         </div>
       </div>

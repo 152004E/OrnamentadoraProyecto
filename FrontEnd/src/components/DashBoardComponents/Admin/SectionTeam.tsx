@@ -1,11 +1,10 @@
 import { faFolderOpen, faFolderPlus } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "../../componentsLayout/Button";
-import { ProgressBar } from "./AdminDashComponents/ProgressBar";
 import { HeaderCards } from "./AdminDashComponents/HeaderCards";
+import { Button } from "../../componentsLayout/Button";
 
-export const SectionManagerProyects = () => {
+export const SectionTeam = () => {
   return (
-    <article className="my-8  min-w-70  px-6 py-3   rounded-2xl relative shadow-lg shadow-black border border-white/10 transition-all duration-300  hover:scale-[1.01]">
+    <article className="  min-w-70  px-6 py-3   rounded-2xl relative shadow-lg shadow-black border border-white/10 transition-all duration-300  hover:scale-[1.01]">
       <HeaderCards
         icon={faFolderOpen}
         titulo="Operaciones"
@@ -18,12 +17,10 @@ export const SectionManagerProyects = () => {
         <article className="w-35 ">
           <h4 className="font-black text-2xl">14</h4>
           <p className="text-gray-500 font-semibold text-sm ">En fabricacion</p>
-          <ProgressBar color="bg-red-500" value={70} />
         </article>
         <article className="w-35 ">
           <h4 className="font-black text-2xl">14</h4>
           <p className="text-gray-500 font-semibold text-sm ">En fabricacion</p>
-          <ProgressBar color="bg-green-500" value={20} />
         </article>
       </section>
       <div className="border border-black my-2"></div>

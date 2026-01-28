@@ -41,7 +41,7 @@ export const ContactoSection = () => {
         </figure>
       </div>
       <div className="flex justify-center items-center mt-6 pt-6 px-6 font-bold tracking-wide border-t border-gray-200">
-        <Button text="Contáctanos" icon={faArrowRight}  className="w-full" />
+        <Button text="Contáctanos" icon={faArrowRight} to="/contacto"  className="w-full" />
       </div>
     </section>
   );

@@ -14,7 +14,7 @@ export const Navbar = () => {
   return (
     <>
       <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/70 border-b rounded-2xl">
-        <nav className="flex items-center justify-between rounded-2xl px-4 py-3">
+        <nav id="nav" className="flex items-center justify-between rounded-2xl px-4 py-3">
           {/* Logo */}
           <Link to="/" className="flex items-center justify-center gap-2 text-xl font-bold text-blue-700">
              <img src={logoRecord} alt="" className="w-12" /> WL

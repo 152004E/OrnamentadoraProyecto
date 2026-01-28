@@ -10,6 +10,7 @@ import { ProyectosRealizados } from "./pages/proyectos/ProyectosRealizados";
 import { DetallesProyecto } from "./pages/proyectos/DetallesProyecto";
 import { Nosotros } from "./pages/Complement/Nosotros";
 import { ContactPage } from "./pages/Complement/ContactPage";
+import { AdminDashboardHome } from "./pages/Dashboard/AdminDashboardHome";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/detalleProyectos" element={<DetallesProyecto />} />
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/contacto" element={<ContactPage />} />
+          <Route path="/AdminDashboardHome" element={<AdminDashboardHome />} />
         </Route>
         {/* Rutas sin Navbar */}
 

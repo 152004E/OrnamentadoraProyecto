@@ -14,15 +14,16 @@ export const SectionManagerProyects = () => {
 
       <div className="border border-black my-2"></div>
 
-      <section className="flex justify-between my-4">
-        <article className="w-35 ">
-          <h4 className="font-black text-2xl">14</h4>
+      <section className="flex justify-between my-4 gap-3">
+        <article className="w-32 ">
+          <h4 className="font-semiboldbold text-4xl">14</h4>
           <p className="text-gray-500 font-semibold text-sm ">En fabricacion</p>
           <ProgressBar color="bg-red-500" value={70} />
         </article>
-        <article className="w-35 ">
-          <h4 className="font-black text-2xl">14</h4>
-          <p className="text-gray-500 font-semibold text-sm ">En fabricacion</p>
+        <div className="border border-gray-300 my-2"></div>
+        <article className="w-32 ">
+          <h4 className="font-semiboldbold text-4xl">14</h4>
+          <p className="text-gray-500 font-semibold text-sm ">Pendientes Entrega</p>
           <ProgressBar color="bg-green-500" value={20} />
         </article>
       </section>

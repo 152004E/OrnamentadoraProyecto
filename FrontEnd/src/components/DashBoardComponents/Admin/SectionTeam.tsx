@@ -7,8 +7,8 @@ export const SectionTeam = () => {
     <article className="  min-w-70  px-6 py-3   rounded-2xl relative shadow-lg shadow-black border border-white/10 transition-all duration-300  hover:scale-[1.01]">
       <HeaderCards
         icon={faFolderOpen}
-        titulo="Operaciones"
-        subtitulo="Control De Proyectos"
+        titulo="Equipo"
+        subtitulo="Equipo y Roles"
       />
 
       <div className="border border-black my-2"></div>

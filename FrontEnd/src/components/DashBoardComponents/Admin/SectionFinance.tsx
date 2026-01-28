@@ -6,7 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 export const SectionFinance = () => {
   return (
-    <section className=" my-7 flex flex-col gap-4 ">
+    <section className=" flex flex-col gap-4 ">
       <DashStadCard
         titulo="Ingresos Totales"
         subTitulo="Este mes"

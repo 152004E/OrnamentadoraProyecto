@@ -1,4 +1,7 @@
-import type { IconDefinition, IconProp } from "@fortawesome/fontawesome-svg-core";
+import type {
+  IconDefinition,
+  IconProp,
+} from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "../../../componentsLayout/Button";
 
@@ -8,7 +11,7 @@ interface DashStadCardProps {
   monto: string;
   className?: string;
   icon: IconProp;
-  iconButton : IconDefinition
+  iconButton: IconDefinition;
 }
 
 export const DashStadCard = ({
@@ -17,19 +20,22 @@ export const DashStadCard = ({
   monto,
   className,
   icon,
-  iconButton
+  iconButton,
 }: DashStadCardProps) => {
-    const baseClasses = "min-w-70  px-6 py-3  rounded-2xl relative shadow-lg shadow-black border border-white/10 transition-all duration-300  hover:scale-[1.01]" 
-    const finalClasses = `${baseClasses} ${className ?? ""}`;
+  const baseClasses =
+    "min-w-70  px-6 py-3  rounded-2xl relative shadow-lg shadow-black border border-white/10 transition-all duration-300  hover:scale-[1.01]";
+  const finalClasses = `${baseClasses} ${className ?? ""}`;
   return (
     <article className={finalClasses}>
-      <div className="pb-4">
+      <div className="pb-4 flex flex-col gap-2">
         <h3 className="text-xl text-white font-semiboldbold tracking-wide">
           {titulo}
         </h3>
-        <p className="text-[12px] py-1 font-medium  min-w-15 max-w-30 flex justify-center items-center bg-blue-600 rounded-2xl text-gray-400  mt-1">
-          {subTitulo}
-        </p>
+        <span className="flex ">
+          <p className="text-[12px] uppercase py-1 px-2 tracking-wide font-bold   bg-white rounded-2xl text-blue-800 ">
+            {subTitulo}
+          </p>
+        </span>
       </div>
       <p className="text-3xl text-white font-bold tracking-tight pb-6">
         {monto}

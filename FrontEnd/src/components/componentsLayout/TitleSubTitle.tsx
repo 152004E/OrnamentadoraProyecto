@@ -1,12 +1,32 @@
-interface TitleSubTitleProps{
-    title : string
-    classTitle : string
-    subTitle : string
-    classSubTitle : string
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+interface TitleSubTitleProps {
+  icon?: IconDefinition;
+  title?: string;
+  subTitle?: string;
+  classTitle?: string;
+  classSubTitle?: string;
 }
-export const TitleSubTitle = ({title,classSubTitle,classTitle,subTitle}:TitleSubTitleProps) => {
-  return <div>
-    <h3 className={classTitle}>{title}</h3>
-    <p className={classSubTitle}>{subTitle}</p>
-  </div>;
+
+export const TitleSubTitle = ({
+  title,
+  subTitle,
+  classTitle = "",
+  classSubTitle = "",
+  icon,
+}: TitleSubTitleProps) => {
+  const titleClasses = `font-bold text-xl ${classTitle}`;
+  const subTitleClasses = `text-[14px] text-gray-500 ${classSubTitle}`;
+
+  return (
+    <div>
+      <div className="flex items-center gap-2">
+        {icon && <FontAwesomeIcon icon={icon} className="text-blue-600" />}
+        {title && <h3 className={titleClasses}>{title}</h3>}
+      </div>
+
+      {subTitle && <p className={subTitleClasses}>{subTitle}</p>}
+    </div>
+  );
 };

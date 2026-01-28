@@ -1,4 +1,5 @@
 import heroNosotros from "../../assets/hero.jpg";
+import { TitleSubTitle } from "../componentsLayout/TitleSubTitle";
 export const HeroNosotros = () => {
   return (
     <section
@@ -11,10 +12,12 @@ export const HeroNosotros = () => {
         <p className="px-3 py-1 rounded-xl bg-blue-700 w-30 tracking-wide font-black text-[10px]">
           SOBRE NOSOTROS
         </p>
-        <h3 className="text-2xl font-black mb-2 ">Nuestra Historia</h3>
-        <p className="text-gray-300 text-sm">
-          Forjando le futuro con acero y dedicación desde 2018
-        </p>
+        <TitleSubTitle
+          title="Nuestra Historia"
+          subTitle="Forjando el futuro con acero y dedicación desde 2018"
+          classTitle="text-2xl! font-black! text-white"
+          classSubTitle="text-sm! text-gray-300!"
+        />
       </div>
     </section>
   );

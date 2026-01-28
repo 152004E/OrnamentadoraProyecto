@@ -8,21 +8,19 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "../componentsLayout/Button";
 import { StatCard } from "../componentsLayout/MainLayout/StatCard";
+import { TitleSubTitle } from "../componentsLayout/TitleSubTitle";
 
 export const DetalleSection = () => {
   return (
     <section className="flex flex-col p-6 gap-6">
       <p className="text-blue-700">Infraestructura - Seguridad</p>
-      <h3 className="text-3xl tracking-wide text-blue-900 font-bold">
-        Sistema de Cerramiento Metálico
-      </h3>
-      <p className="font-semibold text-gray-400">
-        Diseño e instalación de un sistema de cerramiento metálico integral para
-        áreas residenciales y comerciales. El proyecto se enfocó en proporcionar
-        la máxima seguridad sin comprometer la estética moderna del entorno. Se
-        utilizaron materiales de alta resistencia tratados contra la corrosión
-        para garantizar una durabilidad prolongada en exteriores.
-      </p>
+      <TitleSubTitle
+              title="Sistema de Cerramiento Metálico"
+              subTitle="  Diseño e instalación de un sistema de cerramiento metálico integral para  áreas residenciales y comerciales. El proyecto se enfocó en proporcionar la máxima seguridad sin comprometer la estética moderna del entorno. Se utilizaron materiales de alta resistencia tratados contra la corrosión  para garantizar una durabilidad prolongada en exteriores."
+              classTitle="text-3xl! text-blue-800  tracking-wide"
+              classSubTitle="font-semibold text-gray-400"
+            />
+
       <h3 className="font-semibold text-black text-lg">
         Especificaciones Técnicas
       </h3>

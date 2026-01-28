@@ -1,5 +1,6 @@
 import { faBell } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "../../componentsLayout/Button";
+import { TitleSubTitle } from "../../componentsLayout/TitleSubTitle";
 
 export const HeaderDashBoard = () => {
   return (
@@ -8,8 +9,12 @@ export const HeaderDashBoard = () => {
 
       <div className="flex items-center gap-2">
         <div className="flex flex-col text-right ">
-          <p className="font-medium ">Wilian</p>
-          <p className="text-[11px] text-gray-500">Administrador</p>
+          <TitleSubTitle
+            title="Wilian"
+            subTitle="Administrador"
+            classTitle="font-medium! text-[14px]"
+            classSubTitle="text-[11px]! text-gray-500!"
+          />
         </div>
         {/* Separador vertical */}
         <div className="w-px h-9 bg-gray-300"></div>

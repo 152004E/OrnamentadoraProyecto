@@ -10,18 +10,27 @@ import { ProyectosRealizados } from "./pages/proyectos/ProyectosRealizados";
 import { DetallesProyecto } from "./pages/proyectos/DetallesProyecto";
 import { Nosotros } from "./pages/Complement/Nosotros";
 import { ContactPage } from "./pages/Complement/ContactPage";
+import { AdminDashboardHome } from "./pages/Dashboard/AdminDashboardHome";
+import { SystemSettings } from "./pages/Dashboard/PagesAdminDashboard/SystemSettings";
+import DashBoardLayout from "./layouts/DashBoardLayout";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Rutas con Navbar */}
+        {/* Rutas con Navbar  y footer*/}
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/proyectos" element={<ProyectosRealizados />} />
           <Route path="/detalleProyectos" element={<DetallesProyecto />} />
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/contacto" element={<ContactPage />} />
+        </Route>
+        {/* Rutas Con Navbar*/}
+
+        <Route element={<DashBoardLayout />}>
+          <Route path="/AdminDashboardHome" element={<AdminDashboardHome />} />
+          <Route path="/SystemSettings" element={<SystemSettings />} />
         </Route>
         {/* Rutas sin Navbar */}
 

@@ -1,11 +1,18 @@
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { TitleSubTitle } from "../componentsLayout/TitleSubTitle";
 interface CardContactProps {
-  title: string;
+  title?: string;
   icon: IconProp;
-  context: string;
+  subTitle?: string;
+
 }
-export const CardContact = ({ icon, title, context }: CardContactProps) => {
+export const CardContact = ({
+  icon,
+  title,
+  subTitle,
+
+}: CardContactProps) => {
   return (
     <article className="flex gap-5">
       <p>
@@ -15,8 +22,11 @@ export const CardContact = ({ icon, title, context }: CardContactProps) => {
         />
       </p>
       <div>
-        <h4 className="font-bold text-xl">{title}</h4>
-        <p className=" text-[14px]">{context}</p>
+        <TitleSubTitle
+          title={title}
+          subTitle={subTitle}
+
+        />
       </div>
     </article>
   );

@@ -56,7 +56,7 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
           </header>
         </div>
         <main className="flex-1 overflow-y-auto">
-          {" "}
+
           <a
             href="/"
             className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
@@ -86,14 +86,14 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
             <span>Cotizar Proyecto</span>
           </a>
           <a
-            href="/perfil"
+            href="/AdminDashboardHome"
             className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
           >
             <FontAwesomeIcon icon={faUser} className="text-blue-600" />
             <span>Mi Perfil</span>
           </a>
           <a
-            href="/configuracion"
+            href="/SystemSettings"
             className="flex items-center gap-3 px-4 py-2 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
           >
             <FontAwesomeIcon icon={faCog} className="text-blue-600" />

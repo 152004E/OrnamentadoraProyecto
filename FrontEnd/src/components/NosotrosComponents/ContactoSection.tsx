@@ -1,6 +1,7 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import logo from "../../assets/wlSinFondo.png";
 import { Button } from "../componentsLayout/Button";
+import { TitleSubTitle } from "../componentsLayout/TitleSubTitle";
 export const ContactoSection = () => {
   return (
     <section>
@@ -19,10 +20,12 @@ export const ContactoSection = () => {
           />
 
           <figcaption className="flex flex-col items-center">
-            <p className="font-semibold">William arias</p>
-            <p className="text-sm font-semibold text-gray-400">
-              Fundador & CEO
-            </p>
+            <TitleSubTitle
+              title="William Arias"
+              subTitle="Fundador & CEO"
+              classTitle="font-semibold! text-lg!"
+              classSubTitle="text-sm! font-semibold! text-gray-400!"
+            />
           </figcaption>
         </figure>
         <figure className="flex flex-col items-center gap-2">
@@ -33,15 +36,22 @@ export const ContactoSection = () => {
           />
 
           <figcaption className="flex flex-col items-center">
-            <p className="font-semibold">Eduar Reyes</p>
-            <p className="text-sm font-semibold text-gray-400">
-              Ayudante Auxiliar
-            </p>
+            <TitleSubTitle
+              title="Eduar Reyes"
+              subTitle="Ayudante Auxiliar"
+              classTitle="font-semibold! text-lg!"
+              classSubTitle="text-sm! font-semibold! text-gray-400!"
+            />
           </figcaption>
         </figure>
       </div>
       <div className="flex justify-center items-center mt-6 pt-6 px-6 font-bold tracking-wide border-t border-gray-200">
-        <Button text="Contáctanos" icon={faArrowRight}  className="w-full" />
+        <Button
+          text="Contáctanos"
+          icon={faArrowRight}
+          to="/contacto"
+          className="w-full"
+        />
       </div>
     </section>
   );

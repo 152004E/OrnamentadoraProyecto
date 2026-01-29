@@ -11,6 +11,7 @@ interface HeaderCardsProps {
   classBoton?: string;
   classIcon?: string;
   classSubTitle? : string
+  to ?: string
 }
 export const HeaderCards = ({
   icon,
@@ -20,7 +21,8 @@ export const HeaderCards = ({
   iconBoton,
   classBoton,
   classIcon,
-  classSubTitle
+  classSubTitle,
+  to 
 }: HeaderCardsProps) => {
   return (
     <header className="flex justify-between items-center ">
@@ -37,7 +39,7 @@ export const HeaderCards = ({
           />
         </div>
       </div>
-      <Button text={tituloBoton} className={classBoton} icon={iconBoton} />
+      <Button text={tituloBoton} className={classBoton} icon={iconBoton} to={to} />
     </header>
   );
 };

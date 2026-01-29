@@ -16,12 +16,12 @@ export const TitleSubTitle = ({
   classSubTitle = "",
   icon,
 }: TitleSubTitleProps) => {
-  const titleClasses = `font-bold text-xl ${classTitle}`;
-  const subTitleClasses = `text-[14px] text-gray-500 ${classSubTitle}`;
+  const titleClasses = `font-bold  ${classTitle}`;
+  const subTitleClasses = `text-gray-500 ${classSubTitle}`;
 
   return (
     <div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 ">
         {icon && <FontAwesomeIcon icon={icon} className="text-blue-600" />}
         {title && <h3 className={titleClasses}>{title}</h3>}
       </div>

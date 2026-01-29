@@ -1,6 +1,6 @@
 import {
   faBuildingCircleCheck,
-  faCircleQuestion,
+
   faClock,
   faPersonCircleCheck,
   faScrewdriverWrench,
@@ -12,7 +12,7 @@ import { TitleSubTitle } from "../componentsLayout/TitleSubTitle";
 export const ChoseUs = () => {
   return (
     <section className="py-6 px-6">
-      <AlertMessage contenido="Por Qué Elegirnos" icon={faCircleQuestion} />
+      <AlertMessage contenido="¿Por Qué Elegirnos?"   />
       <div className="flex flex-col tracking-tight gap-3 mb-8 mt-5">
         <TitleSubTitle
           title="Calidad y Confizanza en Cada Detalle"

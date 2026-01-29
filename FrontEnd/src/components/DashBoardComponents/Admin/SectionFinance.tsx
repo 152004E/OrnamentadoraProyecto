@@ -1,3 +1,4 @@
+import { AlertMessage } from "../../componentsLayout/AlertMessage";
 import { DashStadCard } from "./AdminDashComponents/DashStadCard";
 import {
   faArrowTrendDown,
@@ -6,7 +7,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 export const SectionFinance = () => {
   return (
-    <section className=" flex flex-col gap-4 ">
+    <section className="mt-2 flex flex-col gap-4 ">
+        <AlertMessage contenido={"Panel de control"} />
       <DashStadCard
         titulo="Ingresos Totales"
         subTitulo="Este mes"

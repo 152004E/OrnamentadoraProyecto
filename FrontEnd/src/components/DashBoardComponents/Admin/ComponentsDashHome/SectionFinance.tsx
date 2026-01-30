@@ -1,5 +1,5 @@
-import { AlertMessage } from "../../componentsLayout/AlertMessage";
-import { DashStadCard } from "./AdminDashComponents/DashStadCard";
+import { AlertMessage } from "../../../componentsLayout/AlertMessage";
+import { DashStadCard } from "../AdminDashComponents/Home/DashStadCard";
 import {
   faArrowTrendDown,
   faArrowTrendUp,

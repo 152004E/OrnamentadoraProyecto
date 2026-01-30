@@ -8,7 +8,6 @@ export const SystemSettings = () => {
         subTitle="Administra la informacion y configuracion de la empresa"
         classTitle="text-4xl tracking-tight"
       />
-
     </main>
   );
 };

@@ -115,7 +115,8 @@ npm run build
     │  │  ├─ LogoRecord.png              ✓ Logo variante
     │  │  ├─ rejaProyecto.jpg            ✓ Imagen proyecto
     │  │  ├─ wl.png                      ✓ Imagen marca
-    │  │  └─ wlSinFondo.png              ✓ Logo sin fondo
+    │  │  ├─ wlSinFondo.png              ✓ Logo sin fondo
+    │  │  └─ ingresos.png                ✓ Imagen ingresos
     │  │
     │  ├─ components/                    ← Componentes reutilizables UI
     │  │  ├─ auth/                       ← Componentes de autenticación
@@ -131,6 +132,7 @@ npm run build
     │  │  │  ├─ Button.tsx               ✓ Botón reutilizable
     │  │  │  ├─ SearchBar.tsx            ✓ Barra de búsqueda
     │  │  │  ├─ Sidebar.tsx              ✓ Sidebar
+    │  │  │  ├─ TitleSubTitle.tsx        ✓ Componente de títulos
     │  │  │  └─ MainLayout/              ← Componentes principales layout
     │  │  │     ├─ Footer.tsx            ✓ Pie de página
     │  │  │     ├─ FooterLInks.tsx       ✓ Links personalizados footer
@@ -153,19 +155,32 @@ npm run build
     │  │  │  ├─ CardContact.tsx          ✓ Card de contacto
     │  │  │  └─ ChoseUs.tsx              ✓ Sección "Por qué nosotros"
     │  │  │
-    │  │  └─ NosotrosComponents/         ← Componentes de "Nosotros"
-    │  │     ├─ AboutUsSection.tsx       ✓ Sección sobre nosotros
-    │  │     ├─ ContactoSection.tsx      ✓ Sección contacto
-    │  │     ├─ HeroNosotros.tsx         ✓ Hero nosotros
-    │  │     └─ ValoresNosotros.tsx      ✓ Sección valores
+    │  │  ├─ NosotrosComponents/         ← Componentes de "Nosotros"
+    │  │  │  ├─ AboutUsSection.tsx       ✓ Sección sobre nosotros
+    │  │  │  ├─ ContactoSection.tsx      ✓ Sección contacto
+    │  │  │  ├─ HeroNosotros.tsx         ✓ Hero nosotros
+    │  │  │  └─ ValoresNosotros.tsx      ✓ Sección valores
+    │  │  │
+    │  │  └─ DashBoardComponents/        ← Componentes del Dashboard
+    │  │     ├─ Admin/
+    │  │     │  ├─ AdminDashComponents/  ← Subcomponentes del admin
+    │  │     │  │  ├─ DashStadCard.tsx   ✓ Card de estadísticas dashboard
+    │  │     │  │  ├─ HeaderCards.tsx    ✓ Encabezado de cards
+    │  │     │  │  └─ ProgressBar.tsx    ✓ Barra de progreso
+    │  │     │  ├─ SectionFinance.tsx    ✓ Sección finanzas
+    │  │     │  ├─ SectionManagerProyects.tsx ✓ Gestor de proyectos
+    │  │     │  ├─ SectionSettings.tsx   ✓ Sección configuración
+    │  │     │  └─ SectionTeam.tsx       ✓ Sección equipo
+    │  │     │
+    │  │     └─ user/                    ← Componentes usuario (vacío)
     │  │
     │  ├─ layouts/                       ← Layouts (estructura base)
     │  │  ├─ AuthLayout.tsx              ✓ Layout de autenticación
-    │  │  └─ MainLayout.tsx              ✓ Layout principal (Navbar + Outlet + Footer)
+    │  │  ├─ MainLayout.tsx              ✓ Layout principal
+    │  │  └─ DashBoardLayout.tsx         ✓ Layout del dashboard
     │  │
     │  ├─ pages/                         ← Vistas (rutas)
     │  │  ├─ Home.tsx                    ✓ Landing page
-    │  │  ├─ AdminDashboard.tsx          ✓ Panel ADMIN
     │  │  │
     │  │  ├─ auth/                       ← Páginas de autenticación
     │  │  │  ├─ Login.tsx                ✓ Página de login
@@ -176,9 +191,14 @@ npm run build
     │  │  │  ├─ DetallesProyecto.tsx     ✓ Detalle de proyecto
     │  │  │  └─ ProyectosRealizados.tsx  ✓ Listado de proyectos
     │  │  │
-    │  │  └─ Complement/                 ← Páginas complementarias
-    │  │     ├─ ContactPage.tsx          ✓ Página de contacto
-    │  │     └─ Nosotros.tsx             ✓ Página nosotros
+    │  │  ├─ Complement/                 ← Páginas complementarias
+    │  │  │  ├─ ContactPage.tsx          ✓ Página de contacto
+    │  │  │  └─ Nosotros.tsx             ✓ Página nosotros
+    │  │  │
+    │  │  └─ Dashboard/                  ← Páginas del Dashboard Admin
+    │  │     ├─ AdminDashboardHome.tsx   ✓ Home del dashboard
+    │  │     └─ PagesAdminDashboard/     ← Subpáginas del admin
+    │  │        └─ SystemSettings.tsx    ✓ Configuración del sistema
     │  │
     │  ├─ App.tsx                        ✓ Rutas principales y router
     │  ├─ main.tsx                       ✓ Entry point

@@ -1,5 +1,5 @@
 import { faGear, faSliders } from "@fortawesome/free-solid-svg-icons";
-import { HeaderCards } from "./AdminDashComponents/HeaderCards";
+import { HeaderCards } from "../AdminDashComponents/Home/HeaderCards";
 
 export const SectionSettings = () => {
   return (

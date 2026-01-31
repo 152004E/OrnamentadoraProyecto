@@ -11,8 +11,12 @@ import { DetallesProyecto } from "./pages/proyectos/DetallesProyecto";
 import { Nosotros } from "./pages/Complement/Nosotros";
 import { ContactPage } from "./pages/Complement/ContactPage";
 import { AdminDashboardHome } from "./pages/Dashboard/AdminDashboardHome";
-import { SystemSettings } from "./pages/Dashboard/PagesAdminDashboard/SystemSettings";
+import { SystemSettings } from "./pages/Dashboard/PagesAdminDashboard/SystemSettings/SystemSettings";
 import DashBoardLayout from "./layouts/DashBoardLayout";
+import { EmpresaPage } from "./pages/Dashboard/PagesAdminDashboard/SystemSettings/EmpresaPage";
+import { PerfilPage } from "./pages/Dashboard/PagesAdminDashboard/SystemSettings/PerfilPage";
+import { ProyectosPage } from "./pages/Dashboard/PagesAdminDashboard/SystemSettings/ProyectosPage";
+import { SeguridadPage } from "./pages/Dashboard/PagesAdminDashboard/SystemSettings/SeguridadPage";
 
 function App() {
   return (
@@ -29,8 +33,15 @@ function App() {
         {/* Rutas Con Navbar*/}
 
         <Route element={<DashBoardLayout />}>
+          <Route path="/SystemSettings" element={<SystemSettings />}>
+            <Route index element={<EmpresaPage />} />
+            <Route path="empresa" element={<EmpresaPage />} />
+            <Route path="perfil" element={<PerfilPage />} />
+            <Route path="proyectos" element={<ProyectosPage />} />
+            <Route path="seguridad" element={<SeguridadPage />} />
+          </Route>
+
           <Route path="/AdminDashboardHome" element={<AdminDashboardHome />} />
-          <Route path="/SystemSettings" element={<SystemSettings />} />
         </Route>
         {/* Rutas sin Navbar */}
 

@@ -163,14 +163,25 @@ npm run build
     │  │  │
     │  │  └─ DashBoardComponents/        ← Componentes del Dashboard
     │  │     ├─ Admin/
-    │  │     │  ├─ AdminDashComponents/  ← Subcomponentes del admin
-    │  │     │  │  ├─ DashStadCard.tsx   ✓ Card de estadísticas dashboard
-    │  │     │  │  ├─ HeaderCards.tsx    ✓ Encabezado de cards
-    │  │     │  │  └─ ProgressBar.tsx    ✓ Barra de progreso
-    │  │     │  ├─ SectionFinance.tsx    ✓ Sección finanzas
-    │  │     │  ├─ SectionManagerProyects.tsx ✓ Gestor de proyectos
-    │  │     │  ├─ SectionSettings.tsx   ✓ Sección configuración
-    │  │     │  └─ SectionTeam.tsx       ✓ Sección equipo
+    │  │     │  ├─ AdminDashComponents/  ← Subcomponentes del admin (vacío)
+    │  │     │  │  └─ Home/
+    │  │     │  │     ├─ DashStadCard.tsx   ✓ Card de estadísticas dashboard
+    │  │     │  │     ├─ HeaderCards.tsx    ✓ Encabezado de cards
+    │  │     │  │     └─ ProgressBar.tsx    ✓ Barra de progreso
+    │  │     │  │
+    │  │     │  ├─ ComponentsDashHome/   ← Componentes del home del dashboard
+    │  │     │  │  ├─ SectionFinance.tsx ✓ Sección finanzas
+    │  │     │  │  ├─ SectionManagerProyects.tsx ✓ Gestor de proyectos
+    │  │     │  │  ├─ SectionSettings.tsx ✓ Sección configuración
+    │  │     │  │  └─ SectionTeam.tsx    ✓ Sección equipo
+    │  │     │  │
+    │  │     │  └─ ComponentsSettings/   ← Componentes de configuración
+    │  │     │     ├─ ButtonsSettings.tsx ✓ Botones de configuración
+    │  │     │     ├─ SettingsInput.tsx  ✓ Input para configuración
+    │  │     │     ├─ SettingsTabs.tsx   ✓ Pestañas de configuración
+    │  │     │     └─ Empresa/           ← Componentes de empresa
+    │  │     │        ├─ EmpresaSettings.tsx ✓ Configuración empresa
+    │  │     │        └─ Logotipo.tsx    ✓ Gestor de logotipo
     │  │     │
     │  │     └─ user/                    ← Componentes usuario (vacío)
     │  │

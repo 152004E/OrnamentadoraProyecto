@@ -1,7 +1,7 @@
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button } from "../../../componentsLayout/Button";
-import { TitleSubTitle } from "../../../componentsLayout/TitleSubTitle";
+import { Button } from "../../../../componentsLayout/Button";
+import { TitleSubTitle } from "../../../../componentsLayout/TitleSubTitle";
 interface HeaderCardsProps {
   icon: IconDefinition;
   iconBoton?: IconDefinition;

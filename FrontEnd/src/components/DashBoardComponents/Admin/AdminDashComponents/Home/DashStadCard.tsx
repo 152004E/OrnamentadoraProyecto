@@ -3,7 +3,7 @@ import type {
   IconProp,
 } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button } from "../../../componentsLayout/Button";
+import { Button } from "../../../../componentsLayout/Button";
 
 interface DashStadCardProps {
   titulo: string;

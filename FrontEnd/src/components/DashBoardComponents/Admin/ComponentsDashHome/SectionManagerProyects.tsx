@@ -1,7 +1,7 @@
 import { faFolderOpen, faFolderPlus } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "../../componentsLayout/Button";
-import { ProgressBar } from "./AdminDashComponents/ProgressBar";
-import { HeaderCards } from "./AdminDashComponents/HeaderCards";
+import { Button } from "../../../componentsLayout/Button";
+import { ProgressBar } from "../AdminDashComponents/Home/ProgressBar";
+import { HeaderCards } from "../AdminDashComponents/Home/HeaderCards";
 
 export const SectionManagerProyects = () => {
   return (

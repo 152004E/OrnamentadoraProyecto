@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 interface ButtonProps {
   to?: string;
   text: string;
-  icon?: IconDefinition;
+  iconLetf?: IconDefinition;
+  iconRight?: IconDefinition;
   type?: "button" | "submit";
   onClick?: () => void;
   disabled?: boolean;
@@ -16,7 +17,8 @@ export const Button = ({
   to,
   text,
   type,
-  icon,
+  iconLetf,
+  iconRight,
   onClick,
   disabled,
   className,
@@ -42,8 +44,9 @@ export const Button = ({
   if (to) {
     return (
       <Link to={to} className={finalClasses}>
+        {iconLetf && <FontAwesomeIcon icon={iconLetf} />}
         <span>{text}</span>
-        {icon && <FontAwesomeIcon icon={icon} />}
+        {iconRight && <FontAwesomeIcon icon={iconRight} />}
       </Link>
     );
   }
@@ -54,9 +57,9 @@ export const Button = ({
       disabled={disabled}
       className={finalClasses}
     >
+      {iconLetf && <FontAwesomeIcon icon={iconLetf} />}
       <span>{text}</span>
-
-      {icon && <FontAwesomeIcon icon={icon} />}
+      {iconRight && <FontAwesomeIcon icon={iconRight} />}
     </button>
   );
 };

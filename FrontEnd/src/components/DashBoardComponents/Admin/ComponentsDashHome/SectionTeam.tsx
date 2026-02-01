@@ -1,6 +1,6 @@
 import { faFolderOpen } from "@fortawesome/free-solid-svg-icons";
-import logo from "../../../assets/wlSinFondo.png";
-import { HeaderCards } from "./AdminDashComponents/HeaderCards";
+import logo from "../../../../assets/wlSinFondo.png";
+import { HeaderCards } from "../AdminDashComponents/Home/HeaderCards";
 
 export const SectionTeam = () => {
   return (

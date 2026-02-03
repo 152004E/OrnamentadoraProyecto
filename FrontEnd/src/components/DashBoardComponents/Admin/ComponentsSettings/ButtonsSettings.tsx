@@ -2,10 +2,11 @@ import { faCancel } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "../../../componentsLayout/Button";
 import { faSave } from "@fortawesome/free-solid-svg-icons/faSave";
 
+
 export const ButtonsSettings = () => {
   return (
     <div className="flex  justify-end gap-2">
-      <Button iconLetf={faCancel} text="Cancelar" className="px-4! py-3!" />
+      <Button iconLetf={faCancel} text="Descartar" className="px-4! py-3!" />
       <Button
         text="Guardar Cambios"
         iconRight={faSave}

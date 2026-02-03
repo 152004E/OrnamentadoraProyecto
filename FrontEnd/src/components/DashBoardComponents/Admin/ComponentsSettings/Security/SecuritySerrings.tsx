@@ -1,6 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SettingsInput } from "../SettingsInput";
-import { faGear } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCheckCircle,
+  faCircleDot,
+  faGear,
+} from "@fortawesome/free-solid-svg-icons";
 
 export const SecuritySerrings = () => {
   return (
@@ -20,6 +24,29 @@ export const SecuritySerrings = () => {
           label="Repita su contraseña nueva"
           value="Repita su nueva contraseña"
         />
+      </div>
+      <div>
+        <h3>Requisitos de contraseña </h3>
+        <article>
+          <FontAwesomeIcon icon={faCheckCircle} />
+          <p>Minino 8 caracteres de longitud</p>
+        </article>
+        <article>
+          <FontAwesomeIcon icon={faCircleDot} />
+          <p>Minino 8 caracteres de longitud</p>
+        </article>
+        <article>
+          <FontAwesomeIcon icon={faCircleDot} />
+          <p>Al menos una letra mayuscula</p>
+        </article>
+        <article>
+          <FontAwesomeIcon icon={faCircleDot} />
+          <p>Al menos un numero o simbolo</p>
+        </article>
+        <article>
+          <FontAwesomeIcon icon={faCircleDot} />
+          <p>No puede ser igual las anteriores</p>
+        </article>
       </div>
     </section>
   );

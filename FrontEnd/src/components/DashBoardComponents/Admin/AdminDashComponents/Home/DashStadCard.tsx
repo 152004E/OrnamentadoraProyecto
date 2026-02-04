@@ -1,9 +1,7 @@
-import type {
-  IconDefinition,
-  IconProp,
-} from "@fortawesome/fontawesome-svg-core";
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "../../../../componentsLayout/Button";
+import { faChartLine } from "@fortawesome/free-solid-svg-icons";
 
 interface DashStadCardProps {
   titulo: string;
@@ -11,7 +9,7 @@ interface DashStadCardProps {
   monto: string;
   className?: string;
   icon: IconProp;
-  iconButton: IconDefinition;
+  iconButton: IconProp;
 }
 
 export const DashStadCard = ({
@@ -20,7 +18,6 @@ export const DashStadCard = ({
   monto,
   className,
   icon,
-  iconButton,
 }: DashStadCardProps) => {
   const baseClasses =
     "min-w-70  px-6 py-3  rounded-2xl relative shadow-lg shadow-black border border-white/10 transition-all duration-300  hover:scale-[1.01]";
@@ -50,7 +47,7 @@ export const DashStadCard = ({
       <Button
         text="Ver Detalle"
         className="bg-white text-blue-700! py-2! font-bold "
-        icon={iconButton}
+        iconLetf={faChartLine}
       />
     </article>
   );

@@ -9,7 +9,7 @@ import { RequiredArticle } from "./RequiredArticle";
 
 export const SecuritySerrings = () => {
   return (
-    <section className=" border border-gray-400 rounded-xl bg-gray-100 overflow-hidden mb-3">
+    <section className=" border border-gray-400 rounded-xl  overflow-hidden mb-3">
       <h3 className="flex items-center gap-2 text-lg font-semibold text-white mb-4 border-b border-gray-400 bg-linear-to-r  from-blue-700/90  to-blue-400/90  p-4 ">
         <FontAwesomeIcon icon={faGear} />
         Gestión de Acceso
@@ -26,7 +26,7 @@ export const SecuritySerrings = () => {
             value="Repita su nueva contraseña"
           />
         </div>
-        <div className="border border-gray-400 my-4 p-4 rounded-xl bg-white">
+        <div className="border border-gray-400 my-4 p-4 rounded-xl bg-blue-400/20">
           <h3 className="font-semibold mb-3">Requisitos de contraseña</h3>
 
           <RequiredArticle

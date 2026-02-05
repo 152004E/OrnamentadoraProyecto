@@ -39,7 +39,7 @@ export const HeaderCards = ({
           />
         </div>
       </div>
-      <Button text={tituloBoton} className={classBoton} icon={iconBoton} to={to} />
+      <Button text={tituloBoton} className={classBoton} iconRight={iconBoton} to={to} />
     </header>
   );
 };

@@ -5,9 +5,10 @@ import { TitleSubTitle } from "../../../componentsLayout/TitleSubTitle";
 
 interface AddImgProps{
   title : string
+  descripcion : string
 }
 
-export const AddImg = ({title}:AddImgProps) => {
+export const AddImg = ({descripcion , title}:AddImgProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [preview, setPreview] = useState<string | null>(null);
 
@@ -18,7 +19,7 @@ export const AddImg = ({title}:AddImgProps) => {
   return (
     <div className="my-5">
       <TitleSubTitle
-        title="Logotipo de la empresa"
+        title={title}
         subTitle="Este logo aparecera en sus cotizaciones y facturas"
         classTitle="text-3xl tracking-tight"
       />
@@ -48,7 +49,7 @@ export const AddImg = ({title}:AddImgProps) => {
 
         {/* Text */}
         <div className="text-center">
-          <p className="font-semibold text-sm">{title}</p>
+          <p className="font-semibold text-sm">{descripcion}</p>
           <p className="text-xs text-gray-500">
             JPG, PNG o SVG. Tamaño máximo de 2MB.
             <br />

@@ -6,7 +6,7 @@ export const EmpresaPage = () => {
   return (
     <div>
       <EmpresaSettings />
-      <AddImg title="Cambia el logotipo" />
+      <AddImg title="Logotipo de la Empresa" descripcion="Cambia el logotipo" />
       <ButtonsSettings />
     </div>
   );

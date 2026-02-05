@@ -35,7 +35,7 @@ export const SectionManagerProyects = () => {
       <Button
         className="px-4! font-semibold py-1.5! "
         text="Nuevo Proyecto"
-        icon={faFolderPlus}
+        iconRight={faFolderPlus}
       />
     </article>
   );

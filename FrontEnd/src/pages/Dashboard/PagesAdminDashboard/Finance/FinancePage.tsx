@@ -4,20 +4,38 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "../../../../components/componentsLayout/Button";
 import { CategoryBudget } from "../../../../components/DashBoardComponents/Admin/AdminDashComponents/financesPages/CategoryBudget";
 
+import { useState } from "react";
+import { FilterModal } from "../../../../components/DashBoardComponents/Admin/AdminDashComponents/financesPages/FilterModal";
+import { NewFinanceModal } from "../../../../components/DashBoardComponents/Admin/AdminDashComponents/financesPages/NewFinanceModal";
+
 export const FinancePage = () => {
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [isNewOpen, setIsNewOpen] = useState(false);
+
   return (
     <main className="p-3 relative">
       <SectionFinance sonContect="Resumen Financiero" />
-      <MovementHistory />
-      <CategoryBudget/>
+
+      <MovementHistory onOpenFilters={() => setIsFilterOpen(true)} />
+      <CategoryBudget />
 
       <div className="fixed bottom-6 right-6 z-50">
         <Button
           text=""
           iconLetf={faPlus}
-          className="gap-0! p-4! text-xl  rounded-full!"
+          onClick={() => setIsNewOpen(true)}
+          className="gap-0! p-4! text-xl rounded-full!"
+        />
+        <NewFinanceModal
+          isOpen={isNewOpen}
+          onClose={() => setIsNewOpen(false)}
         />
       </div>
+
+      <FilterModal
+        isOpen={isFilterOpen}
+        onClose={() => setIsFilterOpen(false)}
+      />
     </main>
   );
 };

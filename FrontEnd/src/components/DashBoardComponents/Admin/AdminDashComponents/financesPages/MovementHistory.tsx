@@ -3,7 +3,12 @@ import {
   faSliders,
 } from "@fortawesome/free-solid-svg-icons";
 import { HeaderCards } from "../Home/HeaderCards";
-export const MovementHistory = () => {
+
+interface MovementHistoryProps {
+  onOpenFilters: () => void;
+}
+
+export const MovementHistory = ({ onOpenFilters }: MovementHistoryProps) => {
   return (
     <section className="my-6">
       <article className="  min-w-70  px-6 py-3   rounded-2xl relative shadow-lg shadow-black border border-white/10 transition-all duration-300  hover:scale-[1.01]">
@@ -14,6 +19,7 @@ export const MovementHistory = () => {
           subtitulo="Revisa y haz tus movimintos aquí"
           classBoton=" text-[12px] gap-0! px-3!"
           iconBoton={faSliders}
+          onClickBoton={onOpenFilters}
         />
 
         <div className="border border-black my-2"></div>

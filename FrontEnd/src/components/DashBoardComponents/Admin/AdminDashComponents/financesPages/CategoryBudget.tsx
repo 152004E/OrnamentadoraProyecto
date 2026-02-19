@@ -46,7 +46,7 @@ export const CategoryBudget = () => {
           </div>
         </div>
 
-        {/* DERECHA (vacío por ahora) */}
+        {/* DERECHA */}
         <div>
           <h3 className="text-lg font-semibold mb-4">Detalle Operativo</h3>
 

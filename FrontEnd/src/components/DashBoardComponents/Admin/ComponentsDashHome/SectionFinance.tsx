@@ -5,10 +5,15 @@ import {
   faArrowTrendUp,
   faArrowUpRightFromSquare,
 } from "@fortawesome/free-solid-svg-icons";
-export const SectionFinance = () => {
+
+interface SectionFinanceProps{
+  sonContect: string
+}
+
+export const SectionFinance = ({sonContect}:SectionFinanceProps) => {
   return (
     <section className="mt-2 flex flex-col gap-4 ">
-        <AlertMessage contenido={"Panel de control"} />
+      <AlertMessage contenido={sonContect} />
       <DashStadCard
         titulo="Ingresos Totales"
         subTitulo="Este mes"
@@ -16,6 +21,7 @@ export const SectionFinance = () => {
         className=" bg-linear-to-r  from-blue-700/90  to-blue-400/90"
         icon={faArrowTrendUp}
         iconButton={faArrowUpRightFromSquare}
+      to="/finanzas"
       />
       <DashStadCard
         titulo="Egresos Totales"
@@ -24,6 +30,7 @@ export const SectionFinance = () => {
         className="bg-linear-to-r  from-black/90  to-gray-700/90"
         icon={faArrowTrendDown}
         iconButton={faArrowUpRightFromSquare}
+        to="/finanzas"
       />
     </section>
   );

@@ -10,6 +10,7 @@ interface DashStadCardProps {
   className?: string;
   icon: IconProp;
   iconButton: IconProp;
+  to?: string;
 }
 
 export const DashStadCard = ({
@@ -18,6 +19,7 @@ export const DashStadCard = ({
   monto,
   className,
   icon,
+  to,
 }: DashStadCardProps) => {
   const baseClasses =
     "min-w-70  px-6 py-3  rounded-2xl relative shadow-lg shadow-black border border-white/10 transition-all duration-300  hover:scale-[1.01]";
@@ -48,6 +50,7 @@ export const DashStadCard = ({
         text="Ver Detalle"
         className="bg-white text-blue-700! py-2! font-bold "
         iconLetf={faChartLine}
+        to={to}
       />
     </article>
   );

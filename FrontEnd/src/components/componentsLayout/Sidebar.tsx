@@ -102,7 +102,7 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
         </main>
 
         <footer className="border-gray-200 border-t p-4  flex flex-col gap-3">
-          <Button text="Cerrar Sesión" icon={faRightFromBracket} />
+          <Button text="Cerrar Sesión" iconLetf={faRightFromBracket} />
           <div className="flex  m-auto items-center">
             <a href="">ayuda y soporte</a>
           </div>

@@ -6,7 +6,7 @@ export const AdminDashboardHome = () => {
   return (
     <main className="">
       <div className="px-6 flex flex-col gap-7">
-        <SectionFinance />
+        <SectionFinance sonContect={"Panel de control"}  />
         <SectionManagerProyects />
         <SectionTeam/>
         <SectionSettings/>

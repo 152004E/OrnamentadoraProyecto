@@ -209,6 +209,9 @@ npm run build
     │  │  └─ Dashboard/                  ← Páginas del Dashboard Admin
     │  │     ├─ AdminDashboardHome.tsx   ✓ Home del dashboard
     │  │     └─ PagesAdminDashboard/     ← Subpáginas del admin
+    │  │        ├─ Finance/              ← Módulo de finanzas
+    │  │        │  └─ FinancePage.tsx    ✓ Página principal de finanzas
+    │  │        │
     │  │        └─ SystemSettings.tsx    ✓ Configuración del sistema
     │  │
     │  ├─ App.tsx                        ✓ Rutas principales y router

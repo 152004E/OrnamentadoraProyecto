@@ -1,34 +1,40 @@
-import {
-  faMoneyBillTransfer,
-  faSliders,
-} from "@fortawesome/free-solid-svg-icons";
-import { HeaderCards } from "../Home/HeaderCards";
-
-interface MovementHistoryProps {
-  onOpenFilters?: () => void;
-  onOpenHistory?: () => void;
+interface MovementHistoryModalProps {
+  isOpen: boolean;
+  onClose: () => void;
 }
 
-export const MovementHistory = ({
-  onOpenFilters,
-  onOpenHistory,
-}: MovementHistoryProps) => {
-  return (
-    <section className="my-6">
-      <article className="  min-w-70  px-6 py-3   rounded-2xl relative shadow-lg shadow-black border border-white/10 transition-all duration-300  hover:scale-[1.01]">
-        <HeaderCards
-          tituloBoton=""
-          icon={faMoneyBillTransfer}
-          titulo="Movimientos"
-          subtitulo="Revisa y haz tus movimintos aquí"
-          classBoton=" text-[12px] gap-0! px-3!"
-          iconBoton={faSliders}
-          onClickBoton={onOpenFilters}
-        />
+export const MovementHistoryModal = ({
+  isOpen,
+  onClose,
+}: MovementHistoryModalProps) => {
+  if (!isOpen) return null;
 
-        <div className="border border-black my-2"></div>
-        <div className="w-full">
-          {/* 📊 Desktop */}
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4"
+      onClick={onClose}
+    >
+      <div
+        className="bg-white w-full max-w-5xl rounded-2xl shadow-xl max-h-[90vh] flex flex-col"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="flex justify-between items-center p-6 border-b">
+          <h2 className="text-xl font-semibold">
+            Historial Completo de Movimientos
+          </h2>
+
+          <button
+            onClick={onClose}
+            className="text-gray-400 hover:text-black text-lg"
+          >
+            ✕
+          </button>
+        </div>
+
+        {/* Contenido */}
+        <div className="p-6 overflow-y-auto">
+          {/* Desktop */}
           <div className="hidden md:block">
             <table className="w-full text-sm">
               <thead>
@@ -40,7 +46,7 @@ export const MovementHistory = ({
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b hover:bg-gray-50">
+                <tr className="border-b hover:bg-gray-50 transition">
                   <td className="py-3">12 Oct 2023</td>
                   <td>Compra de Hierro Corrugado</td>
                   <td>
@@ -56,9 +62,9 @@ export const MovementHistory = ({
             </table>
           </div>
 
-          {/* 📱 Mobile */}
+          {/* Mobile */}
           <div className="md:hidden flex flex-col gap-4">
-            <div className="bg-white shadow-md rounded-xl p-4">
+            <div className="bg-gray-50 shadow-sm rounded-xl p-4">
               <div className="flex justify-between text-sm text-gray-400">
                 <span>12 Oct 2023</span>
                 <span className="text-red-500 font-bold">-$2.450.000</span>
@@ -72,15 +78,7 @@ export const MovementHistory = ({
             </div>
           </div>
         </div>
-
-        <div className="border border-black my-2"></div>
-        <button
-          onClick={onOpenHistory}
-          className="text-sm italic text-blue-600 tracking-wider flex justify-center items-center hover:underline"
-        >
-          Ver historial completo
-        </button>
-      </article>
-    </section>
+      </div>
+    </div>
   );
 };

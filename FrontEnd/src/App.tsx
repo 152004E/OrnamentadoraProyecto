@@ -18,6 +18,7 @@ import { PerfilPage } from "./pages/Dashboard/PagesAdminDashboard/SystemSettings
 import { ProyectosPage } from "./pages/Dashboard/PagesAdminDashboard/SystemSettings/ProyectosPage";
 import { SeguridadPage } from "./pages/Dashboard/PagesAdminDashboard/SystemSettings/SeguridadPage";
 import { FinancePage } from "./pages/Dashboard/PagesAdminDashboard/Finance/FinancePage";
+import { ProjectManager } from "./pages/Dashboard/PagesAdminDashboard/Projects/ProjectManager";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             <Route path="seguridad" element={<SeguridadPage />} />
           </Route>
             <Route path="finanzas" element={<FinancePage />} />
+            <Route path="ManejoProyectos" element={<ProjectManager />} />
 
           <Route path="/AdminDashboardHome" element={<AdminDashboardHome />} />
         </Route>

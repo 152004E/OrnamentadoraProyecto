@@ -1,7 +1,7 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import logo from "../../assets/wlSinFondo.png";
-import { Button } from "../componentsLayout/Button";
-import { TitleSubTitle } from "../componentsLayout/TitleSubTitle";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import logo from "../../../assets/wlSinFondo.png";
+import { Button } from "../Button";
+import { TitleSubTitle } from "../TitleSubTitle";
 export const ContactoSection = () => {
   return (
     <section>
@@ -48,7 +48,7 @@ export const ContactoSection = () => {
       <div className="flex justify-center items-center mt-6 pt-6 px-6 font-bold tracking-wide border-t border-gray-200">
         <Button
           text="Contáctanos"
-          icon={faArrowRight}
+          iconRight={faPaperPlane}
           to="/contacto"
           className="w-full"
         />

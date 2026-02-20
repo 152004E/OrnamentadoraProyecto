@@ -6,9 +6,9 @@ import {
   faPaperPlane,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button } from "../componentsLayout/Button";
-import { StatCard } from "../componentsLayout/MainLayout/StatCard";
-import { TitleSubTitle } from "../componentsLayout/TitleSubTitle";
+import { Button } from "../Button";
+import { StatCard } from "../MainLayout/StatCard";
+import { TitleSubTitle } from "../TitleSubTitle";
 
 export const DetalleSection = () => {
   return (

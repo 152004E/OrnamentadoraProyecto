@@ -1,7 +1,7 @@
-import { AboutUsSection } from "../../components/NosotrosComponents/AboutUsSection"
-import { ContactoSection } from "../../components/NosotrosComponents/ContactoSection"
-import { HeroNosotros } from "../../components/NosotrosComponents/HeroNosotros"
-import { ValoresNosotros } from "../../components/NosotrosComponents/ValoresNosotros"
+import { AboutUsSection } from "../../components/componentsLayout/NosotrosComponents/AboutUsSection"
+import { ContactoSection } from "../../components/componentsLayout/NosotrosComponents/ContactoSection"
+import { HeroNosotros } from "../../components/componentsLayout/NosotrosComponents/HeroNosotros"
+import { ValoresNosotros } from "../../components/componentsLayout/NosotrosComponents/ValoresNosotros"
 
 export const Nosotros = () => {
   return (

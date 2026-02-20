@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import rejaProyecto from "../../assets/rejaProyecto.jpg";
+import rejaProyecto from "../../../assets/rejaProyecto.jpg";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 
 export const ImagenesDetalleProyecto = () => {

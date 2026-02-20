@@ -1,5 +1,5 @@
-import { SearchBar } from "../componentsLayout/SearchBar";
-import { TitleSubTitle } from "../componentsLayout/TitleSubTitle";
+import { SearchBar } from "../SearchBar";
+import { TitleSubTitle } from "../TitleSubTitle";
 
 export const HeroProyectos = () => {
   return (

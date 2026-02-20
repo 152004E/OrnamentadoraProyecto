@@ -1,5 +1,5 @@
-import heroNosotros from "../../assets/hero.jpg";
-import { TitleSubTitle } from "../componentsLayout/TitleSubTitle";
+import heroNosotros from "../../../assets/hero.jpg";
+import { TitleSubTitle } from "../TitleSubTitle";
 export const HeroNosotros = () => {
   return (
     <section

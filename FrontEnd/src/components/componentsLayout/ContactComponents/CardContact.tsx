@@ -1,6 +1,6 @@
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { TitleSubTitle } from "../componentsLayout/TitleSubTitle";
+import { TitleSubTitle } from "../TitleSubTitle";
 interface CardContactProps {
   title?: string;
   icon: IconProp;

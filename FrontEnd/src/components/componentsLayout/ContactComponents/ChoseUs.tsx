@@ -5,9 +5,9 @@ import {
   faPersonCircleCheck,
   faScrewdriverWrench,
 } from "@fortawesome/free-solid-svg-icons";
-import { AlertMessage } from "../componentsLayout/AlertMessage";
+import { AlertMessage } from "../AlertMessage";
 import { CardContact } from "./CardContact";
-import { TitleSubTitle } from "../componentsLayout/TitleSubTitle";
+import { TitleSubTitle } from "../TitleSubTitle";
 
 export const ChoseUs = () => {
   return (

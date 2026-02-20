@@ -1,5 +1,5 @@
-import { ImagenesDetalleProyecto } from "../../components/proyectosComponents/ImagenesDetalleProyecto";
-import {DetalleSection} from "../../components/proyectosComponents/DetalleSection"
+import { ImagenesDetalleProyecto } from "../../components/componentsLayout/proyectosComponents/ImagenesDetalleProyecto";
+import {DetalleSection} from "../../components/componentsLayout/proyectosComponents/DetalleSection"
 export const DetallesProyecto = () => {
   return (
     <section className="bg-gray-100">

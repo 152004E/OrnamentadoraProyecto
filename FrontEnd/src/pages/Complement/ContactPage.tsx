@@ -1,6 +1,6 @@
 import { SectionComunication } from "../../components/componentsLayout/MainLayout/SectionComunication";
 import { StatsSection } from "../../components/componentsLayout/MainLayout/StatsSection";
-import { ChoseUs } from "../../components/ContactComponents/ChoseUs";
+import { ChoseUs } from "../../components/componentsLayout/ContactComponents/ChoseUs";
 
 export const ContactPage = () => {
   return (

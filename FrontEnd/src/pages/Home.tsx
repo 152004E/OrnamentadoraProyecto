@@ -1,7 +1,7 @@
 import { SectionComunication } from "../components/componentsLayout/MainLayout/SectionComunication";
 import { StatsSection } from "../components/componentsLayout/MainLayout/StatsSection";
-import { HeroSection } from "../components/home/HeroSection";
-import { HomeProjects } from "../components/home/HomeProjects";
+import { HeroSection } from "../components/componentsLayout/home/HeroSection";
+import { HomeProjects } from "../components/componentsLayout/home/HomeProjects";
 
 export const Home = () => {
   return (

@@ -1,5 +1,5 @@
 import { faFolderOpen } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "../componentsLayout/Button";
+import { Button } from "../Button";
 
 export const HeroSection = () => {
   return (

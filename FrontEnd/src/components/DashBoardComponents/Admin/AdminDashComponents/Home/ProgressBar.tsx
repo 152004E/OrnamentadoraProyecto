@@ -1,14 +1,15 @@
 interface ProgressBarProps {
   value: number;
   color: string;
+  classnameText? : string
 }
 
-export const ProgressBar = ({ value, color }: ProgressBarProps) => {
+export const ProgressBar = ({ value, color  ,classnameText}: ProgressBarProps) => {
   return (
     <div className="flex flex-col gap-1">
       <div className="flex justify-between text-sm text-gray-600">
-        <span>Progreso</span>
-        <span>{value}%</span>
+        <span  className={classnameText} >Progreso</span>
+        <span className={classnameText}>{value}%</span>
       </div>
 
       <div className="w-full h-2 bg-white/30 rounded-full overflow-hidden">

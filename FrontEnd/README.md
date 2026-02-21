@@ -133,37 +133,38 @@ npm run build
     │  │  │  ├─ SearchBar.tsx            ✓ Barra de búsqueda
     │  │  │  ├─ Sidebar.tsx              ✓ Sidebar
     │  │  │  ├─ TitleSubTitle.tsx        ✓ Componente de títulos
-    │  │  │  └─ MainLayout/              ← Componentes principales layout
-    │  │  │     ├─ Footer.tsx            ✓ Pie de página
-    │  │  │     ├─ FooterLInks.tsx       ✓ Links personalizados footer
-    │  │  │     ├─ Navbar.tsx            ✓ Barra de navegación
-    │  │  │     ├─ SectionComunication.tsx ✓ Sección de comunicación
-    │  │  │     ├─ StatCard.tsx          ✓ Card de estadísticas
-    │  │  │     └─ StatsSection.tsx      ✓ Sección de estadísticas
-    │  │  │
-    │  │  ├─ home/                       ← Componentes de homepage
-    │  │  │  ├─ HeroSection.tsx          ✓ Sección hero
-    │  │  │  └─ HomeProjects.tsx         ✓ Sección de proyectos
-    │  │  │
-    │  │  ├─ proyectosComponents/        ← Componentes de proyectos
-    │  │  │  ├─ ProjectCard.tsx          ✓ Card de proyecto
-    │  │  │  ├─ HeroProyectos.tsx        ✓ Hero de sección proyectos
-    │  │  │  ├─ DetalleSection.tsx       ✓ Sección detalle proyecto
-    │  │  │  └─ ImagenesDetalleProyecto.tsx ✓ Galería imágenes
-    │  │  │
-    │  │  ├─ ContactComponents/          ← Componentes de contacto
-    │  │  │  ├─ CardContact.tsx          ✓ Card de contacto
-    │  │  │  └─ ChoseUs.tsx              ✓ Sección "Por qué nosotros"
-    │  │  │
-    │  │  ├─ NosotrosComponents/         ← Componentes de "Nosotros"
-    │  │  │  ├─ AboutUsSection.tsx       ✓ Sección sobre nosotros
-    │  │  │  ├─ ContactoSection.tsx      ✓ Sección contacto
-    │  │  │  ├─ HeroNosotros.tsx         ✓ Hero nosotros
-    │  │  │  └─ ValoresNosotros.tsx      ✓ Sección valores
+    │  │  │  │
+    │  │  │  ├─ MainLayout/              ← Componentes principales layout
+    │  │  │  │  ├─ Footer.tsx            ✓ Pie de página
+    │  │  │  │  ├─ FooterLInks.tsx       ✓ Links personalizados footer
+    │  │  │  │  ├─ Navbar.tsx            ✓ Barra de navegación
+    │  │  │  │  ├─ SectionComunication.tsx ✓ Sección de comunicación
+    │  │  │  │  ├─ StatCard.tsx          ✓ Card de estadísticas
+    │  │  │  │  └─ StatsSection.tsx      ✓ Sección de estadísticas
+    │  │  │  │
+    │  │  │  ├─ home/                    ← Componentes de homepage
+    │  │  │  │  ├─ HeroSection.tsx       ✓ Sección hero
+    │  │  │  │  └─ HomeProjects.tsx      ✓ Sección de proyectos
+    │  │  │  │
+    │  │  │  ├─ proyectosComponents/     ← Componentes de proyectos
+    │  │  │  │  ├─ ProjectCard.tsx       ✓ Card de proyecto
+    │  │  │  │  ├─ HeroProyectos.tsx     ✓ Hero de sección proyectos
+    │  │  │  │  ├─ DetalleSection.tsx    ✓ Sección detalle proyecto
+    │  │  │  │  └─ ImagenesDetalleProyecto.tsx ✓ Galería imágenes
+    │  │  │  │
+    │  │  │  ├─ ContactComponents/       ← Componentes de contacto
+    │  │  │  │  ├─ CardContact.tsx       ✓ Card de contacto
+    │  │  │  │  └─ ChoseUs.tsx           ✓ Sección "Por qué nosotros"
+    │  │  │  │
+    │  │  │  └─ NosotrosComponents/      ← Componentes de "Nosotros"
+    │  │  │     ├─ AboutUsSection.tsx    ✓ Sección sobre nosotros
+    │  │  │     ├─ ContactoSection.tsx   ✓ Sección contacto
+    │  │  │     ├─ HeroNosotros.tsx      ✓ Hero nosotros
+    │  │  │     └─ ValoresNosotros.tsx   ✓ Sección valores
     │  │  │
     │  │  └─ DashBoardComponents/        ← Componentes del Dashboard
     │  │     ├─ Admin/
-    │  │     │  ├─ AdminDashComponents/  ← Subcomponentes del admin (vacío)
+    │  │     │  ├─ AdminDashComponents/  ← Subcomponentes del admin
     │  │     │  │  └─ Home/
     │  │     │  │     ├─ DashStadCard.tsx   ✓ Card de estadísticas dashboard
     │  │     │  │     ├─ HeaderCards.tsx    ✓ Encabezado de cards
@@ -175,13 +176,18 @@ npm run build
     │  │     │  │  ├─ SectionSettings.tsx ✓ Sección configuración
     │  │     │  │  └─ SectionTeam.tsx    ✓ Sección equipo
     │  │     │  │
-    │  │     │  └─ ComponentsSettings/   ← Componentes de configuración
-    │  │     │     ├─ ButtonsSettings.tsx ✓ Botones de configuración
-    │  │     │     ├─ SettingsInput.tsx  ✓ Input para configuración
-    │  │     │     ├─ SettingsTabs.tsx   ✓ Pestañas de configuración
-    │  │     │     └─ Empresa/           ← Componentes de empresa
-    │  │     │        ├─ EmpresaSettings.tsx ✓ Configuración empresa
-    │  │     │        └─ Logotipo.tsx    ✓ Gestor de logotipo
+    │  │     │  ├─ ComponentsSettings/   ← Componentes de configuración
+    │  │     │  │  ├─ ButtonsSettings.tsx ✓ Botones de configuración
+    │  │     │  │  ├─ SettingsInput.tsx  ✓ Input para configuración
+    │  │     │  │  ├─ SettingsTabs.tsx   ✓ Pestañas de configuración
+    │  │     │  │  └─ Empresa/           ← Componentes de empresa
+    │  │     │  │     ├─ EmpresaSettings.tsx ✓ Configuración empresa
+    │  │     │  │     └─ Logotipo.tsx    ✓ Gestor de logotipo
+    │  │     │  │
+    │  │     │  ├─ ProjectCreation/      ← Creación de proyectos
+    │  │     │  │  └─ CreateProjectModal.tsx ✓ Modal crear proyecto
+    │  │     │  │
+    │  │     │  └─ SectionProjectsStatus.tsx ✓ Estado de proyectos
     │  │     │
     │  │     └─ user/                    ← Componentes usuario (vacío)
     │  │

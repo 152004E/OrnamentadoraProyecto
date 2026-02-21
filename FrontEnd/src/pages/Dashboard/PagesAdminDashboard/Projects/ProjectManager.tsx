@@ -1,14 +1,14 @@
-import { faFileCirclePlus } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "../../../../components/componentsLayout/Button";
-import { NewFinanceModal } from "../../../../components/DashBoardComponents/Admin/AdminDashComponents/financesPages/NewFinanceModal";
 import { useState } from "react";
 import { AlertMessage } from "../../../../components/componentsLayout/AlertMessage";
 import { SectionProjectsStatus } from "../../../../components/DashBoardComponents/Admin/SectionProjectsStatus";
 import { SearchBar } from "../../../../components/componentsLayout/SearchBar";
 import { ProjectCard } from "../../../../components/componentsLayout/proyectosComponents/ProjectCard";
+import CreateProjectModal from "../../../../components/DashBoardComponents/Admin/ProjectCreation/CreateProjectModal";
+import { Button } from "../../../../components/componentsLayout/Button";
+import { faFileCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 export const ProjectManager = () => {
-  const [isNewOpen, setIsNewOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   return (
     <main className="p-3 relative">
       <AlertMessage contenido={"Gestion de Proyectos"} />
@@ -19,17 +19,14 @@ export const ProjectManager = () => {
         <Button
           text=""
           iconLetf={faFileCirclePlus}
-          onClick={() => setIsNewOpen(true)}
+          onClick={() => setOpen(true)}
           className="gap-0! p-4! text-xl rounded-full!"
         />
-        <NewFinanceModal
-          isOpen={isNewOpen}
-          onClose={() => setIsNewOpen(false)}
-        />
+
+        <CreateProjectModal isOpen={open} onClose={() => setOpen(false)} />
       </div>
 
-
-      <ProjectCard mode="edit" showStatus/>
+      <ProjectCard mode="edit" showStatus />
     </main>
   );
 };

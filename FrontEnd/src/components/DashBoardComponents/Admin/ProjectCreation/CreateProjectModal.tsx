@@ -41,7 +41,7 @@ export default function CreateProjectModal({ isOpen, onClose }: Props) {
             color="bg-white "
             classnameText="text-white text-[15px] font-bold "
           />
-          <div className="mt-4">
+          <div className="mt-2">
             <ul className="flex items-center justify-between text-xs font-semibold text-white/70">
               {[
                 { id: 1, label: "INFORMACIÓN BÁSICA" },
@@ -72,7 +72,7 @@ export default function CreateProjectModal({ isOpen, onClose }: Props) {
 
                   {/* Línea */}
                   {index !== 2 && (
-                    <div className="flex-1 h-0.5 mx-2 bg-white/20 relative">
+                    <div className="flex-1 h-0.5 mx-1.5 bg-white/20 relative">
                       <div
                         className={`absolute top-0 left-0 h-0.5 bg-blue-400 transition-all duration-500`}
                         style={{
